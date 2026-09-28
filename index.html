@@ -1,108 +1,196 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="AI Atlas — קטלוג כלי AI לפי קטגוריות, מחיר והטבות לסטודנטים." />
-  <meta name="theme-color" content="#0b1020" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="AI Atlas — קטלוג כלי AI חכם בעברית ובאנגלית: חיפוש, קטגוריות, מחירים והטבות לסטודנטים.">
+  <meta name="theme-color" content="#080b14">
+  <meta property="og:title" content="AI Atlas — כל כלי ה-AI במקום אחד">
+  <meta property="og:description" content="גלה כלי AI לפי שימוש, קטגוריה, מחיר והטבות לסטודנטים.">
+  <meta property="og:type" content="website">
   <title>AI Atlas — כל כלי ה-AI במקום אחד</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google.com">
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="bg-grid"></div>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="aurora aurora-a" aria-hidden="true"></div>
+  <div class="aurora aurora-b" aria-hidden="true"></div>
+
   <header class="topbar">
     <a class="brand" href="#top" aria-label="AI Atlas">
-      <span class="brand-mark">AI</span>
-      <span><strong>AI Atlas</strong><small>all AI there is</small></span>
+      <img src="assets/favicon.svg" alt="" class="brand-logo">
+      <span class="brand-copy"><strong>AI Atlas</strong><small data-i18n="brandTag">כל עולם ה-AI, מסודר.</small></span>
     </a>
-    <nav class="nav">
-      <a href="#discover" data-i18n="navDiscover">גילוי</a>
-      <a href="#students" data-i18n="navStudents">לסטודנטים</a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#top" data-i18n="navHome">בית</a>
       <a href="#categories" data-i18n="navCategories">קטגוריות</a>
+      <a href="#students" data-i18n="navStudents">לסטודנטים</a>
+      <a href="#discover" data-i18n="navDiscover">כל הכלים</a>
     </nav>
+
     <div class="header-actions">
-      <button class="icon-btn" id="langBtn" title="Language">EN</button>
-      <button class="icon-btn" id="themeBtn" title="Theme">☾</button>
+      <div class="language-switch" aria-label="Language">
+        <button id="heBtn" class="lang-option active">עברית</button>
+        <button id="enBtn" class="lang-option">EN</button>
+      </div>
+      <button class="icon-btn" id="themeBtn" aria-label="Theme">
+        <span class="theme-sun">☀</span><span class="theme-moon">☾</span>
+      </button>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero reveal">
       <div class="hero-copy">
-        <div class="eyebrow"><span class="live-dot"></span><span data-i18n="fresh">קטלוג AI שמתעדכן בקלות</span></div>
-        <h1><span data-i18n="hero1">כל כלי ה־AI.</span><br><span class="gradient-text" data-i18n="hero2">במקום אחד.</span></h1>
-        <p data-i18n="heroDesc">מצא כלי לפי משימה, מחיר, שימוש חינמי והטבות לסטודנטים — בלי לטבוע במאות טאבים.</p>
-        <div class="hero-search">
-          <span>⌕</span>
-          <input id="heroSearch" type="search" placeholder="חפש ChatGPT, כתיבה, וידאו, קוד..." autocomplete="off" />
-          <kbd>/</kbd>
+        <div class="eyebrow">
+          <span class="eyebrow-icon">✦</span>
+          <span data-i18n="heroBadge">הדרך המהירה למצוא את כלי ה-AI הנכון</span>
         </div>
-        <div class="quick-chips">
-          <button data-quick="free">חינם</button>
-          <button data-quick="student">🎓 סטודנטים</button>
-          <button data-quick="coding">⌘ קוד</button>
-          <button data-quick="image">✦ תמונות</button>
+        <h1>
+          <span data-i18n="heroLine1">כל כלי ה־AI.</span>
+          <span class="gradient-text" data-i18n="heroLine2">בלי ללכת לאיבוד.</span>
+        </h1>
+        <p class="hero-lead" data-i18n="heroDesc">חיפוש חכם, קטגוריות ברורות, חינם מול בתשלום, והטבות לסטודנטים — הכל במקום אחד ובעברית.</p>
+
+        <div class="hero-search-wrap">
+          <div class="hero-search">
+            <span class="search-symbol">⌕</span>
+            <input id="heroSearch" type="search" autocomplete="off" placeholder="חפש ChatGPT, קוד, וידאו, לימודים...">
+            <kbd>/</kbd>
+          </div>
+          <div class="quick-chips">
+            <button data-quick="free"><span>◉</span><span data-i18n="chipFree">חינם</span></button>
+            <button data-quick="student"><span>🎓</span><span data-i18n="chipStudents">לסטודנטים</span></button>
+            <button data-quick="coding"><span>⌘</span><span data-i18n="chipCode">תכנות</span></button>
+            <button data-quick="image"><span>✦</span><span data-i18n="chipImages">תמונות</span></button>
+          </div>
+        </div>
+
+        <div class="hero-trust">
+          <span><b id="heroToolCount">0</b> <span data-i18n="heroTools">כלים</span></span>
+          <i></i>
+          <span><b id="heroCategoryCount">0</b> <span data-i18n="heroCategories">קטגוריות</span></span>
+          <i></i>
+          <span><b id="heroFreeCount">0</b> <span data-i18n="heroFree">עם מסלול חינמי</span></span>
         </div>
       </div>
-      <div class="hero-orbit" aria-hidden="true">
-        <div class="orb orb-a"></div><div class="orb orb-b"></div>
-        <div class="center-core">AI</div>
-        <span class="float-card fc1">Chat</span>
-        <span class="float-card fc2">Code</span>
-        <span class="float-card fc3">Video</span>
-        <span class="float-card fc4">Study</span>
+
+      <div class="hero-showcase" aria-hidden="true">
+        <div class="showcase-glow"></div>
+        <div class="showcase-panel">
+          <div class="showcase-top">
+            <div class="window-dots"><span></span><span></span><span></span></div>
+            <span data-i18n="mockTitle">מצא לי כלי AI ל...</span>
+          </div>
+          <div class="mock-search"><span>⌕</span><strong data-i18n="mockQuery">בניית אתר בלי קוד</strong><span class="mock-key">↵</span></div>
+          <div id="heroToolsPreview" class="hero-tools-preview"></div>
+          <div class="mock-footer"><span class="pulse-dot"></span><span data-i18n="mockFooter">תוצאות מותאמות בזמן אמת</span></div>
+        </div>
+        <div class="floating-pill pill-a">AI</div>
+        <div class="floating-pill pill-b">Code</div>
+        <div class="floating-pill pill-c">Video</div>
       </div>
     </section>
 
-    <section class="stats" id="categories">
-      <article><strong id="statTools">0</strong><span data-i18n="tools">כלים</span></article>
-      <article><strong id="statCats">0</strong><span data-i18n="categories">קטגוריות</span></article>
-      <article><strong id="statFree">0</strong><span data-i18n="freeOptions">עם אפשרות חינמית</span></article>
-      <article><strong id="statStudent">0</strong><span data-i18n="studentDeals">הטבות סטודנטים</span></article>
+    <section class="trust-strip reveal">
+      <div class="stat-card"><span class="stat-icon">◫</span><div><strong id="statTools">0</strong><span data-i18n="statTools">כלים בקטלוג</span></div></div>
+      <div class="stat-card"><span class="stat-icon">⌗</span><div><strong id="statCats">0</strong><span data-i18n="statCats">קטגוריות</span></div></div>
+      <div class="stat-card"><span class="stat-icon">○</span><div><strong id="statFree">0</strong><span data-i18n="statFree">חינם / Freemium</span></div></div>
+      <div class="stat-card"><span class="stat-icon">🎓</span><div><strong id="statStudent">0</strong><span data-i18n="statStudent">הטבות סטודנטים</span></div></div>
     </section>
 
-    <section class="student-zone" id="students">
-      <div>
-        <span class="section-kicker">STUDENT HUB</span>
-        <h2 data-i18n="studentTitle">AI שעולה פחות כשאתה סטודנט</h2>
-        <p data-i18n="studentDesc">מצא במהירות כלים עם תוכנית חינמית, מחיר מוזל או הטבת סטודנטים מאומתת. תנאי הזכאות משתנים לפי מוסד ומדינה.</p>
-      </div>
-      <button class="primary-btn" data-quick="student" data-i18n="showStudent">הצג הטבות סטודנטים</button>
-    </section>
-
-    <section class="discover" id="discover">
+    <section class="section categories-section reveal" id="categories">
       <div class="section-head">
-        <div><span class="section-kicker">DISCOVER</span><h2 data-i18n="discoverTitle">מצא את הכלי הנכון</h2></div>
-        <button id="surpriseBtn" class="ghost-btn">🎲 <span data-i18n="surprise">הפתע אותי</span></button>
+        <div>
+          <span class="section-kicker">EXPLORE</span>
+          <h2 data-i18n="categoriesTitle">מה בא לך לעשות עם AI?</h2>
+          <p data-i18n="categoriesDesc">בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.</p>
+        </div>
+      </div>
+      <div id="categoryGrid" class="category-grid"></div>
+    </section>
+
+    <section class="student-zone reveal" id="students">
+      <div class="student-copy">
+        <span class="student-badge">🎓 <span data-i18n="studentBadge">STUDENT HUB</span></span>
+        <h2 data-i18n="studentTitle">סטודנט? יכול להיות שמגיע לך יותר בפחות.</h2>
+        <p data-i18n="studentDesc">ריכזנו כלי AI עם תוכניות חינמיות או הנחות ייעודיות לסטודנטים. כשיש הטבה מאומתת, נציג מה מקבלים ואיך בודקים זכאות.</p>
+        <div class="student-points">
+          <span>✓ <span data-i18n="studentPoint1">קישור רשמי לכל הטבה</span></span>
+          <span>✓ <span data-i18n="studentPoint2">הסבר קצר על הזכאות</span></span>
+          <span>✓ <span data-i18n="studentPoint3">סינון בלחיצה אחת</span></span>
+        </div>
+        <button class="primary-btn" data-quick="student"><span data-i18n="showStudent">הצג כל הטבות הסטודנטים</span><b>←</b></button>
+      </div>
+      <div id="studentSpotlight" class="student-spotlight"></div>
+    </section>
+
+    <section class="section featured-section reveal">
+      <div class="section-head compact">
+        <div>
+          <span class="section-kicker">SPOTLIGHT</span>
+          <h2 data-i18n="featuredTitle">כלים שכדאי להכיר</h2>
+          <p data-i18n="featuredDesc">קיצורי דרך לכמה מהכלים הבולטים בקטלוג.</p>
+        </div>
+        <button id="surpriseBtn" class="ghost-btn"><span>↝</span><span data-i18n="surprise">הפתע אותי</span></button>
+      </div>
+      <div id="featuredRail" class="featured-rail"></div>
+    </section>
+
+    <section class="discover section reveal" id="discover">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">DIRECTORY</span>
+          <h2 data-i18n="discoverTitle">כל כלי ה-AI במקום אחד</h2>
+          <p data-i18n="discoverDesc">חפש בשם, שימוש, חברה או קטגוריה וסנן בדיוק מה שאתה צריך.</p>
+        </div>
       </div>
 
-      <div class="filters">
-        <div class="filter-search"><span>⌕</span><input id="searchInput" type="search" placeholder="חיפוש לפי שם או שימוש..." /></div>
-        <select id="categoryFilter"><option value="all">כל הקטגוריות</option></select>
-        <select id="pricingFilter">
-          <option value="all">כל המחירים</option><option value="free">חינם</option><option value="freemium">חינם + בתשלום</option><option value="paid">בתשלום</option>
-        </select>
-        <label class="toggle-pill"><input id="studentFilter" type="checkbox"><span>🎓 סטודנטים</span></label>
-        <label class="toggle-pill"><input id="favoriteFilter" type="checkbox"><span>★ מועדפים</span></label>
+      <div class="filters-shell">
+        <div class="filter-search">
+          <span>⌕</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="חיפוש לפי שם או שימוש...">
+        </div>
+        <select id="categoryFilter" aria-label="Category"></select>
+        <select id="pricingFilter" aria-label="Pricing"></select>
+        <select id="sortFilter" aria-label="Sort"></select>
+        <label class="toggle-pill"><input id="studentFilter" type="checkbox"><span>🎓 <span data-i18n="filterStudents">סטודנטים</span></span></label>
+        <label class="toggle-pill"><input id="favoriteFilter" type="checkbox"><span>★ <span data-i18n="filterFavorites">מועדפים</span></span></label>
       </div>
 
-      <div class="result-line"><span id="resultCount"></span><button id="clearFilters" data-i18n="clear">נקה סינונים</button></div>
+      <div class="result-line">
+        <span id="resultCount"></span>
+        <button id="clearFilters" data-i18n="clear">נקה סינונים</button>
+      </div>
+
       <div id="toolsGrid" class="tools-grid"></div>
-      <div id="emptyState" class="empty hidden"><div>⌕</div><h3>לא מצאנו כלי מתאים</h3><p>נסה חיפוש או סינון אחר.</p></div>
+      <div id="emptyState" class="empty hidden">
+        <div class="empty-icon">⌕</div>
+        <h3 data-i18n="emptyTitle">לא מצאנו כלי מתאים</h3>
+        <p data-i18n="emptyDesc">נסה חיפוש או סינון אחר.</p>
+      </div>
     </section>
   </main>
 
   <dialog id="toolDialog">
-    <button class="dialog-close" id="dialogClose">×</button>
+    <button class="dialog-close" id="dialogClose" aria-label="Close">×</button>
     <div id="dialogContent"></div>
   </dialog>
 
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <footer>
-    <div><span class="brand-mark small">AI</span><strong>AI Atlas</strong></div>
-    <p data-i18n="footerNote">מחירים והטבות יכולים להשתנות. תמיד כדאי לבדוק באתר הרשמי לפני רכישה.</p>
+    <div class="footer-brand">
+      <img src="assets/favicon.svg" alt="" class="brand-logo small">
+      <div><strong>AI Atlas</strong><span data-i18n="footerTag">מגלים AI בלי רעש מיותר.</span></div>
+    </div>
+    <p data-i18n="footerNote">מחירים והטבות משתנים. לפני הרשמה או רכישה תמיד כדאי לבדוק את התנאים באתר הרשמי.</p>
     <a href="https://github.com/eliron8565/all-AI-There-is" target="_blank" rel="noreferrer">GitHub ↗</a>
   </footer>
 
