@@ -254,7 +254,7 @@ function buildPlatforms(){
     const meta=platformMeta[p],count=state.tools.filter(x=>(x.platforms||[]).includes(p)).length;
     return '<button class="platform-card" data-platform="'+p+'"><span class="platform-card-icon '+p+'">'+meta.icon+'</span><span class="platform-card-copy"><strong>'+esc(platformLabel(p))+'</strong><small>'+count+' '+esc(t("toolsInCategory"))+'</small></span><span class="platform-card-arrow">↗</span></button>';
   }).join("");
-  $("[data-platform]").forEach(btn=>btn.onclick=()=>{
+  $$("[data-platform]").forEach(btn=>btn.onclick=()=>{
     els.platform.value=btn.dataset.platform;
     renderTools();
     $("#discover").scrollIntoView({behavior:"smooth"});
