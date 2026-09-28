@@ -93,3 +93,70 @@ footer{width:var(--content);margin:auto;padding:32px 0 45px;border-top:1px solid
   footer{grid-template-columns:1fr;text-align:center}.footer-brand{justify-content:center}.footer-brand+ p{text-align:center}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+
+/* --- Platform discovery + v2 visual polish --- */
+.platform-section{position:relative}
+.platform-head{align-items:center}
+.platform-orbit{position:relative;width:210px;height:72px;flex:0 0 210px}
+.platform-orbit:before{content:"";position:absolute;left:9px;right:9px;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.48),rgba(45,212,191,.42),transparent)}
+.orbit-node{position:relative;z-index:2;display:inline-grid;place-items:center;width:40px;height:40px;margin:16px -1px;border:1px solid var(--line);border-radius:13px;background:var(--panel-solid);box-shadow:0 10px 28px rgba(0,0,0,.2);font:800 12px Inter;color:var(--soft);animation:platformBob 4.5s ease-in-out infinite}
+.orbit-node:nth-child(2){animation-delay:.3s;transform:translateY(-8px)}.orbit-node:nth-child(3){animation-delay:.6s}.orbit-node:nth-child(4){animation-delay:.9s;transform:translateY(-8px)}.orbit-node:nth-child(5){animation-delay:1.2s}
+@keyframes platformBob{50%{translate:0 -5px}}
+.platform-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.platform-card{position:relative;display:flex;align-items:center;gap:11px;min-width:0;padding:16px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.012));cursor:pointer;text-align:inherit;overflow:hidden;transition:.24s ease}
+.light .platform-card{background:#fff}
+.platform-card:before{content:"";position:absolute;inset:-60% 35% -60% -50%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);transform:rotate(18deg) translateX(-100%);transition:transform .55s ease}
+.platform-card:hover:before{transform:rotate(18deg) translateX(290%)}
+.platform-card:hover{transform:translateY(-4px) scale(1.01);border-color:rgba(91,140,255,.35);box-shadow:0 18px 42px rgba(0,0,0,.18)}
+.platform-card-icon{position:relative;z-index:1;display:grid;place-items:center;width:43px;height:43px;flex:0 0 43px;border-radius:13px;font:800 14px Inter;border:1px solid rgba(255,255,255,.08);background:var(--panel2)}
+.platform-card-icon.web{color:#7DD3FC;background:rgba(56,189,248,.08)}
+.platform-card-icon.windows{color:#78A9FF;background:rgba(91,140,255,.09)}
+.platform-card-icon.macos{color:#E7EAF0;background:rgba(255,255,255,.055)}
+.light .platform-card-icon.macos{color:#475467}
+.platform-card-icon.linux{color:#F7C566;background:rgba(247,197,102,.08)}
+.platform-card-icon.android{color:#62DFA9;background:rgba(98,223,169,.08)}
+.platform-card-icon.ios{color:#C6B4FF;background:rgba(139,92,246,.09)}
+.platform-card-copy{position:relative;z-index:1;min-width:0}.platform-card-copy strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}.platform-card-copy small{display:block;margin-top:3px;color:var(--muted);font-size:10px}
+.platform-card-arrow{position:relative;z-index:1;margin-inline-start:auto;color:var(--muted);font-size:12px}
+
+.platform-badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:13px}
+.platform-chip{display:inline-flex;align-items:center;gap:5px;min-height:27px;padding:4px 8px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.025);color:var(--soft);font-size:10px;font-weight:700;white-space:nowrap}
+.platform-chip b{display:grid;place-items:center;width:15px;height:15px;font:800 10px Inter;color:var(--muted)}
+.platform-chip.web{border-color:rgba(56,189,248,.17)}.platform-chip.web b{color:#7DD3FC}
+.platform-chip.windows{border-color:rgba(91,140,255,.18)}.platform-chip.windows b{color:#78A9FF}
+.platform-chip.macos{border-color:rgba(255,255,255,.1)}.platform-chip.macos b{color:#D8DEE9}.light .platform-chip.macos b{color:#667085}
+.platform-chip.linux{border-color:rgba(247,197,102,.17)}.platform-chip.linux b{color:#F7C566}
+.platform-chip.android{border-color:rgba(98,223,169,.17)}.platform-chip.android b{color:#62DFA9}
+.platform-chip.ios{border-color:rgba(139,92,246,.18)}.platform-chip.ios b{color:#BCA7FF}
+.platform-badges.compact{gap:4px;margin-top:12px;max-height:29px;overflow:hidden}
+.platform-badges.compact .platform-chip{padding:3px 6px;min-height:25px}
+.platform-badges.compact .platform-chip span{display:none}
+.platform-badges.compact .platform-chip b{width:16px}
+
+.dialog-platforms{margin:18px 0;padding:15px;border:1px solid rgba(91,140,255,.16);border-radius:16px;background:linear-gradient(135deg,rgba(91,140,255,.055),rgba(45,212,191,.025))}
+.dialog-platform-title{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:10px}.dialog-platform-title strong{color:var(--text);font-size:13px}.dialog-platform-title small{color:var(--muted);font-size:9px}
+.dialog-platforms .platform-badges{margin-top:0}.dialog-platforms>p{margin:11px 0 0;font-size:12px;color:var(--muted);line-height:1.55}
+
+.tool-card{isolation:isolate}
+.tool-card:before{content:"";position:absolute;z-index:-1;width:160px;height:160px;border-radius:50%;inset-inline-end:-90px;bottom:-110px;background:radial-gradient(circle,rgba(139,92,246,.11),transparent 68%);transition:.3s}
+.tool-card:hover:before{width:230px;height:230px;inset-inline-end:-100px;bottom:-130px}
+.tool-logo{transition:transform .25s ease,box-shadow .25s ease}.tool-card:hover .tool-logo{transform:rotate(-3deg) scale(1.06);box-shadow:0 13px 28px rgba(0,0,0,.2)}
+[dir="ltr"] .tool-card:hover .tool-logo{transform:rotate(3deg) scale(1.06)}
+.filters-shell{grid-template-columns:minmax(240px,2.1fr) 1.18fr 1fr 1fr 1fr auto auto}
+
+@media(max-width:1280px){
+  .platform-grid{grid-template-columns:repeat(3,1fr)}
+  .filters-shell{grid-template-columns:minmax(260px,2fr) 1.2fr 1fr 1fr}
+}
+@media(max-width:980px){
+  .platform-orbit{display:none}.platform-grid{grid-template-columns:repeat(3,1fr)}
+  .filters-shell{grid-template-columns:1fr 1fr}.filter-search{grid-column:1/-1}
+}
+@media(max-width:680px){
+  .platform-grid{grid-template-columns:repeat(2,1fr)}
+  .platform-card{padding:13px}.platform-card-icon{width:38px;height:38px;flex-basis:38px}
+  .dialog-platform-title{align-items:flex-start;flex-direction:column;gap:4px}
+  .platform-badges:not(.compact) .platform-chip{font-size:9px}
+  .filters-shell{grid-template-columns:1fr}.filter-search{grid-column:auto}
+}
