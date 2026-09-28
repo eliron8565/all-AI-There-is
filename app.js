@@ -31,7 +31,7 @@ const copy={
     discoverTitle:"כל כלי ה-AI במקום אחד",discoverDesc:"חפש בשם, שימוש, חברה או קטגוריה וסנן בדיוק מה שאתה צריך.",
     filterStudents:"סטודנטים",filterFavorites:"מועדפים",clear:"נקה סינונים",emptyTitle:"לא מצאנו כלי מתאים",emptyDesc:"נסה חיפוש או סינון אחר.",
     footerTag:"מגלים AI בלי רעש מיותר.",footerNote:"מחירים והטבות משתנים. לפני הרשמה או רכישה תמיד כדאי לבדוק את התנאים באתר הרשמי.",
-    allCategories:"כל הקטגוריות",allPrices:"כל המחירים",allPlatforms:"כל הפלטפורמות",free:"חינם",freemium:"חינם + בתשלום",paid:"בתשלום",
+    allCategories:"כל הקטגוריות",allPrices:"כל המחירים",allPlatforms:"כל הפלטפורמות",mobileApps:"אפליקציות לפלאפון",free:"חינם",freemium:"חינם + בתשלום",paid:"בתשלום",
     sortDefault:"סדר מומלץ",sortAZ:"א׳ → ת׳ / A → Z",sortZA:"ת׳ → א׳ / Z → A",sortFree:"חינם קודם",
     found:"כלים נמצאו",details:"פרטים",category:"קטגוריה",pricing:"מחיר",studentOffer:"הטבת סטודנט מאומתת",
     official:"לאתר הרשמי",copyLink:"העתק קישור",copied:"הקישור הועתק",appAvailability:"אפליקציות ופלטפורמות",platformUpdated:"מידע על פלטפורמות עודכן",favoritesOnly:"מועדפים",verified:"מאומת",toolsInCategory:"כלים",
@@ -51,7 +51,7 @@ const copy={
     discoverTitle:"Every AI tool in one place",discoverDesc:"Search by name, use case, company or category and filter down to exactly what you need.",
     filterStudents:"Students",filterFavorites:"Favorites",clear:"Clear filters",emptyTitle:"No matching tools found",emptyDesc:"Try a different search or filter.",
     footerTag:"Discover AI without the noise.",footerNote:"Prices and offers change. Always check the official website before signing up or purchasing.",
-    allCategories:"All categories",allPrices:"All pricing",allPlatforms:"All platforms",free:"Free",freemium:"Free + paid",paid:"Paid",
+    allCategories:"All categories",allPrices:"All pricing",allPlatforms:"All platforms",mobileApps:"Mobile apps",free:"Free",freemium:"Free + paid",paid:"Paid",
     sortDefault:"Recommended order",sortAZ:"A → Z",sortZA:"Z → A",sortFree:"Free first",
     found:"tools found",details:"Details",category:"Category",pricing:"Pricing",studentOffer:"Verified student offer",
     official:"Official website",copyLink:"Copy link",copied:"Link copied",appAvailability:"Apps & platforms",platformUpdated:"Platform info updated",favoritesOnly:"Favorites",verified:"Verified",toolsInCategory:"tools",
@@ -157,7 +157,7 @@ function renderTools(){
     return (!q||hay.includes(q))
       &&(els.cat.value==="all"||tool.category===els.cat.value)
       &&(els.price.value==="all"||tool.pricing===els.price.value)
-      &&(els.platform.value==="all"||(tool.platforms||[]).includes(els.platform.value))
+      &&(els.platform.value==="all"||(els.platform.value==="mobile"?((tool.platforms||[]).includes("android")||(tool.platforms||[]).includes("ios")):(tool.platforms||[]).includes(els.platform.value)))
       &&(!els.student.checked||tool.student)
       &&(!els.fav.checked||state.favorites.has(tool.name));
   });
@@ -276,7 +276,7 @@ function fillFilters(){
   const cats=[...new Set(state.tools.map(x=>x.category))].sort();
   els.cat.innerHTML=`<option value="all">${esc(t("allCategories"))}</option>`+cats.map(cat=>`<option value="${esc(cat)}">${esc(localCategory(cat))}</option>`).join("");
   els.price.innerHTML=`<option value="all">${esc(t("allPrices"))}</option><option value="free">${esc(t("free"))}</option><option value="freemium">${esc(t("freemium"))}</option><option value="paid">${esc(t("paid"))}</option>`;
-  els.platform.innerHTML=`<option value="all">${esc(t("allPlatforms"))}</option>`+Object.keys(platformMeta).map(p=>`<option value="${p}">${esc(platformLabel(p))}</option>`).join("");
+  els.platform.innerHTML=`<option value="all">${esc(t("allPlatforms"))}</option><option value="mobile">${esc(t("mobileApps"))}</option>`+Object.keys(platformMeta).map(p=>`<option value="${p}">${esc(platformLabel(p))}</option>`).join("");
   els.sort.innerHTML=`<option value="default">${esc(t("sortDefault"))}</option><option value="az">${esc(t("sortAZ"))}</option><option value="za">${esc(t("sortZA"))}</option><option value="free">${esc(t("sortFree"))}</option>`;
   if([...els.cat.options].some(o=>o.value===currentCat))els.cat.value=currentCat;
   if([...els.price.options].some(o=>o.value===currentPrice))els.price.value=currentPrice;
@@ -313,7 +313,7 @@ function quickFilter(kind){
   if(kind==="student")els.student.checked=true;
   if(kind==="coding")els.cat.value="Coding";
   if(kind==="image")els.cat.value="Image Generation";
-  if(kind==="mobile")els.platform.value="android";
+  if(kind==="mobile")els.platform.value="mobile";
   renderTools();$("#discover").scrollIntoView({behavior:"smooth"});
 }
 function showToast(message){els.toast.textContent=message;els.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove("show"),1800)}
