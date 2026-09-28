@@ -967,7 +967,11 @@
     ],
     "platformNoteHe": "רץ מקומית על המחשב ומציג ממשק בדפדפן המקומי; אין אפליקציית מובייל רשמית.",
     "platformNoteEn": "Runs locally on your computer with a local browser UI; no official mobile app.",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "ComfyUI המקומי הוא קוד פתוח ורץ על המחשב שלך ללא מכסת יצירות מצד השירות. מודלים או Nodes חיצוניים בענן יכולים להיות בתשלום.",
+    "unlimitedNoteEn": "Local ComfyUI is open source and runs on your own computer without a service generation quota. External cloud models or nodes may cost money."
   },
   {
     "name": "Stable Diffusion WebUI",
@@ -990,7 +994,11 @@
     ],
     "platformNoteHe": "רץ מקומית דרך המחשב וממשק דפדפן מקומי; אין אפליקציית מובייל רשמית.",
     "platformNoteEn": "Runs locally on desktop through a local browser UI; no official mobile app.",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "הממשק המקומי חינמי וקוד פתוח, ולכן אין מכסת יצירות מצד השירות. השימוש בפועל תלוי בחומרה וברישיונות של המודלים.",
+    "unlimitedNoteEn": "The local interface is free and open source, so there is no service-side generation quota. Actual use depends on your hardware and model licenses."
   },
   {
     "name": "Runway",
@@ -1745,7 +1753,11 @@
     ],
     "platformNoteHe": "אפליקציית מחשב מקומית להרצת מודלים על Windows, macOS ו-Linux.",
     "platformNoteEn": "A local desktop app for running models on Windows, macOS and Linux.",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "חינם לשימוש בבית ובעבודה. בהרצת מודלים מקומיים אין מכסת הודעות של שירות ענן — המגבלה היא בעיקר החומרה שלך ורישיון המודל שבחרת.",
+    "unlimitedNoteEn": "Free to use at home and at work. Local models have no cloud-service message quota; practical limits are your hardware and the selected model's license."
   },
   {
     "name": "Ollama",
@@ -1769,7 +1781,11 @@
     ],
     "platformNoteHe": "כלי מקומי למחשב עם תמיכה ב-Windows, macOS ו-Linux.",
     "platformNoteEn": "A local desktop tool supporting Windows, macOS and Linux.",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "מודלים שרצים מקומית ב-Ollama הם תמיד בחינם וללא מכסת שימוש מצד Ollama. המגבלה היא החומרה שלך ורישיון המודל.",
+    "unlimitedNoteEn": "Models run locally in Ollama are always free with no Ollama usage quota. Limits come from your hardware and the model license."
   },
   {
     "name": "Jan",
@@ -1793,7 +1809,11 @@
     ],
     "platformNoteHe": "אפליקציית AI מקומית ופתוחה ל-Windows, macOS ו-Linux.",
     "platformNoteEn": "An open local AI desktop app for Windows, macOS and Linux.",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "הרצה מקומית ב-Jan היא ללא חשבון ענן וללא דמי שימוש. אפשר להשתמש במודלים המקומיים לפי יכולת המחשב ורישיון המודל.",
+    "unlimitedNoteEn": "Local use in Jan requires no cloud account and has no usage fees. Usage is limited by your computer and the model license."
   },
   {
     "name": "Google Flow",
