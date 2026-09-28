@@ -1,55 +1,77 @@
 # AI Atlas — All AI There Is
 
-A modern, searchable directory of AI tools, built as a static website for GitHub Pages.
+A polished, bilingual AI-tools directory built for GitHub Pages.
 
-## Included
+## What is included
 
-- Responsive Hebrew-first UI with English toggle
-- Dark / light themes
-- Search by tool, maker, use case or tag
-- Category and pricing filters
-- Student-offer filter
-- Favorites saved locally in the browser
-- Random "Surprise me" discovery
-- Tool details modal with official links
-- Data-driven catalog in `data/tools.json`
+- **Hebrew by default** with a full English switch
+- **78 AI tools** across chat, coding, research, study, image, video, audio, automation, local AI and more
+- Real tool icons loaded from each product's domain
+- Responsive desktop, tablet and mobile layout
+- Dark / light mode
+- Search by tool, maker, category, description or tag
+- Category, pricing, student and favorites filters
+- Sort by recommended order, A–Z, Z–A or free-first
+- Featured-tool spotlight
+- Student Hub with clearly described offers
+- Favorites stored locally in the browser
+- Tool detail dialog with official link and copy-link action
+- Animated UI with reduced-motion support
+- SEO metadata and custom AI Atlas favicon
 
-## Student information
+## Student offers
 
-Student offers can change by country, institution and date. The site deliberately links users to the official provider before purchase or signup.
+Student benefits change over time, by country and by institution. The directory only marks offers as student offers when the catalog has a clear current basis for doing so, and users are always directed to the provider's official website before purchasing or signing up.
 
-Examples verified while building the first version:
-- GitHub Copilot: verified students in GitHub Education can access Copilot Student for free.
-- Notion: eligible higher-education students can get the Education plan free; AI feature availability/pricing can differ from the workspace plan.
-- Perplexity: Education Pro is offered to verified students and educators at a discount.
-- Cursor: current student/campus promotions can vary; check Cursor's official student pages for active eligibility.
-- Adobe: student/teacher plans and Firefly options vary by plan and region.
+Current highlighted entries include:
+- GitHub Copilot Student
+- Perplexity Education Pro
+- Adobe student/teacher Creative Cloud offers that include Firefly features
+- Notion Education Plan information, with a note that AI availability depends on the current workspace plan
 
-## Add another AI tool
+## Project structure
 
-Edit `data/tools.json` and add an object:
+```
+/
+├── index.html
+├── styles.css
+├── app.js
+├── assets/
+│   └── favicon.svg
+└── data/
+    └── tools.json
+```
+
+## Add or edit a tool
+
+Edit `data/tools.json`. Each entry supports bilingual descriptions:
 
 ```json
 {
   "name": "Tool name",
   "maker": "Company",
   "url": "https://official-site.example",
-  "category": "Category",
+  "category": "Coding",
   "pricing": "freemium",
   "student": false,
-  "studentOffer": "",
-  "tags": ["chat", "study"],
-  "desc": "Short description"
+  "studentOfferHe": "",
+  "studentOfferEn": "",
+  "tags": ["coding", "agent"],
+  "descHe": "תיאור בעברית",
+  "descEn": "English description"
 }
 ```
 
-Supported `pricing` values: `free`, `freemium`, `paid`.
+Supported pricing values: `free`, `freemium`, `paid`.
 
-## Publish on GitHub Pages
+## GitHub Pages
 
-In the repository open **Settings → Pages** and choose **Deploy from a branch**, then select **main** and **/(root)**.  
-The website will then be available through the repository's GitHub Pages URL.
+Publish from **Settings → Pages → Deploy from a branch → main → /(root)**.
 
----
+The expected public URL is:
 
-Built to be easy to expand: the UI code does not need to change when new tools are added to the JSON catalog.
+`https://eliron8565.github.io/all-AI-There-is/`
+
+## Notes
+
+The site is intentionally data-driven. Adding tools to `data/tools.json` automatically updates search, counts, filters, categories and cards without needing to change the HTML.
