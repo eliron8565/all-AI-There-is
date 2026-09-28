@@ -1,80 +1,317 @@
-const state={tools:[],filtered:[],lang:localStorage.getItem("aiatlas-lang")||"he",favorites:new Set(JSON.parse(localStorage.getItem("aiatlas-favs")||"[]"))};
 const $=s=>document.querySelector(s);
-const els={grid:$("#toolsGrid"),search:$("#searchInput"),heroSearch:$("#heroSearch"),cat:$("#categoryFilter"),price:$("#pricingFilter"),student:$("#studentFilter"),fav:$("#favoriteFilter"),count:$("#resultCount"),empty:$("#emptyState"),dialog:$("#toolDialog"),dialogContent:$("#dialogContent")};
-const i18n={
-he:{navDiscover:"גילוי",navStudents:"לסטודנטים",navCategories:"קטגוריות",fresh:"קטלוג AI שמתעדכן בקלות",hero1:"כל כלי ה־AI.",hero2:"במקום אחד.",heroDesc:"מצא כלי לפי משימה, מחיר, שימוש חינמי והטבות לסטודנטים — בלי לטבוע במאות טאבים.",tools:"כלים",categories:"קטגוריות",freeOptions:"עם אפשרות חינמית",studentDeals:"הטבות סטודנטים",studentTitle:"AI שעולה פחות כשאתה סטודנט",studentDesc:"מצא במהירות כלים עם תוכנית חינמית, מחיר מוזל או הטבת סטודנטים. תנאי הזכאות משתנים לפי מוסד ומדינה.",showStudent:"הצג הטבות סטודנטים",discoverTitle:"מצא את הכלי הנכון",surprise:"הפתע אותי",clear:"נקה סינונים"},
-en:{navDiscover:"Discover",navStudents:"Students",navCategories:"Categories",fresh:"An AI catalog built to stay useful",hero1:"Every AI tool.",hero2:"One place.",heroDesc:"Find tools by task, price, free access and student benefits — without drowning in tabs.",tools:"tools",categories:"categories",freeOptions:"with free access",studentDeals:"student offers",studentTitle:"AI that costs less when you're a student",studentDesc:"Quickly find free plans, discounts and student offers. Eligibility varies by institution and country.",showStudent:"Show student offers",discoverTitle:"Find the right tool",surprise:"Surprise me",clear:"Clear filters"}};
+const $$=s=>[...document.querySelectorAll(s)];
+
+const state={
+  tools:[],filtered:[],
+  lang:localStorage.getItem("aiatlas-lang")||"he",
+  favorites:new Set(JSON.parse(localStorage.getItem("aiatlas-favs")||"[]"))
+};
+
+const els={
+  grid:$("#toolsGrid"),search:$("#searchInput"),heroSearch:$("#heroSearch"),
+  cat:$("#categoryFilter"),price:$("#pricingFilter"),sort:$("#sortFilter"),
+  student:$("#studentFilter"),fav:$("#favoriteFilter"),count:$("#resultCount"),
+  empty:$("#emptyState"),dialog:$("#toolDialog"),dialogContent:$("#dialogContent"),
+  categories:$("#categoryGrid"),featured:$("#featuredRail"),studentSpotlight:$("#studentSpotlight"),
+  toast:$("#toast")
+};
+
+const copy={
+  he:{
+    brandTag:"כל עולם ה-AI, מסודר.",navHome:"בית",navCategories:"קטגוריות",navStudents:"לסטודנטים",navDiscover:"כל הכלים",
+    heroBadge:"הדרך המהירה למצוא את כלי ה-AI הנכון",heroLine1:"כל כלי ה־AI.",heroLine2:"בלי ללכת לאיבוד.",
+    heroDesc:"חיפוש חכם, קטגוריות ברורות, חינם מול בתשלום, והטבות לסטודנטים — הכל במקום אחד ובעברית.",
+    chipFree:"חינם",chipStudents:"לסטודנטים",chipCode:"תכנות",chipImages:"תמונות",heroTools:"כלים",heroCategories:"קטגוריות",heroFree:"עם מסלול חינמי",
+    mockTitle:"מצא לי כלי AI ל...",mockQuery:"בניית אתר בלי קוד",mockFooter:"תוצאות מותאמות בזמן אמת",
+    statTools:"כלים בקטלוג",statCats:"קטגוריות",statFree:"חינם / Freemium",statStudent:"הטבות סטודנטים",
+    categoriesTitle:"מה בא לך לעשות עם AI?",categoriesDesc:"בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.",
+    studentBadge:"STUDENT HUB",studentTitle:"סטודנט? יכול להיות שמגיע לך יותר בפחות.",studentDesc:"ריכזנו כלי AI עם תוכניות חינמיות או הנחות ייעודיות לסטודנטים. כשיש הטבה מאומתת, נציג מה מקבלים ואיך בודקים זכאות.",
+    studentPoint1:"קישור רשמי לכל הטבה",studentPoint2:"הסבר קצר על הזכאות",studentPoint3:"סינון בלחיצה אחת",showStudent:"הצג כל הטבות הסטודנטים",
+    featuredTitle:"כלים שכדאי להכיר",featuredDesc:"קיצורי דרך לכמה מהכלים הבולטים בקטלוג.",surprise:"הפתע אותי",
+    discoverTitle:"כל כלי ה-AI במקום אחד",discoverDesc:"חפש בשם, שימוש, חברה או קטגוריה וסנן בדיוק מה שאתה צריך.",
+    filterStudents:"סטודנטים",filterFavorites:"מועדפים",clear:"נקה סינונים",emptyTitle:"לא מצאנו כלי מתאים",emptyDesc:"נסה חיפוש או סינון אחר.",
+    footerTag:"מגלים AI בלי רעש מיותר.",footerNote:"מחירים והטבות משתנים. לפני הרשמה או רכישה תמיד כדאי לבדוק את התנאים באתר הרשמי.",
+    allCategories:"כל הקטגוריות",allPrices:"כל המחירים",free:"חינם",freemium:"חינם + בתשלום",paid:"בתשלום",
+    sortDefault:"סדר מומלץ",sortAZ:"א׳ → ת׳ / A → Z",sortZA:"ת׳ → א׳ / Z → A",sortFree:"חינם קודם",
+    found:"כלים נמצאו",details:"פרטים",category:"קטגוריה",pricing:"מחיר",studentOffer:"הטבת סטודנט מאומתת",
+    official:"לאתר הרשמי",copyLink:"העתק קישור",copied:"הקישור הועתק",favoritesOnly:"מועדפים",verified:"מאומת",toolsInCategory:"כלים",
+    noDescription:"כלי AI בקטלוג AI Atlas.",siteTitle:"AI Atlas — כל כלי ה-AI במקום אחד"
+  },
+  en:{
+    brandTag:"The AI world, organized.",navHome:"Home",navCategories:"Categories",navStudents:"Students",navDiscover:"All tools",
+    heroBadge:"The fast way to find the right AI tool",heroLine1:"Every AI tool.",heroLine2:"Without getting lost.",
+    heroDesc:"Smart search, clear categories, free vs paid, and student offers — all in one beautifully organized place.",
+    chipFree:"Free",chipStudents:"Students",chipCode:"Coding",chipImages:"Images",heroTools:"tools",heroCategories:"categories",heroFree:"with a free plan",
+    mockTitle:"Find me an AI tool for...",mockQuery:"building a website without code",mockFooter:"Matched results in real time",
+    statTools:"tools in directory",statCats:"categories",statFree:"free / freemium",statStudent:"student offers",
+    categoriesTitle:"What do you want to do with AI?",categoriesDesc:"Pick a field and jump straight to tools that fit the task.",
+    studentBadge:"STUDENT HUB",studentTitle:"Student? You may be able to get more for less.",studentDesc:"We collect AI tools with free plans or dedicated student discounts. When an offer is verified, we show what you get and how eligibility works.",
+    studentPoint1:"Official link for every offer",studentPoint2:"Clear eligibility summary",studentPoint3:"One-click filtering",showStudent:"Show all student offers",
+    featuredTitle:"Tools worth discovering",featuredDesc:"Quick access to a selection of notable tools in the directory.",surprise:"Surprise me",
+    discoverTitle:"Every AI tool in one place",discoverDesc:"Search by name, use case, company or category and filter down to exactly what you need.",
+    filterStudents:"Students",filterFavorites:"Favorites",clear:"Clear filters",emptyTitle:"No matching tools found",emptyDesc:"Try a different search or filter.",
+    footerTag:"Discover AI without the noise.",footerNote:"Prices and offers change. Always check the official website before signing up or purchasing.",
+    allCategories:"All categories",allPrices:"All pricing",free:"Free",freemium:"Free + paid",paid:"Paid",
+    sortDefault:"Recommended order",sortAZ:"A → Z",sortZA:"Z → A",sortFree:"Free first",
+    found:"tools found",details:"Details",category:"Category",pricing:"Pricing",studentOffer:"Verified student offer",
+    official:"Official website",copyLink:"Copy link",copied:"Link copied",favoritesOnly:"Favorites",verified:"Verified",toolsInCategory:"tools",
+    noDescription:"An AI tool in the AI Atlas directory.",siteTitle:"AI Atlas — Every AI tool in one place"
+  }
+};
+
+const categoryMeta={
+  "Chat & Assistants":{he:"צ׳אט ועוזרים",icon:"◌",color:"#8B5CF6"},
+  "Research & Search":{he:"מחקר וחיפוש",icon:"⌕",color:"#5B8CFF"},
+  "Study & Learning":{he:"לימודים ולמידה",icon:"◇",color:"#2DD4BF"},
+  "Coding":{he:"תכנות",icon:"⌘",color:"#7AA9FF"},
+  "App & Website Builders":{he:"בניית אתרים ואפליקציות",icon:"▱",color:"#EC6BFF"},
+  "Design":{he:"עיצוב",icon:"✦",color:"#F088D7"},
+  "Image Generation":{he:"יצירת תמונות",icon:"◩",color:"#A78BFA"},
+  "Video Generation":{he:"יצירת וידאו",icon:"▶",color:"#FF7D8A"},
+  "Video & Avatars":{he:"וידאו ואווטארים",icon:"◎",color:"#FF956B"},
+  "Audio & Voice":{he:"אודיו וקול",icon:"◉",color:"#36CFC9"},
+  "Music":{he:"מוזיקה",icon:"♫",color:"#F7C566"},
+  "Audio & Video Editing":{he:"עריכת אודיו ווידאו",icon:"◫",color:"#62B7FF"},
+  "Meetings & Transcription":{he:"פגישות ותמלול",icon:"≡",color:"#7B9CFF"},
+  "Writing":{he:"כתיבה",icon:"✎",color:"#D99BFF"},
+  "Translation":{he:"תרגום",icon:"文",color:"#59D5B8"},
+  "Productivity":{he:"פרודוקטיביות",icon:"▤",color:"#A5B4FC"},
+  "Presentations":{he:"מצגות",icon:"▣",color:"#F6A06B"},
+  "Math & Science":{he:"מתמטיקה ומדע",icon:"∑",color:"#64D2A8"},
+  "Automation":{he:"אוטומציה",icon:"⚡",color:"#F2C75C"},
+  "Models & Developer Tools":{he:"מודלים וכלי פיתוח",icon:"⬡",color:"#73A5FF"},
+  "Local AI":{he:"AI מקומי",icon:"◈",color:"#50D0B0"}
+};
+
+const FEATURED=["ChatGPT","Claude","Perplexity","GitHub Copilot","Cursor","Runway","Midjourney","NotebookLM"];
+const HERO_PREVIEW=["v0","Lovable","Bolt"];
+const STUDENT_PREVIEW=["GitHub Copilot","Perplexity","Adobe Firefly","Notion AI"];
+
+function t(key){return copy[state.lang][key]||key}
+function esc(v=""){return String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function initials(name){return name.split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase()}
-function pricingLabel(v){return state.lang==="he"?({free:"חינם",freemium:"חינם + בתשלום",paid:"בתשלום"}[v]||v):({free:"Free",freemium:"Freemium",paid:"Paid"}[v]||v)}
-function saveFavs(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}
-function card(t,i){
- const fav=state.favorites.has(t.name);
- return `<article class="tool-card" data-index="${i}">
-   <div class="tool-top"><div class="tool-ident"><div class="tool-logo">${initials(t.name)}</div><div><div class="tool-name">${t.name}</div><div class="tool-maker">${t.maker}</div></div></div>
-   <button class="fav-btn ${fav?"active":""}" data-fav="${t.name.replaceAll('"',"&quot;")}" aria-label="favorite">★</button></div>
-   <p class="tool-desc">${t.desc}</p>
-   <div class="badges"><span class="badge ${t.pricing}">${pricingLabel(t.pricing)}</span>${t.student?'<span class="badge student">🎓 Student</span>':""}</div>
-   <div class="card-bottom"><span class="category-label">${t.category}</span><button class="details-btn" data-open="${i}">${state.lang==="he"?"פרטים":"Details"} →</button></div>
- </article>`}
-function render(){
- const q=els.search.value.trim().toLowerCase();
- state.filtered=state.tools.filter(t=>{
-   const hay=[t.name,t.maker,t.category,t.desc,...t.tags].join(" ").toLowerCase();
-   return (!q||hay.includes(q)) &&
-   (els.cat.value==="all"||t.category===els.cat.value) &&
-   (els.price.value==="all"||t.pricing===els.price.value) &&
-   (!els.student.checked||t.student) &&
-   (!els.fav.checked||state.favorites.has(t.name));
- });
- els.grid.innerHTML=state.filtered.map(card).join("");
- els.count.textContent=state.lang==="he"?`${state.filtered.length} כלים נמצאו`:`${state.filtered.length} tools found`;
- els.empty.classList.toggle("hidden",state.filtered.length!==0);
- document.querySelectorAll("[data-fav]").forEach(b=>b.onclick=e=>{e.stopPropagation();const n=b.dataset.fav;state.favorites.has(n)?state.favorites.delete(n):state.favorites.add(n);saveFavs();render()});
- document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openTool(state.filtered[+b.dataset.open]));
+function hostFor(url){try{return new URL(url).hostname.replace(/^www\./,"")}catch{return ""}}
+function iconUrl(tool){const h=hostFor(tool.url);return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(h)}&sz=128`}
+function logo(tool,cls="tool-logo"){
+  return `<div class="${cls}" title="${esc(tool.name)}"><img src="${iconUrl(tool)}" alt="" loading="lazy" data-initials="${esc(initials(tool.name))}"></div>`
 }
-function openTool(t){
- if(!t)return;
- els.dialogContent.innerHTML=`<div class="dialog-head"><div class="tool-logo">${initials(t.name)}</div><div><h2 style="margin:0">${t.name}</h2><div class="tool-maker">${t.maker}</div></div></div>
- <div class="dialog-body"><p>${t.desc}</p><div class="badges"><span class="badge ${t.pricing}">${pricingLabel(t.pricing)}</span>${t.student?'<span class="badge student">🎓 Student</span>':""}</div>
- <div class="dialog-meta"><div><small>${state.lang==="he"?"קטגוריה":"Category"}</small><strong>${t.category}</strong></div><div><small>${state.lang==="he"?"מחיר":"Pricing"}</small><strong>${pricingLabel(t.pricing)}</strong></div></div>
- ${t.studentOffer?`<div style="padding:14px;border:1px solid var(--line);border-radius:14px;margin-bottom:18px"><strong>🎓 ${state.lang==="he"?"הטבת סטודנט":"Student offer"}</strong><p style="margin:7px 0 0">${t.studentOffer}</p></div>`:""}
- <a class="dialog-link" href="${t.url}" target="_blank" rel="noreferrer">${state.lang==="he"?"לאתר הרשמי":"Official website"} ↗</a></div>`;
- els.dialog.showModal();
+function localDesc(tool){return state.lang==="he"?(tool.descHe||tool.desc||tool.descEn):(tool.descEn||tool.desc||tool.descHe)||t("noDescription")}
+function localOffer(tool){return state.lang==="he"?(tool.studentOfferHe||tool.studentOffer||tool.studentOfferEn):(tool.studentOfferEn||tool.studentOffer||tool.studentOfferHe)||""}
+function localCategory(cat){return state.lang==="he"?(categoryMeta[cat]?.he||cat):cat}
+function priceLabel(value){return t(value)}
+function saveFavorites(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}
+
+function attachImageFallbacks(root=document){
+  root.querySelectorAll("img[data-initials]").forEach(img=>{
+    img.onerror=()=>{
+      const p=img.parentElement;
+      p.innerHTML=`<span class="logo-fallback">${esc(img.dataset.initials||"AI")}</span>`;
+    };
+  });
 }
-function populateCategories(){
- const cats=[...new Set(state.tools.map(t=>t.category))].sort();
- els.cat.innerHTML=`<option value="all">${state.lang==="he"?"כל הקטגוריות":"All categories"}</option>`+cats.map(c=>`<option value="${c}">${c}</option>`).join("");
+
+function toolCard(tool,index){
+  const favorite=state.favorites.has(tool.name);
+  return `<article class="tool-card">
+    <div class="tool-top">
+      <div class="tool-ident">
+        ${logo(tool)}
+        <div style="min-width:0"><div class="tool-name">${esc(tool.name)}</div><div class="tool-maker">${esc(tool.maker)}</div></div>
+      </div>
+      <button class="fav-btn ${favorite?"active":""}" data-fav="${esc(tool.name)}" aria-label="${esc(t("favoritesOnly"))}">★</button>
+    </div>
+    <p class="tool-desc">${esc(localDesc(tool))}</p>
+    <div class="badges">
+      <span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>
+      ${tool.student?'<span class="badge student">🎓 Student</span>':""}
+    </div>
+    <div class="card-bottom">
+      <span class="category-label">${esc(localCategory(tool.category))}</span>
+      <button class="details-btn" data-open="${index}">${esc(t("details"))} ←</button>
+    </div>
+  </article>`
 }
+
+function renderTools(){
+  const q=els.search.value.trim().toLowerCase();
+  let results=state.tools.filter(tool=>{
+    const hay=[tool.name,tool.maker,tool.category,tool.descHe,tool.descEn,tool.desc,...(tool.tags||[])].filter(Boolean).join(" ").toLowerCase();
+    return (!q||hay.includes(q))
+      &&(els.cat.value==="all"||tool.category===els.cat.value)
+      &&(els.price.value==="all"||tool.pricing===els.price.value)
+      &&(!els.student.checked||tool.student)
+      &&(!els.fav.checked||state.favorites.has(tool.name));
+  });
+
+  if(els.sort.value==="az") results.sort((a,b)=>a.name.localeCompare(b.name));
+  if(els.sort.value==="za") results.sort((a,b)=>b.name.localeCompare(a.name));
+  if(els.sort.value==="free") results.sort((a,b)=>({free:0,freemium:1,paid:2}[a.pricing]-{free:0,freemium:1,paid:2}[b.pricing]));
+
+  state.filtered=results;
+  els.grid.innerHTML=results.map(toolCard).join("");
+  els.count.textContent=`${results.length} ${t("found")}`;
+  els.empty.classList.toggle("hidden",results.length!==0);
+
+  $$("[data-fav]").forEach(btn=>btn.onclick=e=>{
+    e.stopPropagation();
+    const name=btn.dataset.fav;
+    state.favorites.has(name)?state.favorites.delete(name):state.favorites.add(name);
+    saveFavorites();renderTools();
+  });
+  $$("[data-open]").forEach(btn=>btn.onclick=()=>openTool(state.filtered[Number(btn.dataset.open)]));
+  attachImageFallbacks(els.grid);
+}
+
+function openTool(tool){
+  if(!tool)return;
+  const offer=localOffer(tool);
+  els.dialogContent.innerHTML=`
+    <div class="dialog-head">
+      ${logo(tool)}
+      <div><h2>${esc(tool.name)}</h2><div class="tool-maker">${esc(tool.maker)}</div></div>
+    </div>
+    <div class="dialog-body">
+      <p>${esc(localDesc(tool))}</p>
+      <div class="badges"><span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>${tool.student?'<span class="badge student">🎓 Student</span>':""}</div>
+      <div class="dialog-tags">${(tool.tags||[]).slice(0,8).map(x=>`<span class="dialog-tag">#${esc(x)}</span>`).join("")}</div>
+      <div class="dialog-meta">
+        <div><small>${esc(t("category"))}</small><strong>${esc(localCategory(tool.category))}</strong></div>
+        <div><small>${esc(t("pricing"))}</small><strong>${esc(priceLabel(tool.pricing))}</strong></div>
+      </div>
+      ${offer?`<div class="student-offer"><strong>🎓 ${esc(t("studentOffer"))}</strong><p>${esc(offer)}</p></div>`:""}
+      <div class="dialog-actions">
+        <a class="dialog-link" href="${esc(tool.url)}" target="_blank" rel="noreferrer">${esc(t("official"))} ↗</a>
+        <button class="copy-btn" id="copyToolLink">${esc(t("copyLink"))}</button>
+      </div>
+    </div>`;
+  attachImageFallbacks(els.dialog);
+  $("#copyToolLink").onclick=async()=>{try{await navigator.clipboard.writeText(tool.url);showToast(t("copied"))}catch{}};
+  els.dialog.showModal();
+}
+
+function buildCategories(){
+  const counts={}; state.tools.forEach(x=>counts[x.category]=(counts[x.category]||0)+1);
+  els.categories.innerHTML=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]).map(cat=>{
+    const meta=categoryMeta[cat]||{icon:"◇",color:"#8B5CF6"};
+    return `<button class="category-card" data-category="${esc(cat)}" style="--catColor:${meta.color}">
+      <span class="category-icon">${meta.icon}</span>
+      <h3>${esc(localCategory(cat))}</h3>
+      <p>${counts[cat]} ${esc(t("toolsInCategory"))}</p>
+      <span class="category-arrow">←</span>
+    </button>`
+  }).join("");
+  $$(".category-card").forEach(btn=>btn.onclick=()=>{
+    els.cat.value=btn.dataset.category;renderTools();$("#discover").scrollIntoView({behavior:"smooth"});
+  });
+}
+
+function buildFeatured(){
+  const tools=FEATURED.map(n=>state.tools.find(x=>x.name===n)).filter(Boolean);
+  els.featured.innerHTML=tools.map(tool=>`<article class="featured-card" data-tool="${esc(tool.name)}">
+    <div class="featured-top">${logo(tool,"featured-logo")}<div><h3>${esc(tool.name)}</h3><small>${esc(tool.maker)}</small></div></div>
+    <p>${esc(localDesc(tool))}</p>
+    <div class="featured-footer"><span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span><span>↗</span></div>
+  </article>`).join("");
+  $$(".featured-card").forEach(card=>card.onclick=()=>openTool(state.tools.find(x=>x.name===card.dataset.tool)));
+  attachImageFallbacks(els.featured);
+}
+
+function buildStudentSpotlight(){
+  const tools=STUDENT_PREVIEW.map(n=>state.tools.find(x=>x.name===n)).filter(x=>x&&x.student);
+  els.studentSpotlight.innerHTML=tools.map(tool=>`<button class="student-mini" data-student-tool="${esc(tool.name)}">
+    ${logo(tool,"student-mini-logo")}
+    <span class="student-mini-body"><strong>${esc(tool.name)}</strong><small>${esc(localOffer(tool))}</small></span>
+    <span class="verified">✓ ${esc(t("verified"))}</span>
+  </button>`).join("");
+  $$("[data-student-tool]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.studentTool)));
+  attachImageFallbacks(els.studentSpotlight);
+}
+
+function buildHeroPreview(){
+  const root=$("#heroToolsPreview");
+  const tools=HERO_PREVIEW.map(n=>state.tools.find(x=>x.name===n)).filter(Boolean);
+  root.innerHTML=tools.map((tool,i)=>`<div class="preview-tool">${logo(tool,"preview-logo")}<div><strong>${esc(tool.name)}</strong><small>${esc(localCategory(tool.category))}</small></div><span class="preview-score">${["MATCH","AI","WEB"][i]}</span></div>`).join("");
+  attachImageFallbacks(root);
+}
+
+function fillFilters(){
+  const currentCat=els.cat.value||"all",currentPrice=els.price.value||"all",currentSort=els.sort.value||"default";
+  const cats=[...new Set(state.tools.map(x=>x.category))].sort();
+  els.cat.innerHTML=`<option value="all">${esc(t("allCategories"))}</option>`+cats.map(cat=>`<option value="${esc(cat)}">${esc(localCategory(cat))}</option>`).join("");
+  els.price.innerHTML=`<option value="all">${esc(t("allPrices"))}</option><option value="free">${esc(t("free"))}</option><option value="freemium">${esc(t("freemium"))}</option><option value="paid">${esc(t("paid"))}</option>`;
+  els.sort.innerHTML=`<option value="default">${esc(t("sortDefault"))}</option><option value="az">${esc(t("sortAZ"))}</option><option value="za">${esc(t("sortZA"))}</option><option value="free">${esc(t("sortFree"))}</option>`;
+  if([...els.cat.options].some(o=>o.value===currentCat))els.cat.value=currentCat;
+  if([...els.price.options].some(o=>o.value===currentPrice))els.price.value=currentPrice;
+  if([...els.sort.options].some(o=>o.value===currentSort))els.sort.value=currentSort;
+}
+
 function updateStats(){
- $("#statTools").textContent=state.tools.length;
- $("#statCats").textContent=new Set(state.tools.map(t=>t.category)).size;
- $("#statFree").textContent=state.tools.filter(t=>t.pricing!=="paid").length;
- $("#statStudent").textContent=state.tools.filter(t=>t.student).length;
+  const cats=new Set(state.tools.map(x=>x.category)).size;
+  const free=state.tools.filter(x=>x.pricing!=="paid").length;
+  const student=state.tools.filter(x=>x.student).length;
+  [["#statTools",state.tools.length],["#statCats",cats],["#statFree",free],["#statStudent",student],["#heroToolCount",state.tools.length],["#heroCategoryCount",cats],["#heroFreeCount",free]].forEach(([sel,val])=>$(sel).textContent=val);
 }
-function applyLang(){
- const d=i18n[state.lang];document.documentElement.lang=state.lang;document.documentElement.dir=state.lang==="he"?"rtl":"ltr";
- document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(d[k])el.textContent=d[k]});
- $("#langBtn").textContent=state.lang==="he"?"EN":"HE";
- els.search.placeholder=state.lang==="he"?"חיפוש לפי שם או שימוש...":"Search by name or use...";
- els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, כתיבה, וידאו, קוד...":"Search ChatGPT, writing, video, code...";
- populateCategories();render();
+
+function applyLanguage(){
+  document.documentElement.lang=state.lang;
+  document.documentElement.dir=state.lang==="he"?"rtl":"ltr";
+  document.title=t("siteTitle");
+  $$("[data-i18n]").forEach(el=>{const value=t(el.dataset.i18n);if(value)el.textContent=value});
+  $("#heBtn").classList.toggle("active",state.lang==="he");
+  $("#enBtn").classList.toggle("active",state.lang==="en");
+  els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, קוד, וידאו, לימודים...":"Search ChatGPT, coding, video, studying...";
+  els.search.placeholder=state.lang==="he"?"חיפוש לפי שם או שימוש...":"Search by name or use case...";
+  fillFilters();buildCategories();buildFeatured();buildStudentSpotlight();buildHeroPreview();renderTools();
 }
-function resetFilters(){els.search.value="";els.heroSearch.value="";els.cat.value="all";els.price.value="all";els.student.checked=false;els.fav.checked=false;render()}
+
+function setLanguage(lang){state.lang=lang;localStorage.setItem("aiatlas-lang",lang);applyLanguage()}
+function resetFilters(){
+  els.search.value="";els.heroSearch.value="";els.cat.value="all";els.price.value="all";els.sort.value="default";els.student.checked=false;els.fav.checked=false;renderTools();
+}
+function quickFilter(kind){
+  resetFilters();
+  if(kind==="free")els.price.value="free";
+  if(kind==="student")els.student.checked=true;
+  if(kind==="coding")els.cat.value="Coding";
+  if(kind==="image")els.cat.value="Image Generation";
+  renderTools();$("#discover").scrollIntoView({behavior:"smooth"});
+}
+function showToast(message){els.toast.textContent=message;els.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove("show"),1800)}
+
+function setupEvents(){
+  [els.search].forEach(el=>el.addEventListener("input",renderTools));
+  [els.cat,els.price,els.sort,els.student,els.fav].forEach(el=>el.addEventListener("change",renderTools));
+  els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;renderTools()});
+  els.heroSearch.addEventListener("keydown",e=>{if(e.key==="Enter")$("#discover").scrollIntoView({behavior:"smooth"})});
+  $("#clearFilters").onclick=resetFilters;
+  $("#heBtn").onclick=()=>setLanguage("he");$("#enBtn").onclick=()=>setLanguage("en");
+  $("#themeBtn").onclick=()=>{document.body.classList.toggle("light");localStorage.setItem("aiatlas-theme",document.body.classList.contains("light")?"light":"dark")};
+  $("#dialogClose").onclick=()=>els.dialog.close();
+  els.dialog.addEventListener("click",e=>{if(e.target===els.dialog)els.dialog.close()});
+  $("#surpriseBtn").onclick=()=>{const pool=state.filtered.length?state.filtered:state.tools;if(pool.length)openTool(pool[Math.floor(Math.random()*pool.length)])};
+  $$("[data-quick]").forEach(btn=>btn.onclick=()=>quickFilter(btn.dataset.quick));
+  document.addEventListener("keydown",e=>{
+    if(e.key==="/"&&!["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)){e.preventDefault();els.heroSearch.focus()}
+    if(e.key==="Escape"&&els.dialog.open)els.dialog.close();
+  });
+}
+
+function setupReveal(){
+  if(!("IntersectionObserver" in window)){ $$(".reveal").forEach(x=>x.classList.add("visible"));return }
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.08});
+  $$(".reveal").forEach(el=>observer.observe(el));
+}
+
 async function init(){
- try{
-  const r=await fetch("data/tools.json"); state.tools=await r.json();
-  updateStats();populateCategories();applyLang();
- }catch(e){els.grid.innerHTML='<p>Could not load tools database.</p>'}
- [els.search,els.cat,els.price,els.student,els.fav].forEach(el=>el.addEventListener(el.tagName==="SELECT"||el.type==="checkbox"?"change":"input",render));
- els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;render()});
- els.heroSearch.addEventListener("keydown",e=>{if(e.key==="Enter")document.querySelector("#discover").scrollIntoView({behavior:"smooth"})});
- $("#clearFilters").onclick=resetFilters;
- $("#dialogClose").onclick=()=>els.dialog.close();
- $("#themeBtn").onclick=()=>{document.body.classList.toggle("light");localStorage.setItem("aiatlas-theme",document.body.classList.contains("light")?"light":"dark")};
- $("#langBtn").onclick=()=>{state.lang=state.lang==="he"?"en":"he";localStorage.setItem("aiatlas-lang",state.lang);applyLang()};
- $("#surpriseBtn").onclick=()=>{const pool=state.filtered.length?state.filtered:state.tools;openTool(pool[Math.floor(Math.random()*pool.length)])};
- document.querySelectorAll("[data-quick]").forEach(b=>b.onclick=()=>{resetFilters();const q=b.dataset.quick;if(q==="free")els.price.value="free";if(q==="student")els.student.checked=true;if(q==="coding")els.cat.value="Coding";if(q==="image")els.cat.value="Image Generation";render();document.querySelector("#discover").scrollIntoView({behavior:"smooth"})});
- document.addEventListener("keydown",e=>{if(e.key==="/"&&document.activeElement.tagName!=="INPUT"){e.preventDefault();els.heroSearch.focus()}if(e.key==="Escape"&&els.dialog.open)els.dialog.close()});
+  if(localStorage.getItem("aiatlas-theme")==="light")document.body.classList.add("light");
+  setupEvents();setupReveal();
+  try{
+    const response=await fetch("data/tools.json?v=3");
+    if(!response.ok)throw new Error("tools.json");
+    state.tools=await response.json();
+    updateStats();applyLanguage();
+  }catch(error){
+    els.grid.innerHTML=`<div class="empty"><div class="empty-icon">!</div><h3>Could not load tools database</h3></div>`;
+  }
 }
-if(localStorage.getItem("aiatlas-theme")==="light")document.body.classList.add("light");
 init();
