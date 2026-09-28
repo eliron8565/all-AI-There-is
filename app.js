@@ -142,6 +142,7 @@ function toolCard(tool,index){
       <span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>
       ${tool.student?'<span class="badge student">🎓 Student</span>':""}
     </div>
+    ${platformBadges(tool,true)}
     <div class="card-bottom">
       <span class="category-label">${esc(localCategory(tool.category))}</span>
       <button class="details-btn" data-open="${index}">${esc(t("details"))} ←</button>
@@ -156,6 +157,7 @@ function renderTools(){
     return (!q||hay.includes(q))
       &&(els.cat.value==="all"||tool.category===els.cat.value)
       &&(els.price.value==="all"||tool.pricing===els.price.value)
+      &&(els.platform.value==="all"||(tool.platforms||[]).includes(els.platform.value))
       &&(!els.student.checked||tool.student)
       &&(!els.fav.checked||state.favorites.has(tool.name));
   });
@@ -196,6 +198,11 @@ function openTool(tool){
         <div><small>${esc(t("pricing"))}</small><strong>${esc(priceLabel(tool.pricing))}</strong></div>
       </div>
       ${offer?`<div class="student-offer"><strong>🎓 ${esc(t("studentOffer"))}</strong><p>${esc(offer)}</p></div>`:""}
+      <div class="dialog-platforms">
+        <div class="dialog-platform-title"><strong>${esc(t("appAvailability"))}</strong><small>${esc(t("platformUpdated"))}: ${esc(tool.platformsUpdated||"2026-09-28")}</small></div>
+        ${platformBadges(tool)}
+        ${(state.lang==="he"?tool.platformNoteHe:tool.platformNoteEn)?`<p>${esc(state.lang==="he"?tool.platformNoteHe:tool.platformNoteEn)}</p>`:""}
+      </div>
       <div class="dialog-actions">
         <a class="dialog-link" href="${esc(tool.url)}" target="_blank" rel="noreferrer">${esc(t("official"))} ↗</a>
         <button class="copy-btn" id="copyToolLink">${esc(t("copyLink"))}</button>
@@ -219,6 +226,19 @@ function buildCategories(){
   }).join("");
   $$(".category-card").forEach(btn=>btn.onclick=()=>{
     els.cat.value=btn.dataset.category;renderTools();$("#discover").scrollIntoView({behavior:"smooth"});
+  });
+}
+
+function buildPlatforms(){
+  const order=["web","windows","macos","linux","android","ios"];
+  els.platformGrid.innerHTML=order.map(p=>{
+    const meta=platformMeta[p],count=state.tools.filter(x=>(x.platforms||[]).includes(p)).length;
+    return '<button class="platform-card" data-platform="'+p+'"><span class="platform-card-icon '+p+'">'+meta.icon+'</span><span class="platform-card-copy"><strong>'+esc(platformLabel(p))+'</strong><small>'+count+' '+esc(t("toolsInCategory"))+'</small></span><span class="platform-card-arrow">↗</span></button>';
+  }).join("");
+  $("[data-platform]").forEach(btn=>btn.onclick=()=>{
+    els.platform.value=btn.dataset.platform;
+    renderTools();
+    $("#discover").scrollIntoView({behavior:"smooth"});
   });
 }
 
@@ -252,13 +272,15 @@ function buildHeroPreview(){
 }
 
 function fillFilters(){
-  const currentCat=els.cat.value||"all",currentPrice=els.price.value||"all",currentSort=els.sort.value||"default";
+  const currentCat=els.cat.value||"all",currentPrice=els.price.value||"all",currentPlatform=els.platform.value||"all",currentSort=els.sort.value||"default";
   const cats=[...new Set(state.tools.map(x=>x.category))].sort();
   els.cat.innerHTML=`<option value="all">${esc(t("allCategories"))}</option>`+cats.map(cat=>`<option value="${esc(cat)}">${esc(localCategory(cat))}</option>`).join("");
   els.price.innerHTML=`<option value="all">${esc(t("allPrices"))}</option><option value="free">${esc(t("free"))}</option><option value="freemium">${esc(t("freemium"))}</option><option value="paid">${esc(t("paid"))}</option>`;
+  els.platform.innerHTML=`<option value="all">${esc(t("allPlatforms"))}</option>`+Object.keys(platformMeta).map(p=>`<option value="${p}">${esc(platformLabel(p))}</option>`).join("");
   els.sort.innerHTML=`<option value="default">${esc(t("sortDefault"))}</option><option value="az">${esc(t("sortAZ"))}</option><option value="za">${esc(t("sortZA"))}</option><option value="free">${esc(t("sortFree"))}</option>`;
   if([...els.cat.options].some(o=>o.value===currentCat))els.cat.value=currentCat;
   if([...els.price.options].some(o=>o.value===currentPrice))els.price.value=currentPrice;
+  if([...els.platform.options].some(o=>o.value===currentPlatform))els.platform.value=currentPlatform;
   if([...els.sort.options].some(o=>o.value===currentSort))els.sort.value=currentSort;
 }
 
@@ -278,12 +300,12 @@ function applyLanguage(){
   $("#enBtn").classList.toggle("active",state.lang==="en");
   els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, קוד, וידאו, לימודים...":"Search ChatGPT, coding, video, studying...";
   els.search.placeholder=state.lang==="he"?"חיפוש לפי שם או שימוש...":"Search by name or use case...";
-  fillFilters();buildCategories();buildFeatured();buildStudentSpotlight();buildHeroPreview();renderTools();
+  fillFilters();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildHeroPreview();renderTools();
 }
 
 function setLanguage(lang){state.lang=lang;localStorage.setItem("aiatlas-lang",lang);applyLanguage()}
 function resetFilters(){
-  els.search.value="";els.heroSearch.value="";els.cat.value="all";els.price.value="all";els.sort.value="default";els.student.checked=false;els.fav.checked=false;renderTools();
+  els.search.value="";els.heroSearch.value="";els.cat.value="all";els.price.value="all";els.platform.value="all";els.sort.value="default";els.student.checked=false;els.fav.checked=false;renderTools();
 }
 function quickFilter(kind){
   resetFilters();
@@ -291,13 +313,14 @@ function quickFilter(kind){
   if(kind==="student")els.student.checked=true;
   if(kind==="coding")els.cat.value="Coding";
   if(kind==="image")els.cat.value="Image Generation";
+  if(kind==="mobile")els.platform.value="android";
   renderTools();$("#discover").scrollIntoView({behavior:"smooth"});
 }
 function showToast(message){els.toast.textContent=message;els.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove("show"),1800)}
 
 function setupEvents(){
   [els.search].forEach(el=>el.addEventListener("input",renderTools));
-  [els.cat,els.price,els.sort,els.student,els.fav].forEach(el=>el.addEventListener("change",renderTools));
+  [els.cat,els.price,els.platform,els.sort,els.student,els.fav].forEach(el=>el.addEventListener("change",renderTools));
   els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;renderTools()});
   els.heroSearch.addEventListener("keydown",e=>{if(e.key==="Enter")$("#discover").scrollIntoView({behavior:"smooth"})});
   $("#clearFilters").onclick=resetFilters;
@@ -323,7 +346,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme")==="light")document.body.classList.add("light");
   setupEvents();setupReveal();
   try{
-    const response=await fetch("data/tools.json?v=3");
+    const response=await fetch("data/tools.json?v=4");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();
