@@ -8,6 +8,9 @@ A polished, bilingual AI-tools directory built for GitHub Pages.
 - **78 AI tools** across chat, coding, research, study, image, video, audio, automation, local AI and more
 - Real tool icons loaded from each product's domain
 - Responsive desktop, tablet and mobile layout
+- Platform availability for every tool: Web, Windows, macOS, Linux, Android and iPhone/iPad
+- Platform filter, including a combined mobile-app filter
+- Platform badges directly on tool cards and detailed availability inside each tool dialog
 - Dark / light mode
 - Search by tool, maker, category, description or tag
 - Category, pricing, student and favorites filters
@@ -75,3 +78,7 @@ The expected public URL is:
 ## Notes
 
 The site is intentionally data-driven. Adding tools to `data/tools.json` automatically updates search, counts, filters, categories and cards without needing to change the HTML.
+
+## Platform metadata
+
+Each tool in `data/tools.json` includes a `platforms` array. Supported values are `web`, `windows`, `macos`, `linux`, `android`, and `ios`. Optional `platformNoteHe` and `platformNoteEn` fields can explain special cases such as IDE extensions or local browser interfaces.
