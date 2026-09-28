@@ -15,7 +15,17 @@
       "voice"
     ],
     "descHe": "עוזר AI כללי לכתיבה, קוד, ניתוח, מחקר, תמונות ועבודה עם קבצים.",
-    "descEn": "A general AI assistant for writing, coding, analysis, research, images and file work."
+    "descEn": "A general AI assistant for writing, coding, analysis, research, images and file work.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Claude",
@@ -31,7 +41,17 @@
       "documents"
     ],
     "descHe": "עוזר AI חזק לעבודה עם טקסט, מסמכים, ניתוח וקוד.",
-    "descEn": "A capable AI assistant for text, documents, analysis and coding."
+    "descEn": "A capable AI assistant for text, documents, analysis and coding.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Gemini",
@@ -47,7 +67,15 @@
       "multimodal"
     ],
     "descHe": "העוזר של Google עם יכולות מולטימודליות ושילוב עם שירותי Google.",
-    "descEn": "Google's multimodal AI assistant with integrations across Google services."
+    "descEn": "Google's multimodal AI assistant with integrations across Google services.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Microsoft Copilot",
@@ -63,7 +91,16 @@
       "images"
     ],
     "descHe": "עוזר AI של Microsoft לחיפוש, יצירה ועבודה יומיומית.",
-    "descEn": "Microsoft's AI assistant for search, creation and everyday productivity."
+    "descEn": "Microsoft's AI assistant for search, creation and everyday productivity.",
+    "platforms": [
+      "web",
+      "windows",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Grok",
@@ -78,7 +115,15 @@
       "web"
     ],
     "descHe": "עוזר AI של xAI לשיחה, חיפוש, מחקר ויצירת תוכן.",
-    "descEn": "xAI's assistant for conversation, search, research and content creation."
+    "descEn": "xAI's assistant for conversation, search, research and content creation.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Le Chat",
@@ -94,7 +139,15 @@
       "coding"
     ],
     "descHe": "עוזר AI של Mistral לשיחה, כתיבה, חיפוש וקוד.",
-    "descEn": "Mistral's AI assistant for chat, writing, search and coding."
+    "descEn": "Mistral's AI assistant for chat, writing, search and coding.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "DeepSeek",
@@ -109,7 +162,15 @@
       "coding"
     ],
     "descHe": "עוזר AI לשיחה, חשיבה וקוד עם גישה חינמית לשירות הצ'אט.",
-    "descEn": "An AI assistant focused on chat, reasoning and coding with free chat access."
+    "descEn": "An AI assistant focused on chat, reasoning and coding with free chat access.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Poe",
@@ -124,7 +185,17 @@
       "bots"
     ],
     "descHe": "פלטפורמה לשיחה עם מגוון מודלי AI ובוטים במקום אחד.",
-    "descEn": "A platform for chatting with multiple AI models and bots in one place."
+    "descEn": "A platform for chatting with multiple AI models and bots in one place.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "האפליקציה הרשמית זמינה ל-iPhone/iPad, Android, macOS ו-Windows.",
+    "platformNoteEn": "The official app is available for iPhone/iPad, Android, macOS and Windows.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Meta AI",
@@ -139,7 +210,15 @@
       "meta"
     ],
     "descHe": "עוזר AI של Meta לשיחה, יצירה וחיפוש.",
-    "descEn": "Meta's AI assistant for conversation, creation and search."
+    "descEn": "Meta's AI assistant for conversation, creation and search.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Character.AI",
@@ -154,7 +233,15 @@
       "roleplay"
     ],
     "descHe": "שיחות עם דמויות וסוכנים מבוססי AI שנוצרו לקהילות ושימושים שונים.",
-    "descEn": "Chat with AI-powered characters and agents built for many communities and use cases."
+    "descEn": "Chat with AI-powered characters and agents built for many communities and use cases.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Perplexity",
@@ -172,7 +259,17 @@
       "study"
     ],
     "descHe": "מנוע תשובות ומחקר עם מקורות, ציטוטים וחיפוש ברשת.",
-    "descEn": "An answer and research engine with web search, sources and citations."
+    "descEn": "An answer and research engine with web search, sources and citations.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "זמין ב-Web, במובייל ובאפליקציות מחשב; ל-Windows קיימת גם חוויית Personal Computer ייעודית.",
+    "platformNoteEn": "Available on web, mobile and desktop; Windows also has a dedicated Personal Computer experience.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Elicit",
@@ -188,7 +285,13 @@
       "study"
     ],
     "descHe": "עוזר למחקר אקדמי, מציאת מאמרים וסינתוז ראיות.",
-    "descEn": "An academic research assistant for finding papers and synthesizing evidence."
+    "descEn": "An academic research assistant for finding papers and synthesizing evidence.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Consensus",
@@ -204,7 +307,13 @@
       "study"
     ],
     "descHe": "חיפוש תשובות מתוך מאמרים ומחקר מדעי.",
-    "descEn": "Search for answers grounded in scientific papers and academic research."
+    "descEn": "Search for answers grounded in scientific papers and academic research.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "SciSpace",
@@ -220,7 +329,13 @@
       "study"
     ],
     "descHe": "קריאה, הסבר, חיפוש וסיכום של מאמרים אקדמיים.",
-    "descEn": "Read, explain, search and summarize academic papers."
+    "descEn": "Read, explain, search and summarize academic papers.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Phind",
@@ -236,7 +351,13 @@
       "research"
     ],
     "descHe": "מנוע תשובות וחיפוש שמכוון במיוחד למפתחים ולשאלות טכניות.",
-    "descEn": "A search and answer engine focused on developers and technical questions."
+    "descEn": "A search and answer engine focused on developers and technical questions.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "NotebookLM",
@@ -253,7 +374,15 @@
       "audio"
     ],
     "descHe": "כלי לימוד ומחקר שמבוסס על המקורות והמסמכים שאתה מעלה.",
-    "descEn": "A study and research tool grounded in the sources and documents you provide."
+    "descEn": "A study and research tool grounded in the sources and documents you provide.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Khanmigo",
@@ -268,7 +397,13 @@
       "education"
     ],
     "descHe": "מורה פרטי מבוסס AI ללמידה מודרכת.",
-    "descEn": "An AI-powered tutor designed for guided learning."
+    "descEn": "An AI-powered tutor designed for guided learning.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Quizlet",
@@ -284,7 +419,15 @@
       "learning"
     ],
     "descHe": "כלי לימוד, כרטיסיות, מבחנים ויכולות AI ללמידה.",
-    "descEn": "Study tools, flashcards, quizzes and AI-powered learning features."
+    "descEn": "Study tools, flashcards, quizzes and AI-powered learning features.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "GitHub Copilot",
@@ -303,7 +446,16 @@
       "agent"
     ],
     "descHe": "עוזר קוד בתוך סביבת הפיתוח עם השלמות, צ'אט וסוכני קוד.",
-    "descEn": "A coding assistant for IDEs with completions, chat and agentic workflows."
+    "descEn": "A coding assistant for IDEs with completions, chat and agentic workflows.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "קיימת אפליקציית GitHub Copilot שולחנית ל-Windows, macOS ו-Linux, בנוסף לשילובים בתוך עורכי קוד.",
+    "platformNoteEn": "A GitHub Copilot desktop app is available on Windows, macOS and Linux, alongside IDE integrations.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Cursor",
@@ -319,7 +471,16 @@
       "developer"
     ],
     "descHe": "עורך קוד מבוסס AI עם צ'אט, השלמות וסוכנים שעובדים על הפרויקט.",
-    "descEn": "An AI code editor with chat, completions and agents that work across your project."
+    "descEn": "An AI code editor with chat, completions and agents that work across your project.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "אפליקציית שולחן העבודה זמינה ל-Windows, macOS ו-Linux; יש גם גישת Web לסוכנים.",
+    "platformNoteEn": "The desktop app is available on Windows, macOS and Linux, with web access for agents as well.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Windsurf",
@@ -334,7 +495,15 @@
       "agent"
     ],
     "descHe": "סביבת פיתוח עם AI לכתיבה, ניווט ושינוי קוד בפרויקטים.",
-    "descEn": "An AI development environment for writing, navigating and changing codebases."
+    "descEn": "An AI development environment for writing, navigating and changing codebases.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Replit",
@@ -350,7 +519,15 @@
       "agent"
     ],
     "descHe": "סביבת פיתוח בדפדפן עם סוכן AI לבנייה, הרצה ופריסה של אפליקציות.",
-    "descEn": "A browser development environment with AI agents for building, running and deploying apps."
+    "descEn": "A browser development environment with AI agents for building, running and deploying apps.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Devin",
@@ -365,7 +542,13 @@
       "developer"
     ],
     "descHe": "סוכן תוכנה אוטונומי שמסוגל לעבוד על משימות פיתוח מורכבות.",
-    "descEn": "An autonomous software engineering agent for complex development tasks."
+    "descEn": "An autonomous software engineering agent for complex development tasks.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "JetBrains AI Assistant",
@@ -381,7 +564,15 @@
       "jetbrains"
     ],
     "descHe": "יכולות AI בתוך IDEs של JetBrains לכתיבה, הסבר ושינוי קוד.",
-    "descEn": "AI features inside JetBrains IDEs for writing, explaining and modifying code."
+    "descEn": "AI features inside JetBrains IDEs for writing, explaining and modifying code.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "לא אפליקציה עצמאית — פועל מתוך IDEs של JetBrains במערכות שולחניות נתמכות.",
+    "platformNoteEn": "Not a standalone app — it runs inside supported JetBrains IDEs on desktop.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Sourcegraph Cody",
@@ -397,7 +588,16 @@
       "search"
     ],
     "descHe": "עוזר קוד שמבין בסיסי קוד גדולים ומשלב חיפוש והקשר.",
-    "descEn": "A coding assistant built to understand large codebases with search and context."
+    "descEn": "A coding assistant built to understand large codebases with search and context.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "הגישה במחשב היא בעיקר דרך הרחבות לעורכי קוד ושילובי פיתוח.",
+    "platformNoteEn": "Desktop access is mainly through editor extensions and developer integrations.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Tabnine",
@@ -412,7 +612,15 @@
       "developer"
     ],
     "descHe": "השלמות קוד ועוזר AI למפתחים עם דגש על סביבת עבודה ארגונית.",
-    "descEn": "AI code completion and assistance with a focus on professional development workflows."
+    "descEn": "AI code completion and assistance with a focus on professional development workflows.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "פועל בעיקר כתוסף בתוך IDEs ועורכי קוד במחשב.",
+    "platformNoteEn": "Primarily runs as an extension inside desktop IDEs and code editors.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "v0",
@@ -428,7 +636,13 @@
       "code"
     ],
     "descHe": "יצירת ממשקי web ואפליקציות באמצעות פרומפטים וקוד.",
-    "descEn": "Generate web interfaces and applications from prompts with editable code."
+    "descEn": "Generate web interfaces and applications from prompts with editable code.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Lovable",
@@ -444,7 +658,13 @@
       "no-code"
     ],
     "descHe": "בניית אפליקציות ואתרים באמצעות שיחה עם AI.",
-    "descEn": "Build apps and websites by describing what you want to an AI."
+    "descEn": "Build apps and websites by describing what you want to an AI.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Bolt",
@@ -460,7 +680,13 @@
       "browser"
     ],
     "descHe": "בניית אפליקציות full-stack ישירות בדפדפן בעזרת AI.",
-    "descEn": "Build full-stack applications directly in the browser with AI."
+    "descEn": "Build full-stack applications directly in the browser with AI.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Framer AI",
@@ -475,7 +701,14 @@
       "landing-page"
     ],
     "descHe": "בניית אתרים ודפי נחיתה בעזרת AI וכלי עיצוב חזותיים.",
-    "descEn": "Build websites and landing pages with AI and visual design tools."
+    "descEn": "Build websites and landing pages with AI and visual design tools.",
+    "platforms": [
+      "web",
+      "macos"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Webflow AI",
@@ -491,7 +724,13 @@
       "ai"
     ],
     "descHe": "יכולות AI לבניית אתרים, תוכן ועיצוב בתוך Webflow.",
-    "descEn": "AI features for website creation, content and design inside Webflow."
+    "descEn": "AI features for website creation, content and design inside Webflow.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Canva Magic Studio",
@@ -507,7 +746,17 @@
       "social"
     ],
     "descHe": "כלי AI לעיצוב, מצגות, תמונות ותוכן לרשתות.",
-    "descEn": "AI tools for design, presentations, images and social content."
+    "descEn": "AI tools for design, presentations, images and social content.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Figma AI",
@@ -523,7 +772,17 @@
       "prototype"
     ],
     "descHe": "כלי AI בתוך Figma לעיצוב, עריכת תוכן ויצירת ממשקים.",
-    "descEn": "AI features inside Figma for design, content editing and interface creation."
+    "descEn": "AI features inside Figma for design, content editing and interface creation.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Napkin AI",
@@ -538,7 +797,13 @@
       "presentation"
     ],
     "descHe": "הופך טקסט לתרשימים וויזואליזציות במהירות.",
-    "descEn": "Turn text into diagrams and visual explanations quickly."
+    "descEn": "Turn text into diagrams and visual explanations quickly.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Microsoft Designer",
@@ -554,7 +819,15 @@
       "microsoft"
     ],
     "descHe": "כלי עיצוב של Microsoft עם יצירת תמונות ותוכן בעזרת AI.",
-    "descEn": "Microsoft's AI-powered design tool for images and visual content."
+    "descEn": "Microsoft's AI-powered design tool for images and visual content.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Adobe Firefly",
@@ -572,7 +845,15 @@
       "generative"
     ],
     "descHe": "יצירת ועריכת תמונות, וידאו ואודיו בעזרת מודלים גנרטיביים של Adobe.",
-    "descEn": "Generate and edit images, video and audio with Adobe's generative AI models."
+    "descEn": "Generate and edit images, video and audio with Adobe's generative AI models.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Midjourney",
@@ -587,7 +868,13 @@
       "design"
     ],
     "descHe": "מחולל תמונות פופולרי ליצירה אמנותית ואיכות חזותית גבוהה.",
-    "descEn": "A popular image generator known for artistic output and strong visual quality."
+    "descEn": "A popular image generator known for artistic output and strong visual quality.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Leonardo AI",
@@ -603,7 +890,15 @@
       "design"
     ],
     "descHe": "יצירת תמונות, נכסים למשחקים ועיצובים בעזרת AI.",
-    "descEn": "Create images, game assets and visual designs with AI."
+    "descEn": "Create images, game assets and visual designs with AI.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Ideogram",
@@ -619,7 +914,14 @@
       "design"
     ],
     "descHe": "יצירת תמונות עם דגש על טקסט קריא בתוך העיצוב.",
-    "descEn": "Generate images with a strong focus on readable text inside visuals."
+    "descEn": "Generate images with a strong focus on readable text inside visuals.",
+    "platforms": [
+      "web",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Krea",
@@ -635,7 +937,13 @@
       "design"
     ],
     "descHe": "יצירה ושיפור תמונות בזמן אמת עם מגוון מודלים.",
-    "descEn": "Generate and enhance visuals in real time using multiple AI models."
+    "descEn": "Generate and enhance visuals in real time using multiple AI models.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "ComfyUI",
@@ -651,7 +959,15 @@
       "workflow"
     ],
     "descHe": "ממשק node-based מתקדם להרצת תהליכי יצירת תמונות מקומיים.",
-    "descEn": "An advanced node-based interface for local image-generation workflows."
+    "descEn": "An advanced node-based interface for local image-generation workflows.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "רץ מקומית על המחשב ומציג ממשק בדפדפן המקומי; אין אפליקציית מובייל רשמית.",
+    "platformNoteEn": "Runs locally on your computer with a local browser UI; no official mobile app.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Stable Diffusion WebUI",
@@ -666,7 +982,15 @@
       "open-source"
     ],
     "descHe": "ממשק מקומי פופולרי להרצת מודלי Stable Diffusion.",
-    "descEn": "A popular local interface for running Stable Diffusion models."
+    "descEn": "A popular local interface for running Stable Diffusion models.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "רץ מקומית דרך המחשב וממשק דפדפן מקומי; אין אפליקציית מובייל רשמית.",
+    "platformNoteEn": "Runs locally on desktop through a local browser UI; no official mobile app.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Runway",
@@ -682,22 +1006,14 @@
       "film"
     ],
     "descHe": "יצירת ועריכת וידאו עם מודלים גנרטיביים מתקדמים.",
-    "descEn": "Generate and edit video with advanced generative AI models."
-  },
-  {
-    "name": "Sora",
-    "maker": "OpenAI",
-    "url": "https://sora.com",
-    "category": "Video Generation",
-    "pricing": "paid",
-    "student": false,
-    "tags": [
-      "video",
-      "generation",
-      "openai"
+    "descEn": "Generate and edit video with advanced generative AI models.",
+    "platforms": [
+      "web",
+      "ios"
     ],
-    "descHe": "יצירת וידאו בעזרת פרומפטים, תמונות ורעיונות חזותיים.",
-    "descEn": "Generate video from prompts, images and visual concepts."
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Pika",
@@ -712,7 +1028,13 @@
       "generation"
     ],
     "descHe": "יצירת קליפים ואנימציות מפרומפטים ותמונות.",
-    "descEn": "Create short clips and animations from prompts and images."
+    "descEn": "Create short clips and animations from prompts and images.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Luma Dream Machine",
@@ -727,7 +1049,14 @@
       "cinematic"
     ],
     "descHe": "יצירת וידאו קולנועי קצר בעזרת AI.",
-    "descEn": "Generate short cinematic video with AI."
+    "descEn": "Generate short cinematic video with AI.",
+    "platforms": [
+      "web",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Kling AI",
@@ -742,7 +1071,15 @@
       "image-to-video"
     ],
     "descHe": "פלטפורמה ליצירת וידאו ותמונה-לווידאו בעזרת AI.",
-    "descEn": "An AI platform for text-to-video and image-to-video generation."
+    "descEn": "An AI platform for text-to-video and image-to-video generation.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "HeyGen",
@@ -758,7 +1095,13 @@
       "presenter"
     ],
     "descHe": "אווטארים מדברים, תרגום וידאו ויצירת סרטוני פרזנטציה.",
-    "descEn": "Talking avatars, video translation and AI presenter videos."
+    "descEn": "Talking avatars, video translation and AI presenter videos.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Synthesia",
@@ -774,7 +1117,13 @@
       "presenter"
     ],
     "descHe": "יצירת סרטוני הדרכה עם מגישי AI ואווטארים.",
-    "descEn": "Create training and presentation videos with AI avatars."
+    "descEn": "Create training and presentation videos with AI avatars.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "ElevenLabs",
@@ -790,7 +1139,15 @@
       "dubbing"
     ],
     "descHe": "טקסט לדיבור, קולות סינתטיים ודיבוב רב-לשוני.",
-    "descEn": "Text-to-speech, synthetic voices and multilingual dubbing."
+    "descEn": "Text-to-speech, synthetic voices and multilingual dubbing.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Murf",
@@ -805,7 +1162,13 @@
       "audio"
     ],
     "descHe": "יצירת קריינות וקולות AI לסרטונים, מצגות ותוכן.",
-    "descEn": "Create AI voiceovers for videos, presentations and content."
+    "descEn": "Create AI voiceovers for videos, presentations and content.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Speechify",
@@ -821,7 +1184,17 @@
       "audio"
     ],
     "descHe": "המרת טקסט לדיבור והאזנה למסמכים, אתרים ותוכן.",
-    "descEn": "Turn text into speech and listen to documents, websites and other content."
+    "descEn": "Turn text into speech and listen to documents, websites and other content.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Suno",
@@ -836,7 +1209,15 @@
       "audio"
     ],
     "descHe": "יצירת שירים ומוזיקה מלאה באמצעות תיאור טקסטואלי.",
-    "descEn": "Generate complete songs and music from text descriptions."
+    "descEn": "Generate complete songs and music from text descriptions.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Udio",
@@ -851,7 +1232,13 @@
       "audio"
     ],
     "descHe": "מחולל מוזיקה ושירים מבוסס AI.",
-    "descEn": "An AI-powered music and song generator."
+    "descEn": "An AI-powered music and song generator.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Descript",
@@ -867,7 +1254,15 @@
       "editing"
     ],
     "descHe": "עריכת וידאו ופודקאסטים דרך עריכת הטקסט המתומלל.",
-    "descEn": "Edit video and podcasts by editing their transcript."
+    "descEn": "Edit video and podcasts by editing their transcript.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "VEED AI",
@@ -883,7 +1278,13 @@
       "ai"
     ],
     "descHe": "כלי עריכת וידאו בדפדפן עם כתוביות, יצירה ועזרי AI.",
-    "descEn": "Browser video editing with captions, generation and AI-assisted tools."
+    "descEn": "Browser video editing with captions, generation and AI-assisted tools.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Otter.ai",
@@ -898,7 +1299,15 @@
       "notes"
     ],
     "descHe": "תמלול פגישות, סיכומים והפקת נקודות פעולה.",
-    "descEn": "Meeting transcription, summaries and action items."
+    "descEn": "Meeting transcription, summaries and action items.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Fireflies.ai",
@@ -913,7 +1322,15 @@
       "notes"
     ],
     "descHe": "עוזר לפגישות שמקליט, מתמלל ומסכם שיחות.",
-    "descEn": "A meeting assistant that records, transcribes and summarizes conversations."
+    "descEn": "A meeting assistant that records, transcribes and summarizes conversations.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Grammarly",
@@ -929,7 +1346,17 @@
       "rewrite"
     ],
     "descHe": "שיפור כתיבה, דקדוק, ניסוח וטון בעזרת AI.",
-    "descEn": "Improve writing, grammar, rewriting and tone with AI."
+    "descEn": "Improve writing, grammar, rewriting and tone with AI.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "QuillBot",
@@ -945,7 +1372,15 @@
       "study"
     ],
     "descHe": "ניסוח מחדש, סיכום ובדיקת כתיבה.",
-    "descEn": "Paraphrase, summarize and improve written content."
+    "descEn": "Paraphrase, summarize and improve written content.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "DeepL Write",
@@ -960,7 +1395,13 @@
       "rewrite"
     ],
     "descHe": "שיפור וניסוח טקסטים עם דגש על שפה טבעית.",
-    "descEn": "Refine and rewrite text with an emphasis on natural language."
+    "descEn": "Refine and rewrite text with an emphasis on natural language.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "DeepL",
@@ -975,7 +1416,17 @@
       "writing"
     ],
     "descHe": "תרגום מבוסס AI בין שפות רבות.",
-    "descEn": "AI-powered translation across many languages."
+    "descEn": "AI-powered translation across many languages.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Notion AI",
@@ -993,7 +1444,17 @@
       "study"
     ],
     "descHe": "AI בתוך Notion לכתיבה, סיכום, חיפוש ועבודה עם ידע.",
-    "descEn": "AI inside Notion for writing, summaries, search and knowledge work."
+    "descEn": "AI inside Notion for writing, summaries, search and knowledge work.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "יכולות Notion AI זמינות בתוך Notion ב-Web, Windows, macOS, Android ו-iPhone/iPad.",
+    "platformNoteEn": "Notion AI features are available inside Notion on web, Windows, macOS, Android and iPhone/iPad.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Miro AI",
@@ -1008,7 +1469,17 @@
       "team"
     ],
     "descHe": "AI ללוחות עבודה, סיעור מוחות, סיכום וארגון רעיונות.",
-    "descEn": "AI for whiteboards, brainstorming, summaries and organizing ideas."
+    "descEn": "AI for whiteboards, brainstorming, summaries and organizing ideas.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Gamma",
@@ -1023,7 +1494,13 @@
       "design"
     ],
     "descHe": "יצירת מצגות, מסמכים ודפי web באמצעות AI.",
-    "descEn": "Create presentations, documents and web pages with AI."
+    "descEn": "Create presentations, documents and web pages with AI.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Beautiful.ai",
@@ -1038,7 +1515,13 @@
       "design"
     ],
     "descHe": "בניית מצגות עם עיצוב חכם ואוטומטי.",
-    "descEn": "Build presentations with smart, automated slide design."
+    "descEn": "Build presentations with smart, automated slide design.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Wolfram Alpha",
@@ -1054,7 +1537,15 @@
       "study"
     ],
     "descHe": "מנוע ידע חישובי לפתרון בעיות מתמטיקה ומדע.",
-    "descEn": "A computational knowledge engine for mathematics and science."
+    "descEn": "A computational knowledge engine for mathematics and science.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Zapier AI",
@@ -1069,7 +1560,13 @@
       "agent"
     ],
     "descHe": "בניית אוטומציות ותהליכי עבודה בעזרת AI.",
-    "descEn": "Build AI-assisted automations and workflows across apps."
+    "descEn": "Build AI-assisted automations and workflows across apps.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Make",
@@ -1084,7 +1581,13 @@
       "integrations"
     ],
     "descHe": "אוטומציות וזרימות עבודה בין אפליקציות עם יכולות AI.",
-    "descEn": "Visual automations and workflows across apps with AI integrations."
+    "descEn": "Visual automations and workflows across apps with AI integrations.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "n8n",
@@ -1100,7 +1603,16 @@
       "agent"
     ],
     "descHe": "פלטפורמת אוטומציה גמישה עם self-hosting ושילוב סוכני AI.",
-    "descEn": "A flexible automation platform with self-hosting and AI agent integrations."
+    "descEn": "A flexible automation platform with self-hosting and AI agent integrations.",
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Hugging Face",
@@ -1116,7 +1628,13 @@
       "dataset"
     ],
     "descHe": "קהילה ופלטפורמה למודלים, datasets ויישומי AI פתוחים.",
-    "descEn": "A platform and community for models, datasets and open AI applications."
+    "descEn": "A platform and community for models, datasets and open AI applications.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Replicate",
@@ -1131,7 +1649,13 @@
       "developer"
     ],
     "descHe": "הרצת מודלי AI דרך API ללא ניהול תשתית מורכבת.",
-    "descEn": "Run AI models through an API without managing complex infrastructure."
+    "descEn": "Run AI models through an API without managing complex infrastructure.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "OpenRouter",
@@ -1147,7 +1671,13 @@
       "llm"
     ],
     "descHe": "גישה מאוחדת למודלי שפה מספקים שונים דרך API אחד.",
-    "descEn": "Unified API access to language models from multiple providers."
+    "descEn": "Unified API access to language models from multiple providers.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Google AI Studio",
@@ -1163,7 +1693,13 @@
       "gemini"
     ],
     "descHe": "סביבת פיתוח בדפדפן לניסוי ובנייה עם מודלי Gemini ו-API.",
-    "descEn": "A browser developer environment for experimenting and building with Gemini models and APIs."
+    "descEn": "A browser developer environment for experimenting and building with Gemini models and APIs.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "GroqCloud",
@@ -1179,7 +1715,13 @@
       "inference"
     ],
     "descHe": "פלטפורמת inference מהירה להרצת מודלים דרך API.",
-    "descEn": "A fast inference platform for running supported AI models through an API."
+    "descEn": "A fast inference platform for running supported AI models through an API.",
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "",
+    "platformNoteEn": "",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "LM Studio",
@@ -1195,7 +1737,15 @@
       "privacy"
     ],
     "descHe": "הרצת מודלי LLM מקומית במחשב עם ממשק גרפי.",
-    "descEn": "Run large language models locally with a desktop graphical interface."
+    "descEn": "Run large language models locally with a desktop graphical interface.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "אפליקציית מחשב מקומית להרצת מודלים על Windows, macOS ו-Linux.",
+    "platformNoteEn": "A local desktop app for running models on Windows, macOS and Linux.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Ollama",
@@ -1211,7 +1761,15 @@
       "developer"
     ],
     "descHe": "הרצה וניהול של מודלי AI מקומיים דרך פקודות ו-API.",
-    "descEn": "Run and manage local AI models through a CLI and API."
+    "descEn": "Run and manage local AI models through a CLI and API.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "כלי מקומי למחשב עם תמיכה ב-Windows, macOS ו-Linux.",
+    "platformNoteEn": "A local desktop tool supporting Windows, macOS and Linux.",
+    "platformsUpdated": "2026-09-28"
   },
   {
     "name": "Jan",
@@ -1227,6 +1785,36 @@
       "llm"
     ],
     "descHe": "אפליקציית AI מקומית ופתוחה להרצת מודלים על המחשב.",
-    "descEn": "An open local AI desktop app for running models on your computer."
+    "descEn": "An open local AI desktop app for running models on your computer.",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "platformNoteHe": "אפליקציית AI מקומית ופתוחה ל-Windows, macOS ו-Linux.",
+    "platformNoteEn": "An open local AI desktop app for Windows, macOS and Linux.",
+    "platformsUpdated": "2026-09-28"
+  },
+  {
+    "name": "Google Flow",
+    "maker": "Google",
+    "url": "https://labs.google/fx/tools/flow",
+    "category": "Video Generation",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "platformNoteHe": "כלי יצירה קולנועי מבוסס Web לעבודה עם מודלי הווידאו של Google.",
+    "platformNoteEn": "A web-based filmmaking tool for creating with Google's video models.",
+    "tags": [
+      "video",
+      "generation",
+      "filmmaking",
+      "google"
+    ],
+    "descHe": "כלי יצירה קולנועי של Google ליצירת קליפים וסצנות בעזרת AI.",
+    "descEn": "Google's AI filmmaking tool for creating clips and scenes.",
+    "platformsUpdated": "2026-09-28"
   }
 ]
