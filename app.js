@@ -357,7 +357,7 @@ function setupEvents(){
   els.heroSearch.addEventListener("keydown",e=>{if(e.key==="Enter")$("#discover").scrollIntoView({behavior:"smooth"})});
   $("#clearFilters").onclick=resetFilters;
   $("#heBtn").onclick=()=>setLanguage("he");$("#enBtn").onclick=()=>setLanguage("en");
-  $("#themeBtn").onclick=()=>{document.body.classList.toggle("dark");localStorage.setItem("aiatlas-theme",document.body.classList.contains("dark")?"dark":"light")};
+  $("#themeBtn").onclick=()=>{document.body.classList.toggle("theme-red");localStorage.setItem("aiatlas-theme-color",document.body.classList.contains("theme-red")?"red":"blue")};
   $("#dialogClose").onclick=()=>els.dialog.close();
   els.dialog.addEventListener("click",e=>{if(e.target===els.dialog)els.dialog.close()});
   $("#surpriseBtn").onclick=()=>{const pool=state.filtered.length?state.filtered:state.tools;if(pool.length)openTool(pool[Math.floor(Math.random()*pool.length)])};
@@ -375,7 +375,7 @@ function setupReveal(){
 }
 
 async function init(){
-  if(localStorage.getItem("aiatlas-theme")==="dark")document.body.classList.add("dark");
+  if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
   setupEvents();setupReveal();
   try{
     const response=await fetch("data/tools.json?v=8");
