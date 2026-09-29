@@ -84,7 +84,7 @@ img,svg{max-width:100%}
 .lang-option{flex:1;border:0;background:transparent;padding:7px 6px;color:var(--muted);font-size:10px;font-weight:800}
 .lang-option.active{background:var(--ink);color:var(--paper)}
 .theme-btn{width:38px;border:1px solid var(--rule);background:transparent;border-radius:0;display:grid;place-items:center}
-.theme-sun{display:none}.theme-red .theme-sun{display:inline}.theme-red .theme-moon{display:none}
+.theme-sun{display:none;color:#e04e5f}.theme-moon{color:#4b8dff}.theme-red .theme-sun{display:inline}.theme-red .theme-moon{display:none}
 
 /* layout */
 .app-shell{margin-inline-start:var(--sidebar);min-width:0}
