@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="cursor-aura" aria-hidden="true"></div>
+  <div class="fx-orb fx-orb-a" aria-hidden="true"></div>
+  <div class="fx-orb fx-orb-b" aria-hidden="true"></div>
+  <div class="fx-orb fx-orb-c" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
   <aside class="sidebar">
@@ -170,6 +175,7 @@
 
   <dialog id="toolDialog"><button class="dialog-close" id="dialogClose" aria-label="Close">×</button><div id="dialogContent"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <button id="backTop" class="back-top" aria-label="חזרה למעלה" title="חזרה למעלה">↑</button>
 
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <a href="#top"><span>⌂</span><small data-i18n="navHome">בית</small></a>
