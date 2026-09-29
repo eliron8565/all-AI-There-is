@@ -368,6 +368,80 @@ function setupEvents(){
   });
 }
 
+function setupVisualEffects(){
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  const progress=$("#scrollProgress"),backTop=$("#backTop");
+
+  const updateScroll=()=>{
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    const pct=max>0?Math.min(100,(window.scrollY/max)*100):0;
+    if(progress)progress.style.width=pct+"%";
+    if(backTop)backTop.classList.toggle("show",window.scrollY>650);
+  };
+  updateScroll();
+  window.addEventListener("scroll",updateScroll,{passive:true});
+  window.addEventListener("resize",updateScroll,{passive:true});
+  if(backTop)backTop.onclick=()=>window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});
+
+  if(fine&&!reduce){
+    let mx=innerWidth*.5,my=innerHeight*.28,raf=0;
+    document.addEventListener("pointermove",e=>{
+      mx=e.clientX;my=e.clientY;
+      if(!raf)raf=requestAnimationFrame(()=>{
+        document.documentElement.style.setProperty("--mx",mx+"px");
+        document.documentElement.style.setProperty("--my",my+"px");
+        raf=0;
+      });
+      const card=e.target.closest(".tool-card,.featured-card,.collection-card,.category-card,.platform-card,.student-mini");
+      if(card){
+        const r=card.getBoundingClientRect();
+        const x=e.clientX-r.left,y=e.clientY-r.top;
+        card.style.setProperty("--px",x+"px");
+        card.style.setProperty("--py",y+"px");
+        if(!card.classList.contains("student-mini")){
+          const rx=((y/r.height)-.5)*-3.2;
+          const ry=((x/r.width)-.5)*3.2;
+          card.style.transform=`perspective(850px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-2px)`;
+        }
+      }
+    },{passive:true});
+    document.addEventListener("pointerout",e=>{
+      const card=e.target.closest?.(".tool-card,.featured-card,.collection-card,.category-card,.platform-card,.student-mini");
+      if(card&&!card.contains(e.relatedTarget)){
+        card.style.transform="";
+        card.style.removeProperty("--px");
+        card.style.removeProperty("--py");
+      }
+    });
+  }
+
+  document.addEventListener("click",e=>{
+    const btn=e.target.closest("button,.details-btn,.primary-btn,.surprise-btn,.clear-btn");
+    if(!btn||reduce)return;
+    const r=btn.getBoundingClientRect();
+    const ripple=document.createElement("span");
+    ripple.className="ripple";
+    ripple.style.left=(e.clientX-r.left)+"px";
+    ripple.style.top=(e.clientY-r.top)+"px";
+    const size=Math.max(r.width,r.height)*.75;
+    ripple.style.width=ripple.style.height=size+"px";
+    btn.appendChild(ripple);
+    setTimeout(()=>ripple.remove(),560);
+  });
+
+  const links=[...document.querySelectorAll(".side-nav a")];
+  const sections=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  if("IntersectionObserver" in window&&sections.length){
+    const spy=new IntersectionObserver(entries=>{
+      const visible=entries.filter(x=>x.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(!visible)return;
+      links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+visible.target.id));
+    },{rootMargin:"-20% 0px -65% 0px",threshold:[0,.15,.4,.7]});
+    sections.forEach(s=>spy.observe(s));
+  }
+}
+
 function setupReveal(){
   if(!("IntersectionObserver" in window)){ $$(".reveal").forEach(x=>x.classList.add("visible"));return }
   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.08});
@@ -376,7 +450,7 @@ function setupReveal(){
 
 async function init(){
   if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
-  setupEvents();setupReveal();
+  setupEvents();setupReveal();setupVisualEffects();
   try{
     const response=await fetch("data/tools.json?v=8");
     if(!response.ok)throw new Error("tools.json");
