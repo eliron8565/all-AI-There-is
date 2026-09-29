@@ -3,225 +3,178 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="AI Atlas — קטלוג כלי AI חכם בעברית ובאנגלית: חיפוש, קטגוריות, מחירים והטבות לסטודנטים.">
-  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="AI Atlas — קטלוג AI ענק בעברית ובאנגלית עם כלים, פלטפורמות, מחירים, סטודנטים וכלים חינמיים ללא הגבלה.">
+  <meta name="theme-color" content="#080a0f">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="format-detection" content="telephone=no">
-  <meta property="og:title" content="AI Atlas — כל כלי ה-AI במקום אחד">
-  <meta property="og:description" content="גלה כלי AI לפי שימוש, קטגוריה, מחיר והטבות לסטודנטים.">
-  <meta property="og:type" content="website">
-  <title>AI Atlas — כל כלי ה-AI במקום אחד</title>
+  <title>AI Atlas — כל עולם ה-AI במקום אחד</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.google.com">
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-noise" aria-hidden="true"></div>
-  <div class="aurora aurora-a" aria-hidden="true"></div>
-  <div class="aurora aurora-b" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
 
-  <header class="topbar">
+  <aside class="sidebar">
     <a class="brand" href="#top" aria-label="AI Atlas">
-      <img src="assets/favicon.svg" alt="" class="brand-logo">
+      <span class="brand-mark"><img src="assets/favicon.svg" alt=""></span>
       <span class="brand-copy"><strong>AI Atlas</strong><small data-i18n="brandTag">כל עולם ה-AI, מסודר.</small></span>
     </a>
 
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#top" data-i18n="navHome">בית</a>
-      <a href="#categories" data-i18n="navCategories">קטגוריות</a>
-      <a href="#platforms" data-i18n="navPlatforms">אפליקציות</a>
-      <a href="#students" data-i18n="navStudents">לסטודנטים</a>
-      <a href="#discover" data-i18n="navDiscover">כל הכלים</a>
+    <nav class="side-nav" aria-label="Main navigation">
+      <a href="#top" class="active"><span>⌂</span><span data-i18n="navHome">בית</span></a>
+      <a href="#collections"><span>◇</span><span data-i18n="navCollections">אוספים</span></a>
+      <a href="#categories"><span>▦</span><span data-i18n="navCategories">קטגוריות</span></a>
+      <a href="#platforms"><span>▯</span><span data-i18n="navPlatforms">אפליקציות</span></a>
+      <a href="#students"><span>🎓</span><span data-i18n="navStudents">לסטודנטים</span></a>
+      <a href="#discover"><span>⌕</span><span data-i18n="navDiscover">כל הכלים</span></a>
     </nav>
 
-    <div class="header-actions">
+    <div class="sidebar-stats">
+      <span><b id="statTools">0</b><small data-i18n="statTools">כלים בקטלוג</small></span>
+      <span><b id="statCats">0</b><small data-i18n="statCats">קטגוריות</small></span>
+      <span><b id="statFree">0</b><small data-i18n="statFree">חינם / Freemium</small></span>
+      <span><b id="statStudent">0</b><small data-i18n="statStudent">הטבות סטודנטים</small></span>
+    </div>
+
+    <div class="sidebar-actions">
       <div class="language-switch" aria-label="Language">
         <button id="heBtn" class="lang-option active">עברית</button>
         <button id="enBtn" class="lang-option">EN</button>
       </div>
-      <button class="icon-btn" id="themeBtn" aria-label="Theme">
-        <span class="theme-sun">☀</span><span class="theme-moon">☾</span>
-      </button>
+      <button class="theme-btn" id="themeBtn" aria-label="Theme"><span class="theme-sun">☀</span><span class="theme-moon">◐</span></button>
     </div>
-  </header>
+  </aside>
 
-  <main id="top">
-    <section class="hero reveal">
-      <div class="hero-copy">
-        <div class="eyebrow">
-          <span class="eyebrow-icon">✦</span>
-          <span data-i18n="heroBadge">הדרך המהירה למצוא את כלי ה-AI הנכון</span>
+  <div class="app-shell" id="top">
+    <header class="mobile-top">
+      <a class="mobile-brand" href="#top"><img src="assets/favicon.svg" alt=""><strong>AI Atlas</strong></a>
+      <span class="mobile-count"><b id="heroToolCount">0</b> <span data-i18n="heroTools">כלים</span></span>
+    </header>
+
+    <main>
+      <section class="hero-new reveal">
+        <div class="hero-status"><span class="status-dot"></span><span data-i18n="heroBadge">הדרך המהירה למצוא את כלי ה-AI הנכון</span></div>
+        <h1><span data-i18n="heroLine1">כל כלי ה־AI.</span> <em data-i18n="heroLine2">בלי ללכת לאיבוד.</em></h1>
+        <p data-i18n="heroDesc">חיפוש חכם, קטגוריות ברורות, חינם מול בתשלום, והטבות לסטודנטים — הכל במקום אחד ובעברית.</p>
+
+        <div class="command-box">
+          <span class="command-icon">⌕</span>
+          <input id="heroSearch" type="search" autocomplete="off" placeholder="חפש כלי, משימה, חברה או קטגוריה...">
+          <span class="command-key">/</span>
         </div>
-        <h1>
-          <span data-i18n="heroLine1">כל כלי ה־AI.</span>
-          <span class="gradient-text" data-i18n="heroLine2">בלי ללכת לאיבוד.</span>
-        </h1>
-        <p class="hero-lead" data-i18n="heroDesc">חיפוש חכם, קטגוריות ברורות, חינם מול בתשלום, והטבות לסטודנטים — הכל במקום אחד ובעברית.</p>
 
-        <div class="hero-search-wrap">
-          <div class="hero-search">
-            <span class="search-symbol">⌕</span>
-            <input id="heroSearch" type="search" autocomplete="off" placeholder="חפש ChatGPT, קוד, וידאו, לימודים...">
-            <kbd>/</kbd>
+        <div class="quick-row">
+          <button data-quick="unlimited" class="quick-accent"><span>∞</span><span data-i18n="chipUnlimited">חינם ללא הגבלה</span></button>
+          <button data-quick="free"><span>◉</span><span data-i18n="chipFree">חינם</span></button>
+          <button data-quick="local"><span>◈</span><span data-i18n="chipLocal">AI מקומי</span></button>
+          <button data-quick="student"><span>🎓</span><span data-i18n="chipStudents">לסטודנטים</span></button>
+          <button data-quick="mobile"><span>▯</span><span data-i18n="chipMobile">אפליקציה לפלאפון</span></button>
+          <button data-quick="coding"><span>⌘</span><span data-i18n="chipCode">תכנות</span></button>
+          <button data-quick="image"><span>✦</span><span data-i18n="chipImages">תמונות</span></button>
+        </div>
+
+        <div class="hero-dashboard">
+          <div class="hero-metric"><span data-i18n="metricCatalog">קטלוג</span><strong><b id="heroCategoryCount">0</b> <small data-i18n="heroCategories">קטגוריות</small></strong></div>
+          <div class="hero-metric"><span data-i18n="metricFree">גישה חינמית</span><strong><b id="heroFreeCount">0</b> <small data-i18n="heroFree">עם מסלול חינמי</small></strong></div>
+          <div class="hero-live">
+            <div class="live-title"><span data-i18n="liveTitle">בחירות מהירות</span><span class="live-dot"></span></div>
+            <div id="heroToolsPreview" class="hero-tools-preview"></div>
           </div>
-          <div class="quick-chips">
-            <button data-quick="free"><span>◉</span><span data-i18n="chipFree">חינם</span></button>
-            <button data-quick="unlimited" class="unlimited-quick"><span>∞</span><span data-i18n="chipUnlimited">חינם ללא הגבלה</span></button>
-            <button data-quick="student"><span>🎓</span><span data-i18n="chipStudents">לסטודנטים</span></button>
-            <button data-quick="coding"><span>⌘</span><span data-i18n="chipCode">תכנות</span></button>
-            <button data-quick="image"><span>✦</span><span data-i18n="chipImages">תמונות</span></button>
-            <button data-quick="mobile"><span>▯</span><span data-i18n="chipMobile">אפליקציה לפלאפון</span></button>
+        </div>
+      </section>
+
+      <section class="section collections reveal" id="collections">
+        <div class="section-title-row">
+          <div><span class="kicker">SMART COLLECTIONS</span><h2 data-i18n="collectionsTitle">תתחיל ממה שאתה באמת צריך</h2><p data-i18n="collectionsDesc">אוספים מוכנים שחוסכים חיפוש וסינון ידני.</p></div>
+        </div>
+        <div class="collection-grid">
+          <button class="collection-card unlimited" data-quick="unlimited"><span class="collection-icon">∞</span><div><strong data-i18n="unlimitedTitle">100% חינם וללא הגבלה</strong><small data-i18n="collectionUnlimitedDesc">כלים מקומיים בלי מכסת שירות</small></div><b>↗</b></button>
+          <button class="collection-card local" data-quick="local"><span class="collection-icon">◈</span><div><strong data-i18n="collectionLocal">רץ אצלך במחשב</strong><small data-i18n="collectionLocalDesc">יותר פרטיות ושליטה</small></div><b>↗</b></button>
+          <button class="collection-card student" data-quick="student"><span class="collection-icon">🎓</span><div><strong data-i18n="collectionStudent">לסטודנטים</strong><small data-i18n="collectionStudentDesc">חינם והנחות מיוחדות</small></div><b>↗</b></button>
+          <button class="collection-card mobile" data-quick="mobile"><span class="collection-icon">▯</span><div><strong data-i18n="collectionMobile">AI בכיס</strong><small data-i18n="collectionMobileDesc">Android ו-iPhone/iPad</small></div><b>↗</b></button>
+        </div>
+      </section>
+
+      <section class="section reveal" id="categories">
+        <div class="section-title-row">
+          <div><span class="kicker">EXPLORE</span><h2 data-i18n="categoriesTitle">מה בא לך לעשות עם AI?</h2><p data-i18n="categoriesDesc">בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.</p></div>
+        </div>
+        <div id="categoryGrid" class="category-grid"></div>
+      </section>
+
+      <section class="section reveal" id="platforms">
+        <div class="section-title-row">
+          <div><span class="kicker">PLATFORMS</span><h2 data-i18n="platformsTitle">איפה אפשר להשתמש בכל כלי?</h2><p data-i18n="platformsDesc">Web, מחשב או פלאפון — רואים מיד מה עובד אצלך.</p></div>
+        </div>
+        <div id="platformGrid" class="platform-grid"></div>
+      </section>
+
+      <section class="student-zone reveal" id="students">
+        <div class="student-copy">
+          <span class="student-badge">🎓 <span data-i18n="studentBadge">STUDENT HUB</span></span>
+          <h2 data-i18n="studentTitle">סטודנט? יכול להיות שמגיע לך יותר בפחות.</h2>
+          <p data-i18n="studentDesc">ריכזנו כלי AI עם תוכניות חינמיות או הנחות ייעודיות לסטודנטים. כשיש הטבה מאומתת, נציג מה מקבלים ואיך בודקים זכאות.</p>
+          <div class="student-points">
+            <span>✓ <span data-i18n="studentPoint1">קישור רשמי לכל הטבה</span></span>
+            <span>✓ <span data-i18n="studentPoint2">הסבר קצר על הזכאות</span></span>
+            <span>✓ <span data-i18n="studentPoint3">סינון בלחיצה אחת</span></span>
           </div>
+          <button class="primary-btn" data-quick="student"><span data-i18n="showStudent">הצג כל הטבות הסטודנטים</span><b>↗</b></button>
+        </div>
+        <div id="studentSpotlight" class="student-spotlight"></div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-title-row split">
+          <div><span class="kicker">SPOTLIGHT</span><h2 data-i18n="featuredTitle">כלים שכדאי להכיר</h2><p data-i18n="featuredDesc">קיצורי דרך לכמה מהכלים הבולטים בקטלוג.</p></div>
+          <button id="surpriseBtn" class="surprise-btn"><span>↝</span><span data-i18n="surprise">הפתע אותי</span></button>
+        </div>
+        <div id="featuredRail" class="featured-rail"></div>
+      </section>
+
+      <section class="directory section reveal" id="discover">
+        <div class="directory-head">
+          <div><span class="kicker">DIRECTORY</span><h2 data-i18n="discoverTitle">כל כלי ה-AI במקום אחד</h2><p data-i18n="discoverDesc">חפש בשם, שימוש, חברה או קטגוריה וסנן בדיוק מה שאתה צריך.</p></div>
+          <div class="directory-count"><strong id="resultCount"></strong></div>
         </div>
 
-        <div class="hero-trust">
-          <span><b id="heroToolCount">0</b> <span data-i18n="heroTools">כלים</span></span>
-          <i></i>
-          <span><b id="heroCategoryCount">0</b> <span data-i18n="heroCategories">קטגוריות</span></span>
-          <i></i>
-          <span><b id="heroFreeCount">0</b> <span data-i18n="heroFree">עם מסלול חינמי</span></span>
+        <div class="filters-shell">
+          <div class="filter-search"><span>⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="חיפוש לפי שם או שימוש..."></div>
+          <select id="categoryFilter" aria-label="Category"></select>
+          <select id="pricingFilter" aria-label="Pricing"></select>
+          <select id="platformFilter" aria-label="Platform"></select>
+          <select id="sortFilter" aria-label="Sort"></select>
+          <label class="toggle-pill"><input id="studentFilter" type="checkbox"><span>🎓 <span data-i18n="filterStudents">סטודנטים</span></span></label>
+          <label class="toggle-pill"><input id="favoriteFilter" type="checkbox"><span>★ <span data-i18n="filterFavorites">מועדפים</span></span></label>
+          <button id="clearFilters" class="clear-btn" data-i18n="clear">נקה סינונים</button>
         </div>
-      </div>
 
-      <div class="hero-showcase" aria-hidden="true">
-        <div class="showcase-glow"></div>
-        <div class="showcase-panel">
-          <div class="showcase-top">
-            <div class="window-dots"><span></span><span></span><span></span></div>
-            <span data-i18n="mockTitle">מצא לי כלי AI ל...</span>
-          </div>
-          <div class="mock-search"><span>⌕</span><strong data-i18n="mockQuery">בניית אתר בלי קוד</strong><span class="mock-key">↵</span></div>
-          <div id="heroToolsPreview" class="hero-tools-preview"></div>
-          <div class="mock-footer"><span class="pulse-dot"></span><span data-i18n="mockFooter">תוצאות מותאמות בזמן אמת</span></div>
-        </div>
-        <div class="floating-pill pill-a">AI</div>
-        <div class="floating-pill pill-b">Code</div>
-        <div class="floating-pill pill-c">Video</div>
-      </div>
-    </section>
+        <div id="toolsGrid" class="tools-grid"></div>
+        <div id="emptyState" class="empty hidden"><span>⌕</span><h3 data-i18n="emptyTitle">לא מצאנו כלי מתאים</h3><p data-i18n="emptyDesc">נסה חיפוש או סינון אחר.</p></div>
+      </section>
+    </main>
 
-    <section class="trust-strip reveal">
-      <div class="stat-card"><span class="stat-icon">◫</span><div><strong id="statTools">0</strong><span data-i18n="statTools">כלים בקטלוג</span></div></div>
-      <div class="stat-card"><span class="stat-icon">⌗</span><div><strong id="statCats">0</strong><span data-i18n="statCats">קטגוריות</span></div></div>
-      <div class="stat-card"><span class="stat-icon">○</span><div><strong id="statFree">0</strong><span data-i18n="statFree">חינם / Freemium</span></div></div>
-      <div class="stat-card"><span class="stat-icon">🎓</span><div><strong id="statStudent">0</strong><span data-i18n="statStudent">הטבות סטודנטים</span></div></div>
-    </section>
+    <footer>
+      <div class="footer-brand"><img src="assets/favicon.svg" alt=""><div><strong>AI Atlas</strong><span data-i18n="footerTag">מגלים AI בלי רעש מיותר.</span></div></div>
+      <p data-i18n="footerNote">מחירים והטבות משתנים. לפני הרשמה או רכישה תמיד כדאי לבדוק את התנאים באתר הרשמי.</p>
+      <a href="https://github.com/eliron8565/all-AI-There-is" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </footer>
+  </div>
 
-    <section class="section categories-section reveal" id="categories">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">EXPLORE</span>
-          <h2 data-i18n="categoriesTitle">מה בא לך לעשות עם AI?</h2>
-          <p data-i18n="categoriesDesc">בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.</p>
-        </div>
-      </div>
-      <div id="categoryGrid" class="category-grid"></div>
-    </section>
-
-    <section class="section platform-section reveal" id="platforms">
-      <div class="section-head platform-head">
-        <div>
-          <span class="section-kicker">PLATFORMS</span>
-          <h2 data-i18n="platformsTitle">איפה אפשר להשתמש בכל כלי?</h2>
-          <p data-i18n="platformsDesc">Web, מחשב או פלאפון — רואים מיד אם יש אפליקציה ל-Windows, Mac, Linux, Android או iPhone/iPad.</p>
-        </div>
-        <div class="platform-orbit" aria-hidden="true">
-          <span class="orbit-node">W</span><span class="orbit-node">⌘</span><span class="orbit-node">L</span><span class="orbit-node">A</span><span class="orbit-node"></span>
-        </div>
-      </div>
-      <div id="platformGrid" class="platform-grid"></div>
-    </section>
-
-    <section class="student-zone reveal" id="students">
-      <div class="student-copy">
-        <span class="student-badge">🎓 <span data-i18n="studentBadge">STUDENT HUB</span></span>
-        <h2 data-i18n="studentTitle">סטודנט? יכול להיות שמגיע לך יותר בפחות.</h2>
-        <p data-i18n="studentDesc">ריכזנו כלי AI עם תוכניות חינמיות או הנחות ייעודיות לסטודנטים. כשיש הטבה מאומתת, נציג מה מקבלים ואיך בודקים זכאות.</p>
-        <div class="student-points">
-          <span>✓ <span data-i18n="studentPoint1">קישור רשמי לכל הטבה</span></span>
-          <span>✓ <span data-i18n="studentPoint2">הסבר קצר על הזכאות</span></span>
-          <span>✓ <span data-i18n="studentPoint3">סינון בלחיצה אחת</span></span>
-        </div>
-        <button class="primary-btn" data-quick="student"><span data-i18n="showStudent">הצג כל הטבות הסטודנטים</span><b>←</b></button>
-      </div>
-      <div id="studentSpotlight" class="student-spotlight"></div>
-    </section>
-
-    <section class="section featured-section reveal">
-      <div class="section-head compact">
-        <div>
-          <span class="section-kicker">SPOTLIGHT</span>
-          <h2 data-i18n="featuredTitle">כלים שכדאי להכיר</h2>
-          <p data-i18n="featuredDesc">קיצורי דרך לכמה מהכלים הבולטים בקטלוג.</p>
-        </div>
-        <button id="surpriseBtn" class="ghost-btn"><span>↝</span><span data-i18n="surprise">הפתע אותי</span></button>
-      </div>
-      <div id="featuredRail" class="featured-rail"></div>
-    </section>
-
-    <section class="discover section reveal" id="discover">
-      <div class="section-head">
-        <div>
-          <span class="section-kicker">DIRECTORY</span>
-          <h2 data-i18n="discoverTitle">כל כלי ה-AI במקום אחד</h2>
-          <p data-i18n="discoverDesc">חפש בשם, שימוש, חברה או קטגוריה וסנן בדיוק מה שאתה צריך.</p>
-        </div>
-      </div>
-
-      <div class="filters-shell">
-        <div class="filter-search">
-          <span>⌕</span>
-          <input id="searchInput" type="search" autocomplete="off" placeholder="חיפוש לפי שם או שימוש...">
-        </div>
-        <select id="categoryFilter" aria-label="Category"></select>
-        <select id="pricingFilter" aria-label="Pricing"></select>
-        <select id="platformFilter" aria-label="Platform"></select>
-        <select id="sortFilter" aria-label="Sort"></select>
-        <label class="toggle-pill"><input id="studentFilter" type="checkbox"><span>🎓 <span data-i18n="filterStudents">סטודנטים</span></span></label>
-        <label class="toggle-pill"><input id="favoriteFilter" type="checkbox"><span>★ <span data-i18n="filterFavorites">מועדפים</span></span></label>
-      </div>
-
-      <div class="result-line">
-        <span id="resultCount"></span>
-        <button id="clearFilters" data-i18n="clear">נקה סינונים</button>
-      </div>
-
-      <div id="toolsGrid" class="tools-grid"></div>
-      <div id="emptyState" class="empty hidden">
-        <div class="empty-icon">⌕</div>
-        <h3 data-i18n="emptyTitle">לא מצאנו כלי מתאים</h3>
-        <p data-i18n="emptyDesc">נסה חיפוש או סינון אחר.</p>
-      </div>
-    </section>
-  </main>
-
-  <dialog id="toolDialog">
-    <button class="dialog-close" id="dialogClose" aria-label="Close">×</button>
-    <div id="dialogContent"></div>
-  </dialog>
-
+  <dialog id="toolDialog"><button class="dialog-close" id="dialogClose" aria-label="Close">×</button><div id="dialogContent"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <a href="#top"><span>⌂</span><small data-i18n="navHome">בית</small></a>
+    <a href="#collections"><span>◇</span><small data-i18n="navCollections">אוספים</small></a>
     <a href="#discover"><span>⌕</span><small data-i18n="navDiscover">כל הכלים</small></a>
-    <a href="#platforms"><span>▯</span><small data-i18n="navPlatforms">אפליקציות</small></a>
     <a href="#students"><span>🎓</span><small data-i18n="navStudents">לסטודנטים</small></a>
   </nav>
-
-  <footer>
-    <div class="footer-brand">
-      <img src="assets/favicon.svg" alt="" class="brand-logo small">
-      <div><strong>AI Atlas</strong><span data-i18n="footerTag">מגלים AI בלי רעש מיותר.</span></div>
-    </div>
-    <p data-i18n="footerNote">מחירים והטבות משתנים. לפני הרשמה או רכישה תמיד כדאי לבדוק את התנאים באתר הרשמי.</p>
-    <a href="https://github.com/eliron8565/all-AI-There-is" target="_blank" rel="noreferrer">GitHub ↗</a>
-  </footer>
 
   <script src="app.js"></script>
 </body>
