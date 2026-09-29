@@ -1854,7 +1854,8 @@
     ],
     "descHe": "סוכן AI שמבצע משימות רב־שלביות, מחקר, יצירת מסמכים ואתרים.",
     "descEn": "An AI agent for multi-step tasks, research, documents and websites.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Genspark",
@@ -1875,7 +1876,8 @@
     ],
     "descHe": "סביבת עבודה עם Super Agent, מחקר, מצגות, מסמכים וכלי יצירה.",
     "descEn": "AI workspace with a Super Agent, research, slides, documents and creation tools.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Lindy",
@@ -1894,7 +1896,8 @@
     ],
     "descHe": "בניית סוכני AI אישיים לאימייל, פגישות ותהליכי עבודה.",
     "descEn": "Build personal AI agents for email, meetings and workflows.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Gumloop",
@@ -1913,7 +1916,8 @@
     ],
     "descHe": "אוטומציות AI וזרימות עבודה ללא צורך בקוד.",
     "descEn": "No-code AI automations and workflows.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Relay.app",
@@ -1932,7 +1936,8 @@
     ],
     "descHe": "אוטומציות עם AI ואישור אנושי בשלבים חשובים.",
     "descEn": "AI automations with human-in-the-loop approval steps.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Bardeen",
@@ -1951,7 +1956,8 @@
     ],
     "descHe": "אוטומציות לדפדפן ולעבודה עם אפליקציות ומידע.",
     "descEn": "Browser and app automation powered by AI.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Fathom",
@@ -1972,7 +1978,8 @@
     ],
     "descHe": "עוזר פגישות שמקליט, מתמלל ומסכם שיחות.",
     "descEn": "Meeting assistant that records, transcribes and summarizes calls.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Krisp",
@@ -1994,7 +2001,8 @@
     ],
     "descHe": "סינון רעשים, תמלול, הקלטה וסיכומי פגישות עם AI.",
     "descEn": "Noise cancellation, transcription, recording and AI meeting notes.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Granola",
@@ -2014,7 +2022,8 @@
     ],
     "descHe": "פנקס AI לפגישות שמארגן ומשפר את ההערות שלך.",
     "descEn": "AI meeting notepad that organizes and enhances your notes.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Read AI",
@@ -2033,7 +2042,8 @@
     ],
     "descHe": "סיכומי פגישות, תמלול וניתוח שיחות ופגישות.",
     "descEn": "Meeting summaries, transcription and conversation analytics.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Julius AI",
@@ -2052,7 +2062,8 @@
     ],
     "descHe": "אנליסט AI לקבצי Excel, CSV, בסיסי נתונים ותרשימים.",
     "descEn": "AI data analyst for spreadsheets, databases and charts.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Hex",
@@ -2071,7 +2082,8 @@
     ],
     "descHe": "סביבת עבודה לניתוח נתונים עם SQL, Python ויכולות AI.",
     "descEn": "Data workspace combining SQL, Python and AI.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Akkio",
@@ -2090,7 +2102,8 @@
     ],
     "descHe": "ניתוח, חיזוי ודוחות AI לעסקים ללא צורך בקוד כבד.",
     "descEn": "AI analytics and prediction for business teams.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Rows AI",
@@ -2109,7 +2122,8 @@
     ],
     "descHe": "גיליון עבודה עם AI לניתוח, מחקר ונוסחאות.",
     "descEn": "AI-powered spreadsheets for analysis, research and formulas.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Meshy",
@@ -2128,7 +2142,8 @@
     ],
     "descHe": "יצירת מודלי 3D וטקסטורות מטקסט או תמונות.",
     "descEn": "Generate 3D models and textures from text or images.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Tripo AI",
@@ -2147,7 +2162,8 @@
     ],
     "descHe": "יצירת נכסי 3D מתמונה או טקסט במהירות.",
     "descEn": "Create 3D assets from images or text.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Spline AI",
@@ -2166,7 +2182,8 @@
     ],
     "descHe": "יצירת סצנות ואובייקטים תלת־ממדיים בתוך Spline.",
     "descEn": "Create 3D scenes and objects inside Spline.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Kaedim",
@@ -2185,7 +2202,8 @@
     ],
     "descHe": "המרת תמונות ורעיונות לנכסי 3D מוכנים לעבודה.",
     "descEn": "Turn images and concepts into production-ready 3D assets.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Harvey",
@@ -2204,7 +2222,8 @@
     ],
     "descHe": "פלטפורמת AI מקצועית למחקר, ניסוח ועבודה משפטית.",
     "descEn": "Professional AI platform for legal research, drafting and workflows.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "CoCounsel",
@@ -2223,7 +2242,8 @@
     ],
     "descHe": "עוזר AI משפטי למחקר, בדיקת מסמכים וניסוח.",
     "descEn": "Legal AI assistant for research, document review and drafting.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Spellbook",
@@ -2244,7 +2264,8 @@
     ],
     "descHe": "AI לחוזים שעובד בתוך Microsoft Word.",
     "descEn": "AI contract drafting and review inside Microsoft Word.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Robin AI",
@@ -2263,7 +2284,8 @@
     ],
     "descHe": "סקירה וניהול של חוזים בעזרת AI.",
     "descEn": "AI-powered contract review and management.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Jasper",
@@ -2282,7 +2304,8 @@
     ],
     "descHe": "פלטפורמת AI ליצירת תוכן שיווקי בהתאם למותג.",
     "descEn": "AI marketing platform for on-brand content creation.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Writesonic",
@@ -2301,7 +2324,8 @@
     ],
     "descHe": "כתיבה, SEO ותוכן שיווקי עם AI.",
     "descEn": "AI writing, SEO and marketing content tools.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Copy.ai",
@@ -2320,7 +2344,8 @@
     ],
     "descHe": "אוטומציות ותוכן AI לצוותי שיווק ומכירות.",
     "descEn": "AI content and workflows for marketing and sales teams.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Surfer AI",
@@ -2339,7 +2364,8 @@
     ],
     "descHe": "כתיבת תוכן SEO עם המלצות אופטימיזציה.",
     "descEn": "AI SEO writing with optimization guidance.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Frase",
@@ -2358,7 +2384,8 @@
     ],
     "descHe": "מחקר, כתיבה ואופטימיזציה של תוכן ל־SEO.",
     "descEn": "Research, write and optimize SEO content.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Clay",
@@ -2377,7 +2404,8 @@
     ],
     "descHe": "מחקר לידים, העשרת נתונים ואוטומציות מכירה עם AI.",
     "descEn": "Lead research, enrichment and AI sales automation.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Lavender",
@@ -2396,7 +2424,8 @@
     ],
     "descHe": "עוזר AI לשיפור אימיילים ומסרים במכירות.",
     "descEn": "AI assistant for improving sales emails and outreach.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Apollo.io",
@@ -2415,7 +2444,8 @@
     ],
     "descHe": "מאגר לידים, outreach ואוטומציות מכירה עם AI.",
     "descEn": "Lead database, outreach and AI-powered sales workflows.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Gong",
@@ -2434,7 +2464,8 @@
     ],
     "descHe": "ניתוח שיחות מכירה ו־Revenue Intelligence עם AI.",
     "descEn": "AI-powered sales conversation and revenue intelligence.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Intercom Fin",
@@ -2453,7 +2484,8 @@
     ],
     "descHe": "סוכן תמיכה AI שמענה ללקוחות מתוך מאגר הידע.",
     "descEn": "AI customer support agent grounded in your help content.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Zendesk AI",
@@ -2472,7 +2504,8 @@
     ],
     "descHe": "יכולות AI לסוכני תמיכה, אוטומציה ומענה ללקוחות.",
     "descEn": "AI for support agents, automation and customer service.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Ada",
@@ -2491,7 +2524,8 @@
     ],
     "descHe": "סוכני שירות AI לשיחות ותמיכה אוטומטית.",
     "descEn": "AI customer service agents for automated support.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "ChatPDF",
@@ -2510,7 +2544,8 @@
     ],
     "descHe": "שיחה עם קובצי PDF, שאלות, סיכומים והסברים.",
     "descEn": "Chat with PDFs for questions, summaries and explanations.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Humata",
@@ -2529,7 +2564,8 @@
     ],
     "descHe": "שאלות וסיכום של מסמכים וקבצים ארוכים.",
     "descEn": "Ask questions and summarize long documents.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "AskYourPDF",
@@ -2548,7 +2584,8 @@
     ],
     "descHe": "צ׳אט עם PDF ומסמכים בעזרת AI.",
     "descEn": "AI chat and analysis for PDFs and documents.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "PDFgear",
@@ -2569,7 +2606,8 @@
     ],
     "descHe": "עורך PDF עם כלי AI לסיכום ושיחה עם מסמכים.",
     "descEn": "PDF editor with AI chat and summarization tools.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Teal",
@@ -2588,7 +2626,8 @@
     ],
     "descHe": "בניית קורות חיים, מעקב משרות וכלי AI לקריירה.",
     "descEn": "Resume building, job tracking and AI career tools.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Kickresume",
@@ -2609,7 +2648,8 @@
     ],
     "descHe": "יצירת קורות חיים ומכתבים עם AI.",
     "descEn": "Create resumes and cover letters with AI.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Rezi",
@@ -2628,7 +2668,8 @@
     ],
     "descHe": "בניית קורות חיים מותאמי ATS עם AI.",
     "descEn": "AI resume builder focused on ATS compatibility.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Recraft",
@@ -2647,7 +2688,8 @@
     ],
     "descHe": "יצירת תמונות, וקטורים ועיצובים עם שליטה חזקה בסגנון.",
     "descEn": "Generate images, vectors and designs with strong style control.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Magnific AI",
@@ -2666,7 +2708,8 @@
     ],
     "descHe": "שיפור והגדלת תמונות עם הוספת פרטים בעזרת AI.",
     "descEn": "AI image upscaling and enhancement with added detail.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "remove.bg",
@@ -2687,7 +2730,8 @@
     ],
     "descHe": "הסרת רקע מתמונות בצורה אוטומטית.",
     "descEn": "Automatically remove image backgrounds.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Clipdrop",
@@ -2706,7 +2750,8 @@
     ],
     "descHe": "אוסף כלי AI לעריכה, ניקוי, תאורה והרחבת תמונות.",
     "descEn": "AI tools for image cleanup, relighting and expansion.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Adobe Podcast",
@@ -2725,7 +2770,8 @@
     ],
     "descHe": "שיפור קול והקלטות פודקאסט בעזרת AI.",
     "descEn": "AI voice and podcast audio enhancement.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Cleanvoice AI",
@@ -2744,7 +2790,8 @@
     ],
     "descHe": "ניקוי רעשים, מילים מיותרות והפסקות מהקלטות.",
     "descEn": "Clean filler words, noise and pauses from recordings.",
-    "platformsUpdated": "2026-09-29"
+    "platformsUpdated": "2026-09-29",
+    "isNew": true
   },
   {
     "name": "Open WebUI",
@@ -2773,7 +2820,8 @@
     "unlimitedFree": true,
     "unlimitedScope": "local",
     "unlimitedNoteHe": "בהתקנה עצמית עם מודל מקומי אין מכסת שימוש מצד שירות ענן.",
-    "unlimitedNoteEn": "When self-hosted with a local model, there is no cloud-provider usage quota."
+    "unlimitedNoteEn": "When self-hosted with a local model, there is no cloud-provider usage quota.",
+    "isNew": true
   },
   {
     "name": "AnythingLLM",
@@ -2799,7 +2847,8 @@
     "unlimitedFree": true,
     "unlimitedScope": "local",
     "unlimitedNoteHe": "האפליקציה המקומית עובדת ללא חשבון ויכולה להריץ מודלים מקומיים ללא מגבלת שימוש של ספק.",
-    "unlimitedNoteEn": "The local app works without an account and can run local models without a provider usage quota."
+    "unlimitedNoteEn": "The local app works without an account and can run local models without a provider usage quota.",
+    "isNew": true
   },
   {
     "name": "GPT4All",
@@ -2825,7 +2874,8 @@
     "unlimitedFree": true,
     "unlimitedScope": "local",
     "unlimitedNoteHe": "בהרצה מקומית אין מכסת הודעות של ספק; המגבלה היא החומרה ורישיון המודל.",
-    "unlimitedNoteEn": "Local use has no provider message quota; limits are hardware and model licensing."
+    "unlimitedNoteEn": "Local use has no provider message quota; limits are hardware and model licensing.",
+    "isNew": true
   },
   {
     "name": "LocalAI",
@@ -2851,7 +2901,8 @@
     "unlimitedFree": true,
     "unlimitedScope": "local",
     "unlimitedNoteHe": "Runtime מקומי וקוד פתוח; בשימוש מקומי אין מכסת שירות חיצונית.",
-    "unlimitedNoteEn": "Open local runtime; local use has no external service quota."
+    "unlimitedNoteEn": "Open local runtime; local use has no external service quota.",
+    "isNew": true
   },
   {
     "name": "InvokeAI",
@@ -2876,7 +2927,8 @@
     "unlimitedFree": true,
     "unlimitedScope": "local",
     "unlimitedNoteHe": "בהרצה מקומית עם מודלים שהורדת אין מכסת יצירות של שירות ענן.",
-    "unlimitedNoteEn": "When running downloaded models locally, there is no cloud-service generation quota."
+    "unlimitedNoteEn": "When running downloaded models locally, there is no cloud-service generation quota.",
+    "isNew": true
   },
   {
     "name": "Fooocus",
@@ -2900,6 +2952,7 @@
     "unlimitedFree": true,
     "unlimitedScope": "local",
     "unlimitedNoteHe": "תוכנה מקומית, חינמית וקוד פתוח; אין מכסת יצירות מצד השירות.",
-    "unlimitedNoteEn": "Offline, free and open-source software with no service-side generation quota."
+    "unlimitedNoteEn": "Offline, free and open-source software with no service-side generation quota.",
+    "isNew": true
   }
 ]
