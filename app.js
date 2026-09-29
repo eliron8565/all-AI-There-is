@@ -154,7 +154,7 @@ function toolCard(tool,index){
     <div class="badges">
       <span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>
       ${tool.student?'<span class="badge student">🎓 Student</span>':""}
-      ${tool.isNew?`<span class="badge new">${esc(t("newBadge"))}</span>`:""}
+      ${tool.israelStudent?`<span class="badge israel">🇮🇱 ${esc(t("israelVerified"))}</span>`:""}${tool.isNew?`<span class="badge new">${esc(t("newBadge"))}</span>`:""}
       ${tool.unlimitedFree?`<span class="badge unlimited">∞ ${esc(t("unlimitedBadge").replace(/^∞\s*/, ""))}</span>`:""}
     </div>
     ${platformBadges(tool,true)}
@@ -207,13 +207,14 @@ function openTool(tool){
     </div>
     <div class="dialog-body">
       <p>${esc(localDesc(tool))}</p>
-      <div class="badges"><span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>${tool.student?'<span class="badge student">🎓 Student</span>':""}${tool.isNew?`<span class="badge new">${esc(t("newBadge"))}</span>`:""}${tool.unlimitedFree?`<span class="badge unlimited">${esc(t("unlimitedBadge"))}</span>`:""}</div>
+      <div class="badges"><span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>${tool.student?'<span class="badge student">🎓 Student</span>':""}${tool.israelStudent?`<span class="badge israel">🇮🇱 ${esc(t("israelVerified"))}</span>`:""}${tool.isNew?`<span class="badge new">${esc(t("newBadge"))}</span>`:""}${tool.unlimitedFree?`<span class="badge unlimited">${esc(t("unlimitedBadge"))}</span>`:""}</div>
       <div class="dialog-tags">${(tool.tags||[]).slice(0,8).map(x=>`<span class="dialog-tag">#${esc(x)}</span>`).join("")}</div>
       <div class="dialog-meta">
         <div><small>${esc(t("category"))}</small><strong>${esc(localCategory(tool.category))}</strong></div>
         <div><small>${esc(t("pricing"))}</small><strong>${esc(priceLabel(tool.pricing))}</strong></div>
       </div>
       ${offer?`<div class="student-offer"><strong>🎓 ${esc(t("studentOffer"))}</strong><p>${esc(offer)}</p></div>`:""}
+      ${tool.israelStudent?`<div class="israel-offer"><strong>🇮🇱 ${esc(t("israelStudentOffer"))}</strong><p>${esc(localIsraelOffer(tool))}</p>${tool.israelStudentOfferUrl?`<a href="${esc(tool.israelStudentOfferUrl)}" target="_blank" rel="noreferrer">${esc(t("checkEligibility"))} ↗</a>`:""}</div>`:""}
       ${tool.unlimitedFree?`<div class="unlimited-offer"><strong>∞ ${esc(t("unlimitedTitle"))}</strong><p>${esc(localUnlimitedNote(tool)||t("unlimitedLocal"))}</p></div>`:""}
       <div class="dialog-platforms">
         <div class="dialog-platform-title"><strong>${esc(t("appAvailability"))}</strong><small>${esc(t("platformUpdated"))}: ${esc(tool.platformsUpdated||"2026-09-28")}</small></div>
