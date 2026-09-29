@@ -5,7 +5,7 @@ A polished, bilingual AI-tools directory built for GitHub Pages.
 ## What is included
 
 - **Hebrew by default** with a full English switch
-- **78 AI tools** across chat, coding, research, study, image, video, audio, automation, local AI and more
+- **131 AI tools** across chat, coding, research, study, image, video, audio, automation, local AI and more
 - Real tool icons loaded from each product's domain
 - Responsive desktop, tablet and mobile layout
 - Platform availability for every tool: Web, Windows, macOS, Linux, Android and iPhone/iPad
@@ -82,3 +82,15 @@ The site is intentionally data-driven. Adding tools to `data/tools.json` automat
 ## Platform metadata
 
 Each tool in `data/tools.json` includes a `platforms` array. Supported values are `web`, `windows`, `macos`, `linux`, `android`, and `ios`. Optional `platformNoteHe` and `platformNoteEn` fields can explain special cases such as IDE extensions or local browser interfaces.
+
+
+## 2026-09-29 redesign
+
+- Completely rebuilt interface using an AI command-center layout
+- Fixed desktop sidebar + mobile bottom navigation
+- Smart collections for unlimited free, local AI, students and mobile apps
+- 131 AI tools across 30 categories
+- 53 newly added tools are marked with a NEW badge
+- Newest-first sorting
+- 11 verified local/unlimited-free entries
+- Added categories including AI Agents, Data & Analytics, 3D & Assets, Legal AI, Marketing & SEO, Sales & CRM, Customer Support, PDF & Documents, and Career & Resume
