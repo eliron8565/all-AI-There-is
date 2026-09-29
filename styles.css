@@ -369,3 +369,272 @@ select,input,button,dialog{color-scheme:dark}
 @media(prefers-color-scheme:light){
   html{background:#080b12;color-scheme:dark}
 }
+
+
+/* --- vNext: larger typography + restrained dark wow factor --- */
+body{
+  font-size:16px;
+  background:
+    radial-gradient(circle at 82% -12%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 31%),
+    radial-gradient(circle at 6% 38%,rgba(31,72,132,.08),transparent 24%),
+    var(--paper)
+}
+body.theme-red{
+  background:
+    radial-gradient(circle at 82% -12%,rgba(224,78,95,.11),transparent 31%),
+    radial-gradient(circle at 5% 42%,rgba(105,25,39,.08),transparent 25%),
+    var(--paper)
+}
+.bg-grid{
+  opacity:.2;
+  background-size:26px 26px
+}
+.sidebar{
+  box-shadow:12px 0 40px rgba(0,0,0,.13);
+  backdrop-filter:blur(14px)
+}
+.brand-mark{
+  border-color:color-mix(in srgb,var(--accent) 36%,var(--rule));
+  box-shadow:0 0 24px color-mix(in srgb,var(--accent) 10%,transparent)
+}
+.brand-copy strong{font-size:20px}
+.brand-copy small{font-size:12px}
+.side-nav a{min-height:48px;font-size:15px}
+.side-nav a>span:first-child{font-size:15px}
+.sidebar-stats b{font-size:21px}
+.sidebar-stats small{font-size:10px}
+.lang-option{font-size:12px}
+.theme-btn{transition:border-color .2s,background .2s,transform .2s}
+.theme-btn:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateY(-1px)}
+
+.hero-new:before{
+  content:"";position:absolute;inset-inline-end:4%;top:42px;width:270px;height:270px;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 13%,transparent),transparent 68%);
+  filter:blur(8px);pointer-events:none
+}
+.hero-status{font-size:13px}
+.hero-new h1{
+  max-width:1160px;
+  font-size:clamp(64px,7.5vw,116px);
+  text-shadow:0 16px 45px rgba(0,0,0,.18)
+}
+.hero-new h1 em{
+  text-shadow:0 0 34px color-mix(in srgb,var(--accent) 18%,transparent)
+}
+.hero-new>p{font-size:20px;max-width:800px;line-height:1.7}
+.command-box{
+  height:74px;
+  border-color:color-mix(in srgb,var(--accent) 34%,var(--rule));
+  box-shadow:0 18px 60px rgba(0,0,0,.22),0 0 0 1px rgba(255,255,255,.015) inset;
+  transition:border-color .2s,box-shadow .2s,transform .2s
+}
+.command-box:focus-within{
+  border-color:var(--accent);
+  box-shadow:0 20px 68px rgba(0,0,0,.28),0 0 30px color-mix(in srgb,var(--accent) 8%,transparent);
+  transform:translateY(-1px)
+}
+.command-icon{font-size:28px}
+.command-box input{font-size:19px}
+.command-key{font-size:12px}
+.quick-row button{
+  min-height:40px;
+  padding:9px 13px;
+  font-size:13px;
+  transition:background .18s,color .18s,border-color .18s
+}
+.quick-row button:hover{background:color-mix(in srgb,var(--accent) 7%,var(--paper-2))}
+.hero-dashboard{max-width:1040px}
+.hero-metric{padding:19px}
+.hero-metric>span{font-size:11px}
+.hero-metric b{font-size:34px}
+.hero-metric small{font-size:11px}
+.live-title{font-size:11px}
+.preview-tool{padding:11px}
+.preview-logo{width:34px;height:34px;flex-basis:34px}
+.preview-tool strong{font-size:13px}
+.preview-tool small{font-size:10px}
+.preview-score{font-size:9px}
+
+.section{padding:70px 0}
+.kicker{font-size:11px}
+.section-title-row h2,.student-zone h2,.directory-head h2{
+  font-size:clamp(38px,4vw,56px)
+}
+.section-title-row p,.directory-head p{font-size:16px;line-height:1.65}
+
+.collection-grid,.category-grid,.platform-grid,.featured-rail,.student-spotlight,.tools-grid{
+  box-shadow:0 18px 55px rgba(0,0,0,.08)
+}
+.collection-card{
+  min-height:142px;
+  padding:22px;
+  transition:background .18s,transform .18s,border-color .18s
+}
+.collection-card:hover{transform:translateY(-2px)}
+.collection-card:first-child{
+  background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 20%,#0b1019),#090d14)
+}
+.collection-icon{width:46px;height:46px;font-size:18px}
+.collection-card strong{font-size:17px}
+.collection-card small{font-size:12px;line-height:1.4}
+.collection-card>b{font-size:13px}
+
+.category-card{
+  min-height:134px;
+  padding:18px;
+  transition:background .18s,transform .18s
+}
+.category-card:hover{transform:translateY(-2px)}
+.category-icon{width:34px;height:34px;font-size:15px}
+.category-card h3{font-size:16px;margin-top:14px}
+.category-card p{font-size:11px}
+.category-arrow{font-size:13px}
+
+.platform-card{
+  min-height:76px;
+  padding:17px;
+  transition:background .18s,transform .18s
+}
+.platform-card:hover{transform:translateY(-2px)}
+.platform-card-icon{width:40px;height:40px;flex-basis:40px;font-size:13px}
+.platform-card-copy strong{font-size:14px}
+.platform-card-copy small{font-size:10px}
+.platform-card-arrow{font-size:11px}
+
+.student-zone{padding:38px 0;gap:46px}
+.student-badge{font-size:11px}
+.student-copy>p{font-size:16px;line-height:1.7}
+.student-points{font-size:13px}
+.primary-btn{min-height:44px;padding:11px 15px;font-size:13px}
+.student-mini{padding:14px}
+.student-mini-logo{width:43px;height:43px;flex-basis:43px}
+.student-mini-body strong{font-size:15px}
+.student-mini-body small{font-size:10px}
+.verified{font-size:10px}
+
+.surprise-btn{font-size:13px}
+.featured-card{padding:19px;transition:background .18s,transform .18s}
+.featured-card:hover{transform:translateY(-2px)}
+.featured-logo{width:45px;height:45px;flex-basis:45px}
+.featured-card h3{font-size:16px}
+.featured-card small{font-size:10px}
+.featured-card p{font-size:13px;line-height:1.55;min-height:46px}
+
+.directory-count strong{font-size:14px}
+.filters-shell{
+  box-shadow:0 14px 38px rgba(0,0,0,.18);
+  border-color:color-mix(in srgb,var(--accent) 22%,var(--rule))
+}
+.filter-search input{height:48px;font-size:15px}
+.filter-search span{font-size:20px}
+.filters-shell select{height:48px;font-size:12px}
+.toggle-pill{min-height:48px;font-size:11px}
+.clear-btn{min-height:48px;font-size:11px}
+
+.tool-card{
+  padding:20px;
+  transition:background .18s,transform .18s,box-shadow .18s
+}
+.tool-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 45px rgba(0,0,0,.15)
+}
+.tool-logo{width:48px;height:48px;flex-basis:48px}
+.tool-name{font-size:18px}
+.tool-maker{font-size:11px}
+.fav-btn{width:34px;height:34px;flex-basis:34px;font-size:16px}
+.tool-desc{font-size:13.5px;line-height:1.65;min-height:54px}
+.badge{font-size:10px;padding:3px 0}
+.platform-chip{font-size:10px;padding:3px 0}
+.platform-chip b{font-size:10px}
+.category-label{font-size:10px}
+.details-btn{font-size:11px}
+
+dialog{width:min(720px,94vw);padding:30px}
+.dialog-head .tool-logo{width:58px;height:58px}
+.dialog-head h2{font-size:31px}
+.dialog-body>p{font-size:15px}
+.dialog-tag{font-size:10px}
+.dialog-meta small{font-size:10px}
+.dialog-meta strong{font-size:13px}
+.student-offer p,.unlimited-offer p,.dialog-platforms>p{font-size:13px}
+.dialog-platform-title strong{font-size:13px}
+.dialog-platform-title small{font-size:9px}
+.dialog-link,.copy-btn{min-height:46px;font-size:12px}
+
+footer{font-size:11px}
+.footer-brand strong{font-size:14px}
+.footer-brand span{font-size:10px}
+
+@media(max-width:900px){
+  .hero-new h1{font-size:clamp(50px,11vw,78px)}
+  .hero-new>p{font-size:17px}
+  .command-box{height:62px}
+  .command-box input{font-size:17px}
+  .quick-row button{font-size:12px}
+  .section{padding:54px 0}
+  .section-title-row h2,.student-zone h2,.directory-head h2{font-size:36px}
+  .section-title-row p,.directory-head p{font-size:14px}
+  .collection-card strong{font-size:15px}
+  .collection-card small{font-size:11px}
+  .category-card h3{font-size:15px}
+  .category-card p{font-size:11px}
+  .platform-card-copy strong{font-size:13px}
+  .platform-card-copy small{font-size:10px}
+  .student-copy>p{font-size:15px}
+  .student-points{font-size:12px}
+  .student-mini-body strong{font-size:14px}
+  .featured-card h3{font-size:15px}
+  .featured-card p{font-size:12px}
+  .tool-name{font-size:17px}
+  .tool-maker{font-size:10px}
+  .tool-desc{font-size:13px}
+  .badge,.platform-chip{font-size:9px}
+  .mobile-nav small{font-size:10px}
+  .mobile-nav a>span{font-size:18px}
+}
+
+@media(max-width:580px){
+  .brand-copy strong{font-size:15px}
+  .hero-status{font-size:11px}
+  .hero-new h1{font-size:clamp(43px,12.5vw,58px);line-height:.96}
+  .hero-new>p{font-size:16px;line-height:1.62}
+  .command-box{height:58px}
+  .command-box input{font-size:16px}
+  .quick-row button{font-size:12px;min-height:38px}
+  .hero-metric>span{font-size:10px}
+  .hero-metric b{font-size:27px}
+  .hero-metric small{font-size:10px}
+  .section-title-row h2,.student-zone h2,.directory-head h2{font-size:34px}
+  .section-title-row p,.directory-head p{font-size:14px}
+  .collection-card{min-height:102px;padding:16px}
+  .collection-card strong{font-size:16px}
+  .collection-card small{font-size:12px}
+  .category-card{min-height:122px;padding:16px}
+  .category-card h3{font-size:16px}
+  .category-card p{font-size:11px}
+  .platform-card{min-height:72px;padding:14px}
+  .platform-card-copy strong{font-size:13px}
+  .platform-card-copy small{font-size:10px}
+  .student-copy>p{font-size:15px}
+  .student-points{font-size:12px}
+  .primary-btn{font-size:12px}
+  .filters-shell select{font-size:11px}
+  .toggle-pill{font-size:10px}
+  .tool-card{padding:17px}
+  .tool-logo{width:46px;height:46px;flex-basis:46px}
+  .tool-name{font-size:18px}
+  .tool-maker{font-size:11px}
+  .tool-desc{font-size:14px;line-height:1.6}
+  .badge,.platform-chip{font-size:10px}
+  .category-label,.details-btn{font-size:11px}
+  dialog{padding:23px 17px}
+  .dialog-head h2{font-size:27px}
+  .dialog-body>p{font-size:14px}
+}
+
+@media(max-width:360px){
+  .hero-new h1{font-size:40px}
+  .tool-name{font-size:17px}
+  .tool-desc{font-size:13px}
+}
