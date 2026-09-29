@@ -247,7 +247,7 @@ function buildCategories(){
       <span class="category-arrow">←</span>
     </button>`
   }).join("");
-  $(".category-card").forEach(btn=>btn.onclick=()=>{
+  $$(".category-card").forEach(btn=>btn.onclick=()=>{
     if(btn.dataset.unlimited){
       resetFilters();
       els.price.value="unlimited";
