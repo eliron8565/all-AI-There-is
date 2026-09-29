@@ -32,7 +32,7 @@ const copy={
     filterStudents:"סטודנטים",filterFavorites:"מועדפים",clear:"נקה סינונים",emptyTitle:"לא מצאנו כלי מתאים",emptyDesc:"נסה חיפוש או סינון אחר.",
     footerTag:"מגלים AI בלי רעש מיותר.",footerNote:"מחירים והטבות משתנים. לפני הרשמה או רכישה תמיד כדאי לבדוק את התנאים באתר הרשמי.",
     allCategories:"כל הקטגוריות",allPrices:"כל המחירים",allPlatforms:"כל הפלטפורמות",mobileApps:"אפליקציות לפלאפון",free:"חינם",freemium:"חינם + בתשלום",paid:"בתשלום",unlimitedFree:"100% חינם + ללא הגבלה",unlimitedBadge:"∞ חינם ללא הגבלה",unlimitedTitle:"100% חינם וללא הגבלה",unlimitedDesc:"כלים שאפשר להריץ מקומית בלי מכסת הודעות או יצירות מצד השירות.",unlimitedLocal:"ללא מכסת שירות בהרצה מקומית",
-    sortDefault:"סדר מומלץ",sortAZ:"א׳ → ת׳ / A → Z",sortZA:"ת׳ → א׳ / Z → A",sortFree:"חינם קודם",
+    sortDefault:"סדר מומלץ",sortNew:"חדשים קודם",sortAZ:"א׳ → ת׳ / A → Z",sortZA:"ת׳ → א׳ / Z → A",sortFree:"חינם קודם",newBadge:"חדש",
     found:"כלים נמצאו",details:"פרטים",category:"קטגוריה",pricing:"מחיר",studentOffer:"הטבת סטודנט מאומתת",
     official:"לאתר הרשמי",copyLink:"העתק קישור",copied:"הקישור הועתק",appAvailability:"אפליקציות ופלטפורמות",platformUpdated:"מידע על פלטפורמות עודכן",favoritesOnly:"מועדפים",verified:"מאומת",toolsInCategory:"כלים",
     noDescription:"כלי AI בקטלוג AI Atlas.",siteTitle:"AI Atlas — כל כלי ה-AI במקום אחד"
@@ -52,7 +52,7 @@ const copy={
     filterStudents:"Students",filterFavorites:"Favorites",clear:"Clear filters",emptyTitle:"No matching tools found",emptyDesc:"Try a different search or filter.",
     footerTag:"Discover AI without the noise.",footerNote:"Prices and offers change. Always check the official website before signing up or purchasing.",
     allCategories:"All categories",allPrices:"All pricing",allPlatforms:"All platforms",mobileApps:"Mobile apps",free:"Free",freemium:"Free + paid",paid:"Paid",unlimitedFree:"100% free + unlimited",unlimitedBadge:"∞ Free & unlimited",unlimitedTitle:"100% free and unlimited",unlimitedDesc:"Tools you can run locally without a provider message or generation quota.",unlimitedLocal:"No provider quota when running locally",
-    sortDefault:"Recommended order",sortAZ:"A → Z",sortZA:"Z → A",sortFree:"Free first",
+    sortDefault:"Recommended order",sortNew:"Newest first",sortAZ:"A → Z",sortZA:"Z → A",sortFree:"Free first",newBadge:"NEW",
     found:"tools found",details:"Details",category:"Category",pricing:"Pricing",studentOffer:"Verified student offer",
     official:"Official website",copyLink:"Copy link",copied:"Link copied",appAvailability:"Apps & platforms",platformUpdated:"Platform info updated",favoritesOnly:"Favorites",verified:"Verified",toolsInCategory:"tools",
     noDescription:"An AI tool in the AI Atlas directory.",siteTitle:"AI Atlas — Every AI tool in one place"
@@ -153,6 +153,7 @@ function toolCard(tool,index){
     <div class="badges">
       <span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>
       ${tool.student?'<span class="badge student">🎓 Student</span>':""}
+      ${tool.isNew?`<span class="badge new">${esc(t("newBadge"))}</span>`:""}
       ${tool.unlimitedFree?`<span class="badge unlimited">∞ ${esc(t("unlimitedBadge").replace(/^∞\s*/, ""))}</span>`:""}
     </div>
     ${platformBadges(tool,true)}
@@ -175,6 +176,7 @@ function renderTools(){
       &&(!els.fav.checked||state.favorites.has(tool.name));
   });
 
+  if(els.sort.value==="new") results.sort((a,b)=>Number(!!b.isNew)-Number(!!a.isNew));
   if(els.sort.value==="az") results.sort((a,b)=>a.name.localeCompare(b.name));
   if(els.sort.value==="za") results.sort((a,b)=>b.name.localeCompare(a.name));
   if(els.sort.value==="free") results.sort((a,b)=>({free:0,freemium:1,paid:2}[a.pricing]-{free:0,freemium:1,paid:2}[b.pricing]));
@@ -204,7 +206,7 @@ function openTool(tool){
     </div>
     <div class="dialog-body">
       <p>${esc(localDesc(tool))}</p>
-      <div class="badges"><span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>${tool.student?'<span class="badge student">🎓 Student</span>':""}${tool.unlimitedFree?`<span class="badge unlimited">${esc(t("unlimitedBadge"))}</span>`:""}</div>
+      <div class="badges"><span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>${tool.student?'<span class="badge student">🎓 Student</span>':""}${tool.isNew?`<span class="badge new">${esc(t("newBadge"))}</span>`:""}${tool.unlimitedFree?`<span class="badge unlimited">${esc(t("unlimitedBadge"))}</span>`:""}</div>
       <div class="dialog-tags">${(tool.tags||[]).slice(0,8).map(x=>`<span class="dialog-tag">#${esc(x)}</span>`).join("")}</div>
       <div class="dialog-meta">
         <div><small>${esc(t("category"))}</small><strong>${esc(localCategory(tool.category))}</strong></div>
@@ -305,7 +307,7 @@ function fillFilters(){
   els.cat.innerHTML=`<option value="all">${esc(t("allCategories"))}</option>`+cats.map(cat=>`<option value="${esc(cat)}">${esc(localCategory(cat))}</option>`).join("");
   els.price.innerHTML=`<option value="all">${esc(t("allPrices"))}</option><option value="unlimited">∞ ${esc(t("unlimitedFree"))}</option><option value="free">${esc(t("free"))}</option><option value="freemium">${esc(t("freemium"))}</option><option value="paid">${esc(t("paid"))}</option>`;
   els.platform.innerHTML=`<option value="all">${esc(t("allPlatforms"))}</option><option value="mobile">${esc(t("mobileApps"))}</option>`+Object.keys(platformMeta).map(p=>`<option value="${p}">${esc(platformLabel(p))}</option>`).join("");
-  els.sort.innerHTML=`<option value="default">${esc(t("sortDefault"))}</option><option value="az">${esc(t("sortAZ"))}</option><option value="za">${esc(t("sortZA"))}</option><option value="free">${esc(t("sortFree"))}</option>`;
+  els.sort.innerHTML=`<option value="default">${esc(t("sortDefault"))}</option><option value="new">${esc(t("sortNew"))}</option><option value="az">${esc(t("sortAZ"))}</option><option value="za">${esc(t("sortZA"))}</option><option value="free">${esc(t("sortFree"))}</option>`;
   if([...els.cat.options].some(o=>o.value===currentCat))els.cat.value=currentCat;
   if([...els.price.options].some(o=>o.value===currentPrice))els.price.value=currentPrice;
   if([...els.platform.options].some(o=>o.value===currentPlatform))els.platform.value=currentPlatform;
@@ -376,7 +378,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme")==="light")document.body.classList.add("light");
   setupEvents();setupReveal();
   try{
-    const response=await fetch("data/tools.json?v=6");
+    const response=await fetch("data/tools.json?v=7");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();
