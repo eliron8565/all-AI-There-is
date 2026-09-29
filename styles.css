@@ -779,3 +779,6 @@ body::before{
   .fx-orb,.hero-new h1 em,.hero-status .status-dot,.live-dot{animation:none!important}
   .cursor-aura{display:none}
 }
+
+/* FX positioning safety */
+.platform-card,.featured-card,.student-mini{position:relative}
