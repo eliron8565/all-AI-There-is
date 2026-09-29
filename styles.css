@@ -1,16 +1,16 @@
 :root{
-  --paper:#f4f0e8;
-  --paper-2:#ece6dc;
-  --ink:#171717;
-  --ink-2:#2c2b29;
-  --muted:#6f6b64;
-  --rule:#d5cec2;
-  --card:#f9f6f0;
-  --accent:#c5482f;
-  --accent-soft:#f0d7cf;
-  --blue:#375f92;
-  --green:#426b55;
-  --gold:#9a7028;
+  --paper:#080b12;
+  --paper-2:#0d1320;
+  --ink:#eef4ff;
+  --ink-2:#c8d2e3;
+  --muted:#7e8da3;
+  --rule:#1d2a3a;
+  --card:#0b111b;
+  --accent:#4b8dff;
+  --accent-soft:#11284d;
+  --blue:#65a3ff;
+  --green:#63c596;
+  --gold:#d3a45b;
   --sidebar:230px;
   --content:min(1360px,calc(100vw - var(--sidebar) - 56px));
   --display:"Frank Ruhl Libre",Georgia,serif;
@@ -19,22 +19,22 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:24px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{
-  margin:0;min-height:100svh;background:var(--paper);color:var(--ink);
+  margin:0;min-height:100svh;background:radial-gradient(circle at 82% -10%,rgba(47,104,196,.10),transparent 28%),var(--paper);color:var(--ink);
   font-family:var(--body);overflow-x:hidden
 }
-body.dark{
-  --paper:#161513;
-  --paper-2:#1e1c19;
-  --ink:#f0ece4;
-  --ink-2:#d8d1c7;
-  --muted:#9b948a;
-  --rule:#37332e;
-  --card:#1b1916;
-  --accent:#e16a4f;
-  --accent-soft:#4b2921;
-  --blue:#86a7d5;
-  --green:#8ab49a;
-  --gold:#d0a558
+body.theme-red{
+  --paper:#09090c;
+  --paper-2:#121014;
+  --ink:#f5eff2;
+  --ink-2:#d8cdd2;
+  --muted:#93858b;
+  --rule:#2b2025;
+  --card:#0e0c10;
+  --accent:#e04e5f;
+  --accent-soft:#39161d;
+  --blue:#8d7cff;
+  --green:#72bd92;
+  --gold:#d0a15b
 }
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit;color:inherit}
@@ -43,16 +43,16 @@ img,svg{max-width:100%}
 ::selection{background:var(--accent-soft)}
 .bg-grid{
   position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.3;
-  background-image:radial-gradient(circle at 1px 1px,rgba(40,35,29,.12) 1px,transparent 0);
+  background-image:radial-gradient(circle at 1px 1px,rgba(113,151,209,.13) 1px,transparent 0);
   background-size:22px 22px
 }
-.dark .bg-grid{opacity:.14}
+.theme-red .bg-grid{opacity:.14}
 
 /* sidebar */
 .sidebar{
   position:fixed;z-index:70;inset-block:0;inset-inline-start:0;width:var(--sidebar);
   display:flex;flex-direction:column;padding:28px 20px 22px;
-  border-inline-end:1px solid var(--rule);background:color-mix(in srgb,var(--paper) 96%,transparent)
+  border-inline-end:1px solid var(--rule);background:color-mix(in srgb,var(--paper) 94%,transparent)
 }
 .brand{display:flex;align-items:center;gap:12px;padding-bottom:28px}
 .brand-mark{
@@ -60,7 +60,7 @@ img,svg{max-width:100%}
   background:var(--ink);border-radius:2px
 }
 .brand-mark img{width:27px;height:27px;filter:grayscale(1) brightness(3)}
-.dark .brand-mark img{filter:none}
+.theme-red .brand-mark img{filter:none}
 .brand-copy strong{display:block;font:800 18px Inter;letter-spacing:-.04em}
 .brand-copy small{display:block;margin-top:2px;color:var(--muted);font-size:10px}
 .side-nav{display:grid;gap:1px}
@@ -84,7 +84,7 @@ img,svg{max-width:100%}
 .lang-option{flex:1;border:0;background:transparent;padding:7px 6px;color:var(--muted);font-size:10px;font-weight:800}
 .lang-option.active{background:var(--ink);color:var(--paper)}
 .theme-btn{width:38px;border:1px solid var(--rule);background:transparent;border-radius:0;display:grid;place-items:center}
-.theme-sun{display:none}.dark .theme-sun{display:inline}.dark .theme-moon{display:none}
+.theme-sun{display:none}.theme-red .theme-sun{display:inline}.theme-red .theme-moon{display:none}
 
 /* layout */
 .app-shell{margin-inline-start:var(--sidebar);min-width:0}
@@ -139,7 +139,7 @@ main{width:var(--content);margin:auto;padding-bottom:88px}
 .preview-tool{
   display:flex;align-items:center;gap:8px;min-width:0;padding:9px;border-inline-end:1px solid var(--rule);border-bottom:1px solid var(--rule)
 }
-.preview-logo,.tool-logo,.student-mini-logo,.featured-logo{display:grid;place-items:center;overflow:hidden;background:#fff}
+.preview-logo,.tool-logo,.student-mini-logo,.featured-logo{display:grid;place-items:center;overflow:hidden;background:#f3f6fb}
 .preview-logo{width:30px;height:30px;flex:0 0 30px;border-radius:2px}
 .preview-logo img,.tool-logo img,.student-mini-logo img,.featured-logo img{width:100%;height:100%;object-fit:contain}
 .preview-tool>div:not(.preview-logo){min-width:0}.preview-tool strong{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.preview-tool small{display:block;color:var(--muted);font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -254,7 +254,7 @@ main{width:var(--content);margin:auto;padding-bottom:88px}
 }
 .tool-card:nth-child(6n+1),.tool-card:nth-child(6n+5){background:color-mix(in srgb,var(--paper-2) 42%,transparent)}
 .tool-card:hover{background:var(--paper-2)}
-.tool-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.tool-ident{display:flex;align-items:center;gap:10px;min-width:0}.tool-logo{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--rule);border-radius:2px}.tool-logo img{padding:6px}.logo-fallback{font:800 10px Inter;color:#111}
+.tool-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.tool-ident{display:flex;align-items:center;gap:10px;min-width:0}.tool-logo{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--rule);border-radius:2px}.tool-logo img{padding:6px}.logo-fallback{font:800 10px Inter;color:#0b0d11}
 .tool-name{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tool-maker{margin-top:2px;color:var(--muted);font-size:8px}
 .fav-btn{width:28px;height:28px;flex:0 0 28px;border:0;border-bottom:1px solid var(--rule);background:transparent;color:#89837a;font-size:13px}.fav-btn:hover,.fav-btn.active{color:var(--gold)}
 .tool-desc{min-height:40px;margin:13px 0;color:var(--muted);font-size:10.5px;line-height:1.55}
@@ -359,4 +359,13 @@ footer{
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition:none!important}
   .reveal{opacity:1;transform:none}
+}
+
+/* dark-only safety: never flash a white surface */
+html{background:#080b12;color-scheme:dark}
+body.theme-red{color-scheme:dark}
+select,input,button,dialog{color-scheme:dark}
+.filters-shell,.sidebar,.mobile-nav,dialog,.command-box{background-color:var(--paper)}
+@media(prefers-color-scheme:light){
+  html{background:#080b12;color-scheme:dark}
 }
