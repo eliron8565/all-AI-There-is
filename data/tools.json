@@ -1836,5 +1836,1070 @@
     "descHe": "כלי יצירה קולנועי של Google ליצירת קליפים וסצנות בעזרת AI.",
     "descEn": "Google's AI filmmaking tool for creating clips and scenes.",
     "platformsUpdated": "2026-09-28"
+  },
+  {
+    "name": "Manus",
+    "maker": "Manus",
+    "url": "https://manus.im",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "agent",
+      "research",
+      "automation"
+    ],
+    "descHe": "סוכן AI שמבצע משימות רב־שלביות, מחקר, יצירת מסמכים ואתרים.",
+    "descEn": "An AI agent for multi-step tasks, research, documents and websites.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Genspark",
+    "maker": "Genspark",
+    "url": "https://www.genspark.ai",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos"
+    ],
+    "tags": [
+      "agent",
+      "research",
+      "workspace"
+    ],
+    "descHe": "סביבת עבודה עם Super Agent, מחקר, מצגות, מסמכים וכלי יצירה.",
+    "descEn": "AI workspace with a Super Agent, research, slides, documents and creation tools.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Lindy",
+    "maker": "Lindy",
+    "url": "https://www.lindy.ai",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "agent",
+      "automation",
+      "assistant"
+    ],
+    "descHe": "בניית סוכני AI אישיים לאימייל, פגישות ותהליכי עבודה.",
+    "descEn": "Build personal AI agents for email, meetings and workflows.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Gumloop",
+    "maker": "Gumloop",
+    "url": "https://www.gumloop.com",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "agent",
+      "automation",
+      "workflow"
+    ],
+    "descHe": "אוטומציות AI וזרימות עבודה ללא צורך בקוד.",
+    "descEn": "No-code AI automations and workflows.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Relay.app",
+    "maker": "Relay",
+    "url": "https://www.relay.app",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "agent",
+      "automation",
+      "workflow"
+    ],
+    "descHe": "אוטומציות עם AI ואישור אנושי בשלבים חשובים.",
+    "descEn": "AI automations with human-in-the-loop approval steps.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Bardeen",
+    "maker": "Bardeen",
+    "url": "https://www.bardeen.ai",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "automation",
+      "browser",
+      "agent"
+    ],
+    "descHe": "אוטומציות לדפדפן ולעבודה עם אפליקציות ומידע.",
+    "descEn": "Browser and app automation powered by AI.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Fathom",
+    "maker": "Fathom",
+    "url": "https://fathom.video",
+    "category": "Meetings & Transcription",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos"
+    ],
+    "tags": [
+      "meeting",
+      "notes",
+      "transcription"
+    ],
+    "descHe": "עוזר פגישות שמקליט, מתמלל ומסכם שיחות.",
+    "descEn": "Meeting assistant that records, transcribes and summarizes calls.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Krisp",
+    "maker": "Krisp",
+    "url": "https://krisp.ai",
+    "category": "Meetings & Transcription",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "tags": [
+      "meeting",
+      "noise",
+      "transcription"
+    ],
+    "descHe": "סינון רעשים, תמלול, הקלטה וסיכומי פגישות עם AI.",
+    "descEn": "Noise cancellation, transcription, recording and AI meeting notes.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Granola",
+    "maker": "Granola",
+    "url": "https://www.granola.ai",
+    "category": "Meetings & Transcription",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "macos",
+      "ios"
+    ],
+    "tags": [
+      "meeting",
+      "notes",
+      "productivity"
+    ],
+    "descHe": "פנקס AI לפגישות שמארגן ומשפר את ההערות שלך.",
+    "descEn": "AI meeting notepad that organizes and enhances your notes.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Read AI",
+    "maker": "Read AI",
+    "url": "https://www.read.ai",
+    "category": "Meetings & Transcription",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "meeting",
+      "summary",
+      "analytics"
+    ],
+    "descHe": "סיכומי פגישות, תמלול וניתוח שיחות ופגישות.",
+    "descEn": "Meeting summaries, transcription and conversation analytics.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Julius AI",
+    "maker": "Julius",
+    "url": "https://julius.ai",
+    "category": "Data & Analytics",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "data",
+      "analytics",
+      "charts"
+    ],
+    "descHe": "אנליסט AI לקבצי Excel, CSV, בסיסי נתונים ותרשימים.",
+    "descEn": "AI data analyst for spreadsheets, databases and charts.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Hex",
+    "maker": "Hex",
+    "url": "https://hex.tech",
+    "category": "Data & Analytics",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "data",
+      "sql",
+      "notebook"
+    ],
+    "descHe": "סביבת עבודה לניתוח נתונים עם SQL, Python ויכולות AI.",
+    "descEn": "Data workspace combining SQL, Python and AI.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Akkio",
+    "maker": "Akkio",
+    "url": "https://www.akkio.com",
+    "category": "Data & Analytics",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "data",
+      "prediction",
+      "analytics"
+    ],
+    "descHe": "ניתוח, חיזוי ודוחות AI לעסקים ללא צורך בקוד כבד.",
+    "descEn": "AI analytics and prediction for business teams.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Rows AI",
+    "maker": "Rows",
+    "url": "https://rows.com/ai",
+    "category": "Data & Analytics",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "spreadsheet",
+      "data",
+      "analysis"
+    ],
+    "descHe": "גיליון עבודה עם AI לניתוח, מחקר ונוסחאות.",
+    "descEn": "AI-powered spreadsheets for analysis, research and formulas.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Meshy",
+    "maker": "Meshy",
+    "url": "https://www.meshy.ai",
+    "category": "3D & Assets",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "3d",
+      "model",
+      "game"
+    ],
+    "descHe": "יצירת מודלי 3D וטקסטורות מטקסט או תמונות.",
+    "descEn": "Generate 3D models and textures from text or images.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Tripo AI",
+    "maker": "Tripo",
+    "url": "https://www.tripo3d.ai",
+    "category": "3D & Assets",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "3d",
+      "model",
+      "image-to-3d"
+    ],
+    "descHe": "יצירת נכסי 3D מתמונה או טקסט במהירות.",
+    "descEn": "Create 3D assets from images or text.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Spline AI",
+    "maker": "Spline",
+    "url": "https://spline.design/ai",
+    "category": "3D & Assets",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "3d",
+      "design",
+      "web"
+    ],
+    "descHe": "יצירת סצנות ואובייקטים תלת־ממדיים בתוך Spline.",
+    "descEn": "Create 3D scenes and objects inside Spline.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Kaedim",
+    "maker": "Kaedim",
+    "url": "https://www.kaedim3d.com",
+    "category": "3D & Assets",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "3d",
+      "game",
+      "asset"
+    ],
+    "descHe": "המרת תמונות ורעיונות לנכסי 3D מוכנים לעבודה.",
+    "descEn": "Turn images and concepts into production-ready 3D assets.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Harvey",
+    "maker": "Harvey",
+    "url": "https://www.harvey.ai",
+    "category": "Legal AI",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "legal",
+      "research",
+      "documents"
+    ],
+    "descHe": "פלטפורמת AI מקצועית למחקר, ניסוח ועבודה משפטית.",
+    "descEn": "Professional AI platform for legal research, drafting and workflows.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "CoCounsel",
+    "maker": "Thomson Reuters",
+    "url": "https://legal.thomsonreuters.com/en/products/cocounsel",
+    "category": "Legal AI",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "legal",
+      "research",
+      "review"
+    ],
+    "descHe": "עוזר AI משפטי למחקר, בדיקת מסמכים וניסוח.",
+    "descEn": "Legal AI assistant for research, document review and drafting.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Spellbook",
+    "maker": "Spellbook",
+    "url": "https://www.spellbook.legal",
+    "category": "Legal AI",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos"
+    ],
+    "tags": [
+      "legal",
+      "contracts",
+      "word"
+    ],
+    "descHe": "AI לחוזים שעובד בתוך Microsoft Word.",
+    "descEn": "AI contract drafting and review inside Microsoft Word.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Robin AI",
+    "maker": "Robin AI",
+    "url": "https://www.robinai.com",
+    "category": "Legal AI",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "legal",
+      "contracts",
+      "review"
+    ],
+    "descHe": "סקירה וניהול של חוזים בעזרת AI.",
+    "descEn": "AI-powered contract review and management.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Jasper",
+    "maker": "Jasper",
+    "url": "https://www.jasper.ai",
+    "category": "Marketing & SEO",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "marketing",
+      "writing",
+      "brand"
+    ],
+    "descHe": "פלטפורמת AI ליצירת תוכן שיווקי בהתאם למותג.",
+    "descEn": "AI marketing platform for on-brand content creation.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Writesonic",
+    "maker": "Writesonic",
+    "url": "https://writesonic.com",
+    "category": "Marketing & SEO",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "marketing",
+      "seo",
+      "writing"
+    ],
+    "descHe": "כתיבה, SEO ותוכן שיווקי עם AI.",
+    "descEn": "AI writing, SEO and marketing content tools.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Copy.ai",
+    "maker": "Copy.ai",
+    "url": "https://www.copy.ai",
+    "category": "Marketing & SEO",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "marketing",
+      "sales",
+      "writing"
+    ],
+    "descHe": "אוטומציות ותוכן AI לצוותי שיווק ומכירות.",
+    "descEn": "AI content and workflows for marketing and sales teams.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Surfer AI",
+    "maker": "Surfer",
+    "url": "https://surferseo.com/ai",
+    "category": "Marketing & SEO",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "seo",
+      "writing",
+      "content"
+    ],
+    "descHe": "כתיבת תוכן SEO עם המלצות אופטימיזציה.",
+    "descEn": "AI SEO writing with optimization guidance.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Frase",
+    "maker": "Frase",
+    "url": "https://www.frase.io",
+    "category": "Marketing & SEO",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "seo",
+      "research",
+      "writing"
+    ],
+    "descHe": "מחקר, כתיבה ואופטימיזציה של תוכן ל־SEO.",
+    "descEn": "Research, write and optimize SEO content.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Clay",
+    "maker": "Clay",
+    "url": "https://www.clay.com",
+    "category": "Sales & CRM",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "sales",
+      "crm",
+      "research"
+    ],
+    "descHe": "מחקר לידים, העשרת נתונים ואוטומציות מכירה עם AI.",
+    "descEn": "Lead research, enrichment and AI sales automation.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Lavender",
+    "maker": "Lavender",
+    "url": "https://www.lavender.ai",
+    "category": "Sales & CRM",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "sales",
+      "email",
+      "writing"
+    ],
+    "descHe": "עוזר AI לשיפור אימיילים ומסרים במכירות.",
+    "descEn": "AI assistant for improving sales emails and outreach.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Apollo.io",
+    "maker": "Apollo",
+    "url": "https://www.apollo.io",
+    "category": "Sales & CRM",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "sales",
+      "leads",
+      "crm"
+    ],
+    "descHe": "מאגר לידים, outreach ואוטומציות מכירה עם AI.",
+    "descEn": "Lead database, outreach and AI-powered sales workflows.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Gong",
+    "maker": "Gong",
+    "url": "https://www.gong.io",
+    "category": "Sales & CRM",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "sales",
+      "calls",
+      "analytics"
+    ],
+    "descHe": "ניתוח שיחות מכירה ו־Revenue Intelligence עם AI.",
+    "descEn": "AI-powered sales conversation and revenue intelligence.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Intercom Fin",
+    "maker": "Intercom",
+    "url": "https://www.intercom.com/fin",
+    "category": "Customer Support",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "support",
+      "chatbot",
+      "customer"
+    ],
+    "descHe": "סוכן תמיכה AI שמענה ללקוחות מתוך מאגר הידע.",
+    "descEn": "AI customer support agent grounded in your help content.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Zendesk AI",
+    "maker": "Zendesk",
+    "url": "https://www.zendesk.com/ai",
+    "category": "Customer Support",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "support",
+      "customer",
+      "agent"
+    ],
+    "descHe": "יכולות AI לסוכני תמיכה, אוטומציה ומענה ללקוחות.",
+    "descEn": "AI for support agents, automation and customer service.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Ada",
+    "maker": "Ada",
+    "url": "https://www.ada.cx",
+    "category": "Customer Support",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "support",
+      "agent",
+      "customer"
+    ],
+    "descHe": "סוכני שירות AI לשיחות ותמיכה אוטומטית.",
+    "descEn": "AI customer service agents for automated support.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "ChatPDF",
+    "maker": "ChatPDF",
+    "url": "https://www.chatpdf.com",
+    "category": "PDF & Documents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "pdf",
+      "chat",
+      "study"
+    ],
+    "descHe": "שיחה עם קובצי PDF, שאלות, סיכומים והסברים.",
+    "descEn": "Chat with PDFs for questions, summaries and explanations.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Humata",
+    "maker": "Humata",
+    "url": "https://www.humata.ai",
+    "category": "PDF & Documents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "pdf",
+      "documents",
+      "research"
+    ],
+    "descHe": "שאלות וסיכום של מסמכים וקבצים ארוכים.",
+    "descEn": "Ask questions and summarize long documents.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "AskYourPDF",
+    "maker": "AskYourPDF",
+    "url": "https://askyourpdf.com",
+    "category": "PDF & Documents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "pdf",
+      "chat",
+      "documents"
+    ],
+    "descHe": "צ׳אט עם PDF ומסמכים בעזרת AI.",
+    "descEn": "AI chat and analysis for PDFs and documents.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "PDFgear",
+    "maker": "PDFgear",
+    "url": "https://www.pdfgear.com",
+    "category": "PDF & Documents",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "ios"
+    ],
+    "tags": [
+      "pdf",
+      "editor",
+      "chat"
+    ],
+    "descHe": "עורך PDF עם כלי AI לסיכום ושיחה עם מסמכים.",
+    "descEn": "PDF editor with AI chat and summarization tools.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Teal",
+    "maker": "Teal",
+    "url": "https://www.tealhq.com",
+    "category": "Career & Resume",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "resume",
+      "career",
+      "jobs"
+    ],
+    "descHe": "בניית קורות חיים, מעקב משרות וכלי AI לקריירה.",
+    "descEn": "Resume building, job tracking and AI career tools.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Kickresume",
+    "maker": "Kickresume",
+    "url": "https://www.kickresume.com",
+    "category": "Career & Resume",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "tags": [
+      "resume",
+      "career",
+      "writing"
+    ],
+    "descHe": "יצירת קורות חיים ומכתבים עם AI.",
+    "descEn": "Create resumes and cover letters with AI.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Rezi",
+    "maker": "Rezi",
+    "url": "https://www.rezi.ai",
+    "category": "Career & Resume",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "resume",
+      "ats",
+      "career"
+    ],
+    "descHe": "בניית קורות חיים מותאמי ATS עם AI.",
+    "descEn": "AI resume builder focused on ATS compatibility.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Recraft",
+    "maker": "Recraft",
+    "url": "https://www.recraft.ai",
+    "category": "Image Generation",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "image",
+      "vector",
+      "design"
+    ],
+    "descHe": "יצירת תמונות, וקטורים ועיצובים עם שליטה חזקה בסגנון.",
+    "descEn": "Generate images, vectors and designs with strong style control.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Magnific AI",
+    "maker": "Magnific",
+    "url": "https://magnific.ai",
+    "category": "Image Generation",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "image",
+      "upscale",
+      "enhance"
+    ],
+    "descHe": "שיפור והגדלת תמונות עם הוספת פרטים בעזרת AI.",
+    "descEn": "AI image upscaling and enhancement with added detail.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "remove.bg",
+    "maker": "Kaleido",
+    "url": "https://www.remove.bg",
+    "category": "Image Generation",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos"
+    ],
+    "tags": [
+      "image",
+      "background",
+      "editing"
+    ],
+    "descHe": "הסרת רקע מתמונות בצורה אוטומטית.",
+    "descEn": "Automatically remove image backgrounds.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Clipdrop",
+    "maker": "Clipdrop",
+    "url": "https://clipdrop.co",
+    "category": "Image Generation",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "image",
+      "editing",
+      "cleanup"
+    ],
+    "descHe": "אוסף כלי AI לעריכה, ניקוי, תאורה והרחבת תמונות.",
+    "descEn": "AI tools for image cleanup, relighting and expansion.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Adobe Podcast",
+    "maker": "Adobe",
+    "url": "https://podcast.adobe.com",
+    "category": "Audio & Voice",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "audio",
+      "podcast",
+      "enhance"
+    ],
+    "descHe": "שיפור קול והקלטות פודקאסט בעזרת AI.",
+    "descEn": "AI voice and podcast audio enhancement.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Cleanvoice AI",
+    "maker": "Cleanvoice",
+    "url": "https://cleanvoice.ai",
+    "category": "Audio & Voice",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "audio",
+      "podcast",
+      "cleanup"
+    ],
+    "descHe": "ניקוי רעשים, מילים מיותרות והפסקות מהקלטות.",
+    "descEn": "Clean filler words, noise and pauses from recordings.",
+    "platformsUpdated": "2026-09-29"
+  },
+  {
+    "name": "Open WebUI",
+    "maker": "Open WebUI",
+    "url": "https://openwebui.com",
+    "category": "Local AI",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux",
+      "android",
+      "ios"
+    ],
+    "tags": [
+      "local",
+      "self-hosted",
+      "open-source",
+      "llm"
+    ],
+    "descHe": "ממשק AI עצמי וגמיש למודלים מקומיים ולספקים שונים.",
+    "descEn": "Self-hosted AI interface for local and cloud models.",
+    "platformsUpdated": "2026-09-29",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "בהתקנה עצמית עם מודל מקומי אין מכסת שימוש מצד שירות ענן.",
+    "unlimitedNoteEn": "When self-hosted with a local model, there is no cloud-provider usage quota."
+  },
+  {
+    "name": "AnythingLLM",
+    "maker": "Mintplex Labs",
+    "url": "https://anythingllm.com",
+    "category": "Local AI",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "local",
+      "documents",
+      "agent",
+      "privacy"
+    ],
+    "descHe": "אפליקציית AI מקומית למסמכים, צ׳אט וסוכנים ללא צורך בחשבון.",
+    "descEn": "Local-first AI app for documents, chat and agents with no account required.",
+    "platformsUpdated": "2026-09-29",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "האפליקציה המקומית עובדת ללא חשבון ויכולה להריץ מודלים מקומיים ללא מגבלת שימוש של ספק.",
+    "unlimitedNoteEn": "The local app works without an account and can run local models without a provider usage quota."
+  },
+  {
+    "name": "GPT4All",
+    "maker": "Nomic AI",
+    "url": "https://gpt4all.io",
+    "category": "Local AI",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "local",
+      "offline",
+      "llm",
+      "privacy"
+    ],
+    "descHe": "הרצת מודלי שפה מקומיים במחשב עם ממשק פשוט.",
+    "descEn": "Run local language models on your computer with a simple interface.",
+    "platformsUpdated": "2026-09-29",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "בהרצה מקומית אין מכסת הודעות של ספק; המגבלה היא החומרה ורישיון המודל.",
+    "unlimitedNoteEn": "Local use has no provider message quota; limits are hardware and model licensing."
+  },
+  {
+    "name": "LocalAI",
+    "maker": "LocalAI",
+    "url": "https://localai.io",
+    "category": "Local AI",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "local",
+      "api",
+      "open-source",
+      "developer"
+    ],
+    "descHe": "Runtime פתוח להרצת טקסט, קול, תמונה וסוכנים על החומרה שלך.",
+    "descEn": "Open runtime for text, voice, image and agent workloads on your hardware.",
+    "platformsUpdated": "2026-09-29",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "Runtime מקומי וקוד פתוח; בשימוש מקומי אין מכסת שירות חיצונית.",
+    "unlimitedNoteEn": "Open local runtime; local use has no external service quota."
+  },
+  {
+    "name": "InvokeAI",
+    "maker": "Invoke",
+    "url": "https://invoke-ai.github.io/InvokeAI",
+    "category": "Image Generation",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "image",
+      "local",
+      "open-source"
+    ],
+    "descHe": "סביבת יצירה מקומית וקוד פתוח ל־Stable Diffusion ומודלים נוספים.",
+    "descEn": "Open-source local creative platform for Stable Diffusion-style models.",
+    "platformsUpdated": "2026-09-29",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "בהרצה מקומית עם מודלים שהורדת אין מכסת יצירות של שירות ענן.",
+    "unlimitedNoteEn": "When running downloaded models locally, there is no cloud-service generation quota."
+  },
+  {
+    "name": "Fooocus",
+    "maker": "Open Source",
+    "url": "https://github.com/lllyasviel/Fooocus",
+    "category": "Image Generation",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows"
+    ],
+    "tags": [
+      "image",
+      "local",
+      "offline",
+      "open-source"
+    ],
+    "descHe": "מחולל תמונות מקומי, חינמי וקוד פתוח עם הפעלה פשוטה.",
+    "descEn": "Free, open-source offline image generator designed for simple prompting.",
+    "platformsUpdated": "2026-09-29",
+    "unlimitedFree": true,
+    "unlimitedScope": "local",
+    "unlimitedNoteHe": "תוכנה מקומית, חינמית וקוד פתוח; אין מכסת יצירות מצד השירות.",
+    "unlimitedNoteEn": "Offline, free and open-source software with no service-side generation quota."
   }
 ]
