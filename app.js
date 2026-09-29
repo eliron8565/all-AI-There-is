@@ -18,13 +18,13 @@ const els={
 
 const copy={
   he:{
-    brandTag:"כל עולם ה-AI, מסודר.",navHome:"בית",navCategories:"קטגוריות",navPlatforms:"אפליקציות",navStudents:"לסטודנטים",navDiscover:"כל הכלים",
+    brandTag:"כל עולם ה-AI, מסודר.",navHome:"בית",navCollections:"אוספים",navCategories:"קטגוריות",navPlatforms:"אפליקציות",navStudents:"לסטודנטים",navDiscover:"כל הכלים",
     heroBadge:"הדרך המהירה למצוא את כלי ה-AI הנכון",heroLine1:"כל כלי ה־AI.",heroLine2:"בלי ללכת לאיבוד.",
     heroDesc:"חיפוש חכם, קטגוריות ברורות, חינם מול בתשלום, והטבות לסטודנטים — הכל במקום אחד ובעברית.",
-    chipFree:"חינם",chipUnlimited:"חינם ללא הגבלה",chipStudents:"לסטודנטים",chipCode:"תכנות",chipImages:"תמונות",chipMobile:"אפליקציה לפלאפון",heroTools:"כלים",heroCategories:"קטגוריות",heroFree:"עם מסלול חינמי",
+    chipFree:"חינם",chipUnlimited:"חינם ללא הגבלה",chipLocal:"AI מקומי",chipStudents:"לסטודנטים",chipCode:"תכנות",chipImages:"תמונות",chipMobile:"אפליקציה לפלאפון",heroTools:"כלים",heroCategories:"קטגוריות",heroFree:"עם מסלול חינמי",
     mockTitle:"מצא לי כלי AI ל...",mockQuery:"בניית אתר בלי קוד",mockFooter:"תוצאות מותאמות בזמן אמת",
     statTools:"כלים בקטלוג",statCats:"קטגוריות",statFree:"חינם / Freemium",statStudent:"הטבות סטודנטים",
-    categoriesTitle:"מה בא לך לעשות עם AI?",categoriesDesc:"בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.",platformsTitle:"איפה אפשר להשתמש בכל כלי?",platformsDesc:"Web, מחשב או פלאפון — רואים מיד אם יש אפליקציה ל-Windows, Mac, Linux, Android או iPhone/iPad.",
+    collectionsTitle:"תתחיל ממה שאתה באמת צריך",collectionsDesc:"אוספים מוכנים שחוסכים חיפוש וסינון ידני.",collectionUnlimitedDesc:"כלים מקומיים בלי מכסת שירות",collectionLocal:"רץ אצלך במחשב",collectionLocalDesc:"יותר פרטיות ושליטה",collectionStudent:"לסטודנטים",collectionStudentDesc:"חינם והנחות מיוחדות",collectionMobile:"AI בכיס",collectionMobileDesc:"Android ו-iPhone/iPad",metricCatalog:"קטלוג",metricFree:"גישה חינמית",liveTitle:"בחירות מהירות",categoriesTitle:"מה בא לך לעשות עם AI?",categoriesDesc:"בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.",platformsTitle:"איפה אפשר להשתמש בכל כלי?",platformsDesc:"Web, מחשב או פלאפון — רואים מיד אם יש אפליקציה ל-Windows, Mac, Linux, Android או iPhone/iPad.",
     studentBadge:"STUDENT HUB",studentTitle:"סטודנט? יכול להיות שמגיע לך יותר בפחות.",studentDesc:"ריכזנו כלי AI עם תוכניות חינמיות או הנחות ייעודיות לסטודנטים. כשיש הטבה מאומתת, נציג מה מקבלים ואיך בודקים זכאות.",
     studentPoint1:"קישור רשמי לכל הטבה",studentPoint2:"הסבר קצר על הזכאות",studentPoint3:"סינון בלחיצה אחת",showStudent:"הצג כל הטבות הסטודנטים",
     featuredTitle:"כלים שכדאי להכיר",featuredDesc:"קיצורי דרך לכמה מהכלים הבולטים בקטלוג.",surprise:"הפתע אותי",
@@ -38,13 +38,13 @@ const copy={
     noDescription:"כלי AI בקטלוג AI Atlas.",siteTitle:"AI Atlas — כל כלי ה-AI במקום אחד"
   },
   en:{
-    brandTag:"The AI world, organized.",navHome:"Home",navCategories:"Categories",navPlatforms:"Apps",navStudents:"Students",navDiscover:"All tools",
+    brandTag:"The AI world, organized.",navHome:"Home",navCollections:"Collections",navCategories:"Categories",navPlatforms:"Apps",navStudents:"Students",navDiscover:"All tools",
     heroBadge:"The fast way to find the right AI tool",heroLine1:"Every AI tool.",heroLine2:"Without getting lost.",
     heroDesc:"Smart search, clear categories, free vs paid, and student offers — all in one beautifully organized place.",
-    chipFree:"Free",chipUnlimited:"Free & unlimited",chipStudents:"Students",chipCode:"Coding",chipImages:"Images",chipMobile:"Mobile apps",heroTools:"tools",heroCategories:"categories",heroFree:"with a free plan",
+    chipFree:"Free",chipUnlimited:"Free & unlimited",chipLocal:"Local AI",chipStudents:"Students",chipCode:"Coding",chipImages:"Images",chipMobile:"Mobile apps",heroTools:"tools",heroCategories:"categories",heroFree:"with a free plan",
     mockTitle:"Find me an AI tool for...",mockQuery:"building a website without code",mockFooter:"Matched results in real time",
     statTools:"tools in directory",statCats:"categories",statFree:"free / freemium",statStudent:"student offers",
-    categoriesTitle:"What do you want to do with AI?",categoriesDesc:"Pick a field and jump straight to tools that fit the task.",platformsTitle:"Where can you use each tool?",platformsDesc:"Web, desktop or mobile — instantly see whether there is an app for Windows, Mac, Linux, Android or iPhone/iPad.",
+    collectionsTitle:"Start with what you actually need",collectionsDesc:"Ready-made collections that save manual searching and filtering.",collectionUnlimitedDesc:"Local tools without provider quotas",collectionLocal:"Runs on your computer",collectionLocalDesc:"More privacy and control",collectionStudent:"For students",collectionStudentDesc:"Free plans and special discounts",collectionMobile:"AI in your pocket",collectionMobileDesc:"Android and iPhone/iPad",metricCatalog:"Catalog",metricFree:"Free access",liveTitle:"Quick picks",categoriesTitle:"What do you want to do with AI?",categoriesDesc:"Pick a field and jump straight to tools that fit the task.",platformsTitle:"Where can you use each tool?",platformsDesc:"Web, desktop or mobile — instantly see whether there is an app for Windows, Mac, Linux, Android or iPhone/iPad.",
     studentBadge:"STUDENT HUB",studentTitle:"Student? You may be able to get more for less.",studentDesc:"We collect AI tools with free plans or dedicated student discounts. When an offer is verified, we show what you get and how eligibility works.",
     studentPoint1:"Official link for every offer",studentPoint2:"Clear eligibility summary",studentPoint3:"One-click filtering",showStudent:"Show all student offers",
     featuredTitle:"Tools worth discovering",featuredDesc:"Quick access to a selection of notable tools in the directory.",surprise:"Surprise me",
@@ -80,7 +80,16 @@ const categoryMeta={
   "Math & Science":{he:"מתמטיקה ומדע",icon:"∑",color:"#64D2A8"},
   "Automation":{he:"אוטומציה",icon:"⚡",color:"#F2C75C"},
   "Models & Developer Tools":{he:"מודלים וכלי פיתוח",icon:"⬡",color:"#73A5FF"},
-  "Local AI":{he:"AI מקומי",icon:"◈",color:"#50D0B0"}
+  "Local AI":{he:"AI מקומי",icon:"◈",color:"#50D0B0"},
+  "AI Agents":{he:"סוכני AI",icon:"⌁",color:"#C8FF5A"},
+  "Data & Analytics":{he:"דאטה ואנליטיקה",icon:"⌗",color:"#67E8F9"},
+  "3D & Assets":{he:"3D ונכסים",icon:"⬢",color:"#FB923C"},
+  "Legal AI":{he:"AI למשפטים",icon:"§",color:"#F59E0B"},
+  "Marketing & SEO":{he:"שיווק ו-SEO",icon:"↗",color:"#F472B6"},
+  "Sales & CRM":{he:"מכירות ו-CRM",icon:"◎",color:"#60A5FA"},
+  "Customer Support":{he:"שירות לקוחות",icon:"◍",color:"#34D399"},
+  "PDF & Documents":{he:"PDF ומסמכים",icon:"▤",color:"#A78BFA"},
+  "Career & Resume":{he:"קריירה וקורות חיים",icon:"◇",color:"#FACC15"}
 };
 
 const platformMeta={
@@ -92,7 +101,7 @@ const platformMeta={
   ios:{he:"iPhone / iPad",en:"iPhone / iPad",icon:""}
 };
 
-const FEATURED=["ChatGPT","Claude","Perplexity","GitHub Copilot","Cursor","Runway","Midjourney","NotebookLM"];
+const FEATURED=["ChatGPT","Claude","Manus","Genspark","Cursor","Recraft","Meshy","Fathom"];
 const HERO_PREVIEW=["v0","Lovable","Bolt"];
 const STUDENT_PREVIEW=["GitHub Copilot","Perplexity","Adobe Firefly","Notion AI"];
 
@@ -331,6 +340,7 @@ function quickFilter(kind){
   if(kind==="free")els.price.value="free";
   if(kind==="unlimited")els.price.value="unlimited";
   if(kind==="student")els.student.checked=true;
+  if(kind==="local")els.cat.value="Local AI";
   if(kind==="coding")els.cat.value="Coding";
   if(kind==="image")els.cat.value="Image Generation";
   if(kind==="mobile")els.platform.value="mobile";
@@ -366,7 +376,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme")==="light")document.body.classList.add("light");
   setupEvents();setupReveal();
   try{
-    const response=await fetch("data/tools.json?v=5");
+    const response=await fetch("data/tools.json?v=6");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();
