@@ -568,7 +568,7 @@
     "url": "https://www.jetbrains.com/ai",
     "category": "Coding",
     "pricing": "freemium",
-    "student": false,
+    "student": true,
     "tags": [
       "coding",
       "ide",
@@ -584,7 +584,15 @@
     ],
     "platformNoteHe": "לא אפליקציה עצמאית — פועל מתוך IDEs של JetBrains במערכות שולחניות נתמכות.",
     "platformNoteEn": "Not a standalone app — it runs inside supported JetBrains IDEs on desktop.",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "studentOfferHe": "JetBrains Student Pack חינמי לסטודנטים מאומתים וכולל את כלי הפיתוח המלאים. יכולות AI זמינות במסלול AI Free ובניסיון AI Pro מוגבל.",
+    "studentOfferEn": "JetBrains Student Pack is free for verified students and includes the full IDE suite. AI Free is available and a limited AI Pro trial is included.",
+    "israelStudent": true,
+    "israelStudentStatus": "verified-global",
+    "israelStudentOfferHe": "מתאים לסטודנטים בישראל בכפוף לאימות JetBrains. אפשר לאמת עם אימייל אוניברסיטאי, כרטיס ISIC/ITIC או חשבון GitHub Student Developer Pack. הרישיון מיועד לשימוש לימודי ולא מסחרי.",
+    "israelStudentOfferEn": "Available to students in Israel subject to JetBrains verification using a university email, ISIC/ITIC, or GitHub Student Developer Pack. Educational licenses are for non-commercial study use.",
+    "israelStudentOfferUrl": "https://www.jetbrains.com/academy/student-pack/",
+    "israelVerifiedAt": "2026-09-30"
   },
   {
     "name": "Sourcegraph Cody",
@@ -750,7 +758,7 @@
     "url": "https://www.canva.com/magic-studio",
     "category": "Design",
     "pricing": "freemium",
-    "student": false,
+    "student": true,
     "tags": [
       "design",
       "presentation",
@@ -768,7 +776,15 @@
     ],
     "platformNoteHe": "",
     "platformNoteEn": "",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "studentOfferHe": "Canva Education זמינה בחינם לתלמידי K-12 דרך מורה/מוסד זכאי. לסטודנטים באוניברסיטה ההטבה הזו אינה מסלול Student כללי.",
+    "studentOfferEn": "Canva Education is free for eligible K-12 students through a verified teacher or school. It is not a general higher-education student plan.",
+    "israelStudent": false,
+    "israelStudentStatus": "school-only",
+    "israelStudentOfferHe": "בישראל זה רלוונטי בעיקר לתלמידי בתי ספר K-12 כאשר מורה מאומת מזמין אותם ל-Canva Education.",
+    "israelStudentOfferEn": "In Israel this is mainly relevant to K-12 students invited by a verified teacher to Canva Education.",
+    "israelStudentOfferUrl": "https://www.canva.com/education/",
+    "israelVerifiedAt": "2026-09-30"
   },
   {
     "name": "Figma AI",
@@ -776,7 +792,7 @@
     "url": "https://www.figma.com/ai",
     "category": "Design",
     "pricing": "freemium",
-    "student": false,
+    "student": true,
     "tags": [
       "design",
       "ui",
@@ -794,7 +810,15 @@
     ],
     "platformNoteHe": "",
     "platformNoteEn": "",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "studentOfferHe": "Figma for Education נותנת לסטודנטים ומרצים מאומתים גישה חינמית לתוכנית Education, כולל יכולות של תוכנית Professional.",
+    "studentOfferEn": "Figma for Education gives verified students and educators free Education access, including Professional-plan features.",
+    "israelStudent": true,
+    "israelStudentStatus": "verified-global",
+    "israelStudentOfferHe": "מתאים גם לסטודנטים בישראל בכפוף לאימות Figma Education. סטודנטים בהשכלה גבוהה יכולים לקבל תוכנית Professional בחינם דרך Education.",
+    "israelStudentOfferEn": "Available to students in Israel subject to Figma Education verification. Higher-education students can receive the Professional plan for free.",
+    "israelStudentOfferUrl": "https://www.figma.com/education/higher-education/",
+    "israelVerifiedAt": "2026-09-30"
   },
   {
     "name": "Napkin AI",
@@ -2978,5 +3002,172 @@
     "unlimitedNoteHe": "תוכנה מקומית, חינמית וקוד פתוח; אין מכסת יצירות מצד השירות.",
     "unlimitedNoteEn": "Offline, free and open-source software with no service-side generation quota.",
     "isNew": true
+  },
+  {
+    "name": "Cline",
+    "maker": "Cline",
+    "url": "https://cline.bot",
+    "category": "Coding",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "open-source",
+      "vscode",
+      "terminal"
+    ],
+    "descHe": "סוכן קוד פתוח לכתיבה, עריכה והרצת קוד מתוך IDE, טרמינל או אפליקציית Desktop.",
+    "descEn": "Open-source coding agent for writing, editing and running code from the IDE, terminal or desktop app.",
+    "isNew": true,
+    "platformsUpdated": "2026-09-30"
+  },
+  {
+    "name": "Continue",
+    "maker": "Continue",
+    "url": "https://www.continue.dev",
+    "category": "Coding",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "open-source",
+      "vscode",
+      "jetbrains"
+    ],
+    "descHe": "עוזר קוד פתוח ל-VS Code ו-JetBrains עם Agent, Chat, Edit והשלמה אוטומטית.",
+    "descEn": "Open-source coding assistant for VS Code and JetBrains with Agent, Chat, Edit and autocomplete modes.",
+    "isNew": true,
+    "platformsUpdated": "2026-09-30"
+  },
+  {
+    "name": "Aider",
+    "maker": "Aider",
+    "url": "https://aider.chat",
+    "category": "Coding",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "terminal",
+      "git",
+      "open-source",
+      "pair-programming"
+    ],
+    "descHe": "כלי Pair Programming מבוסס AI בטרמינל שעובד ישירות עם מאגרי Git ותומך במודלים מקומיים וענניים.",
+    "descEn": "Terminal AI pair programmer that works directly with Git repositories and supports local and cloud models.",
+    "isNew": true,
+    "platformsUpdated": "2026-09-30"
+  },
+  {
+    "name": "Open Interpreter",
+    "maker": "Open Interpreter",
+    "url": "https://www.openinterpreter.com",
+    "category": "AI Agents",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "agent",
+      "desktop",
+      "terminal",
+      "local",
+      "open-source",
+      "automation"
+    ],
+    "descHe": "סוכן קוד פתוח שמסוגל לעבוד עם קבצים, קוד ואפליקציות במחשב, עם sandbox ואישורים לפעולות.",
+    "descEn": "Open-source agent for working with files, code and desktop apps, with sandboxing and approval controls.",
+    "isNew": true,
+    "platformsUpdated": "2026-09-30"
+  },
+  {
+    "name": "Dify",
+    "maker": "Dify",
+    "url": "https://dify.ai",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "agents",
+      "workflow",
+      "rag",
+      "low-code",
+      "self-hosted"
+    ],
+    "descHe": "פלטפורמה לבניית אפליקציות AI, סוכנים ו-workflows עם RAG, כלים, תנאים ופריסה כ-Web/API.",
+    "descEn": "Platform for building AI apps, agents and workflows with RAG, tools, branching and web/API deployment.",
+    "isNew": true,
+    "platformsUpdated": "2026-09-30"
+  },
+  {
+    "name": "Flowise",
+    "maker": "Flowise",
+    "url": "https://flowiseai.com",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "agents",
+      "workflow",
+      "visual-builder",
+      "open-source",
+      "rag"
+    ],
+    "descHe": "Builder ויזואלי בקוד פתוח ליצירת AI Agents, Chatflows ו-Agentflows עם RAG וכלים.",
+    "descEn": "Open-source visual builder for AI agents, chatflows and agentflows with RAG and tools.",
+    "isNew": true,
+    "platformsUpdated": "2026-09-30"
+  },
+  {
+    "name": "Langflow",
+    "maker": "Langflow",
+    "url": "https://www.langflow.org",
+    "category": "AI Agents",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "agents",
+      "workflow",
+      "mcp",
+      "rag",
+      "low-code",
+      "open-source"
+    ],
+    "descHe": "פלטפורמת Low-code לבנייה ופריסה של סוכני AI, מערכות RAG ושרתי MCP בעזרת זרימות ויזואליות.",
+    "descEn": "Low-code platform for building and deploying AI agents, RAG applications and MCP servers with visual flows.",
+    "isNew": true,
+    "platformsUpdated": "2026-09-30"
   }
 ]
