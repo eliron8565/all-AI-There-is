@@ -209,20 +209,27 @@ function attachImageFallbacks(root=document){
 
 function toolCard(tool,index){
   const favorite=state.favorites.has(tool.name);
-  return `<article class="tool-card">
+  const comparing=state.compare.includes(tool.name);
+  const uses=bestFor(tool);
+  return `<article class="tool-card ${comparing?"comparing":""}">
     <div class="tool-top">
       <div class="tool-ident">
         ${logo(tool)}
         <div style="min-width:0"><div class="tool-name">${esc(tool.name)}</div><div class="tool-maker">${esc(tool.maker)}</div></div>
       </div>
-      <button class="fav-btn ${favorite?"active":""}" data-fav="${esc(tool.name)}" aria-label="${esc(t("favoritesOnly"))}">★</button>
+      <div class="tool-actions">
+        <button class="compare-btn ${comparing?"active":""}" data-compare="${esc(tool.name)}" aria-label="${esc(t("compare"))}">⇄</button>
+        <button class="fav-btn ${favorite?"active":""}" data-fav="${esc(tool.name)}" aria-label="${esc(t("favoritesOnly"))}">★</button>
+      </div>
     </div>
     <p class="tool-desc">${esc(localDesc(tool))}</p>
+    ${uses.length?`<div class="tool-best"><span>${esc(t("bestFor"))}</span>${uses.map(x=>`<b>#${esc(x)}</b>`).join("")}</div>`:""}
     <div class="badges">
       <span class="badge ${esc(tool.pricing)}">${esc(priceLabel(tool.pricing))}</span>
       ${tool.student?'<span class="badge student">🎓 Student</span>':""}
       ${tool.israelStudent?`<span class="badge israel">🇮🇱 ${esc(t("israelVerified"))}</span>`:""}${tool.isNew?`<span class="badge new">${esc(t("newBadge"))}</span>`:""}
       ${tool.unlimitedFree?`<span class="badge unlimited">∞ ${esc(t("unlimitedBadge").replace(/^∞\s*/, ""))}</span>`:""}
+      ${isOpenSource(tool)?'<span class="badge opensource">◫ Open Source</span>':""}
     </div>
     ${platformBadges(tool,true)}
     <div class="card-bottom">
@@ -241,10 +248,12 @@ function renderTools(){
       &&(els.price.value==="all"||(els.price.value==="unlimited"?tool.unlimitedFree:tool.pricing===els.price.value))
       &&(els.platform.value==="all"||(els.platform.value==="mobile"?((tool.platforms||[]).includes("android")||(tool.platforms||[]).includes("ios")):(tool.platforms||[]).includes(els.platform.value)))
       &&(!els.student.checked||tool.israelStudent)
-      &&(!els.fav.checked||state.favorites.has(tool.name));
+      &&(!els.fav.checked||state.favorites.has(tool.name))
+      &&(!els.openSource.checked||isOpenSource(tool))
+      &&(!state.onlyNew||tool.isNew);
   });
 
-  if(els.sort.value==="new") results.sort((a,b)=>Number(!!b.isNew)-Number(!!a.isNew));
+  if(els.sort.value==="new") results.sort((a,b)=>String(b.addedAt||"").localeCompare(String(a.addedAt||""))||Number(!!b.isNew)-Number(!!a.isNew));
   if(els.sort.value==="az") results.sort((a,b)=>a.name.localeCompare(b.name));
   if(els.sort.value==="za") results.sort((a,b)=>b.name.localeCompare(a.name));
   if(els.sort.value==="free") results.sort((a,b)=>({free:0,freemium:1,paid:2}[a.pricing]-{free:0,freemium:1,paid:2}[b.pricing]));
@@ -260,8 +269,64 @@ function renderTools(){
     state.favorites.has(name)?state.favorites.delete(name):state.favorites.add(name);
     saveFavorites();renderTools();
   });
+  $$("[data-compare]").forEach(btn=>btn.onclick=e=>{e.stopPropagation();toggleCompare(btn.dataset.compare)});
   $$("[data-open]").forEach(btn=>btn.onclick=()=>openTool(state.filtered[Number(btn.dataset.open)]));
   attachImageFallbacks(els.grid);
+  renderCompareDock();
+}
+
+function buildRecent(){
+  if(!els.newTools)return;
+  const items=state.tools.filter(x=>x.isNew).sort((a,b)=>String(b.addedAt||"").localeCompare(String(a.addedAt||""))).slice(0,8);
+  els.newTools.innerHTML=items.map(tool=>`<button class="new-tool-card" data-recent="${esc(tool.name)}">
+    ${logo(tool,"new-tool-logo")}
+    <span class="new-tool-copy"><strong>${esc(tool.name)}</strong><small>${esc(localCategory(tool.category))}</small><em>${esc(priceLabel(tool.pricing))}</em></span>
+    <span class="new-tool-arrow">↗</span>
+  </button>`).join("");
+  $$("[data-recent]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.recent)));
+  attachImageFallbacks(els.newTools);
+}
+
+function toggleCompare(name){
+  const i=state.compare.indexOf(name);
+  if(i>=0)state.compare.splice(i,1);
+  else{
+    if(state.compare.length>=3){showToast(t("compareLimit"));return}
+    state.compare.push(name);
+  }
+  saveCompare();
+  renderTools();
+  renderCompareDock();
+}
+
+function renderCompareDock(){
+  if(!els.compareDock)return;
+  state.compare=state.compare.filter(name=>state.tools.some(x=>x.name===name)).slice(0,3);
+  saveCompare();
+  els.compareDock.classList.toggle("hidden",state.compare.length===0);
+  els.compareCount.textContent=state.compare.length+"/3";
+  els.compareChips.innerHTML=state.compare.map(name=>`<button data-remove-compare="${esc(name)}"><span>${esc(name)}</span><b>×</b></button>`).join("");
+  $$("[data-remove-compare]").forEach(btn=>btn.onclick=()=>toggleCompare(btn.dataset.removeCompare));
+}
+
+function openCompareDialog(){
+  const tools=state.compare.map(name=>state.tools.find(x=>x.name===name)).filter(Boolean);
+  if(tools.length<2){showToast(t("compareNeedTwo"));return}
+  const row=(label,values)=>`<div class="compare-row"><strong>${esc(label)}</strong>${values.map(v=>`<div>${v}</div>`).join("")}</div>`;
+  els.compareDialogContent.innerHTML=`<div class="compare-head"><span class="kicker">COMPARE</span><h2>${esc(t("compareTitle"))}</h2></div>
+    <div class="compare-table" style="--compare-count:${tools.length}">
+      <div class="compare-row compare-names"><strong></strong>${tools.map(tool=>`<div>${logo(tool,"compare-logo")}<b>${esc(tool.name)}</b><small>${esc(tool.maker)}</small></div>`).join("")}</div>
+      ${row(t("compareCategory"),tools.map(x=>esc(localCategory(x.category))))}
+      ${row(t("comparePrice"),tools.map(x=>`<span class="badge ${esc(x.pricing)}">${esc(priceLabel(x.pricing))}</span>`))}
+      ${row(t("comparePlatforms"),tools.map(x=>`<span class="compare-text">${esc((x.platforms||[]).map(platformLabel).join(", "))}</span>`))}
+      ${row(t("compareStudent"),tools.map(x=>x.israelStudent?`<span class="compare-yes">✓ ${esc(t("yes"))}</span>`:`<span class="compare-no">— ${esc(t("no"))}</span>`))}
+      ${row(t("compareUnlimited"),tools.map(x=>x.unlimitedFree?`<span class="compare-yes">✓ ${esc(t("yes"))}</span>`:`<span class="compare-no">— ${esc(t("no"))}</span>`))}
+      ${row(t("compareOpenSource"),tools.map(x=>isOpenSource(x)?`<span class="compare-yes">✓ ${esc(t("yes"))}</span>`:`<span class="compare-no">— ${esc(t("no"))}</span>`))}
+      ${row(t("compareUses"),tools.map(x=>`<span class="compare-text">${esc(bestFor(x).join(", ")||"—")}</span>`))}
+    </div>
+    <div class="compare-links">${tools.map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noreferrer">${esc(x.name)} ↗</a>`).join("")}</div>`;
+  attachImageFallbacks(els.compareDialog);
+  els.compareDialog.showModal();
 }
 
 function openTool(tool){
