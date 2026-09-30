@@ -3250,5 +3250,186 @@
     "addedAt": "2026-10-01",
     "platformsUpdated": "2026-10-01",
     "sourceUrl": "https://github.com/google-gemini/gemini-cli"
+  },
+  {
+    "name": "Jules",
+    "maker": "Google",
+    "url": "https://jules.google",
+    "category": "Coding",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "github",
+      "automation",
+      "async"
+    ],
+    "descHe": "סוכן תכנות אסינכרוני של Google שמתחבר למאגרים, מתכנן שינויים ומבצע משימות פיתוח ברקע עם אינטגרציית GitHub.",
+    "descEn": "Google's asynchronous coding agent that connects to repositories, plans changes and completes development tasks with GitHub integration.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
+  },
+  {
+    "name": "Google Stitch",
+    "maker": "Google Labs",
+    "url": "https://stitch.withgoogle.com",
+    "category": "Design",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "design",
+      "ui",
+      "prototype",
+      "frontend",
+      "agent"
+    ],
+    "descHe": "Canvas עיצוב מבוסס AI ליצירת ממשקי UI, אבטיפוס וזרימות משתמש מטקסט, קול, תמונות וקוד.",
+    "descEn": "AI-native design canvas for creating UI, prototypes and user flows from text, voice, images and code.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/"
+  },
+  {
+    "name": "Google Antigravity",
+    "maker": "Google",
+    "url": "https://antigravity.google",
+    "category": "Coding",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "agents",
+      "ide",
+      "cli",
+      "automation",
+      "multi-agent"
+    ],
+    "descHe": "פלטפורמת פיתוח אג׳נטית של Google עם אפליקציה עצמאית, IDE, CLI וניהול כמה סוכנים מקומיים במקביל.",
+    "descEn": "Google's agentic development platform with standalone app, IDE, CLI and orchestration of multiple local agents.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://codelabs.developers.google.com/getting-started-google-antigravity"
+  },
+  {
+    "name": "Kiro",
+    "maker": "Kiro",
+    "url": "https://kiro.dev",
+    "category": "Coding",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "ide",
+      "specs",
+      "mcp",
+      "automation"
+    ],
+    "descHe": "IDE מבוסס VS Code עם סוכנים, Specs, Hooks, MCP ו-Custom Agents לתכנון וביצוע משימות פיתוח.",
+    "descEn": "VS Code-based IDE with agents, Specs, Hooks, MCP and Custom Agents for planning and implementing software work.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://kiro.dev/docs/ide/"
+  },
+  {
+    "name": "OpenHands",
+    "maker": "OpenHands",
+    "url": "https://www.openhands.dev",
+    "category": "Coding",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "open-source",
+      "local",
+      "automation",
+      "model-agnostic"
+    ],
+    "descHe": "פלטפורמת קוד פתוח להרצה וניהול של סוכני תכנות, כולל הרצה מקומית, Cloud, תכנון ואוטומציות.",
+    "descEn": "Open-source platform for running and managing coding agents with local and cloud options, planning and automations.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://www.openhands.dev/about"
+  },
+  {
+    "name": "tl;dv",
+    "maker": "tl;dv",
+    "url": "https://tldv.io",
+    "category": "Meetings & Transcription",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "meetings",
+      "transcription",
+      "notes",
+      "summaries",
+      "crm",
+      "automation"
+    ],
+    "descHe": "עוזר פגישות AI ל-Zoom, Google Meet ו-Teams שמייצר תמלול, סיכומים, משימות ואוטומציות המשך.",
+    "descEn": "AI meeting assistant for Zoom, Google Meet and Teams with transcription, summaries, action items and workflow automation.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://tldv.io/"
+  },
+  {
+    "name": "Photoroom",
+    "maker": "Photoroom",
+    "url": "https://www.photoroom.com",
+    "category": "Image Generation",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "tags": [
+      "image",
+      "editing",
+      "background",
+      "product-photo",
+      "ai-editor"
+    ],
+    "descHe": "עורך תמונות AI ליצירת רקעים, הסרת אובייקטים, הרחבת תמונות ויצירת תמונות מוצר דרך Web, Android ו-iOS.",
+    "descEn": "AI photo editor for backgrounds, object removal, image expansion and product imagery on web, Android and iOS.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://help.photoroom.com/en/articles/9626719-what-is-photoroom"
   }
 ]
