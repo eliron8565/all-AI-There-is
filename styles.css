@@ -842,3 +842,100 @@ body::before{
   .israel-offer p{font-size:12px}
   .israel-offer a{font-size:11px}
 }
+
+
+/* --- Expanded Israel student benefits --- */
+.student-extra-head{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+}
+.student-extra-head h3{
+  margin:5px 0 5px;
+  font-family:var(--display);
+  font-size:24px;
+  line-height:1.05;
+}
+.student-extra-head p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+.student-benefits-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+.student-benefit-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:10px;
+  min-width:0;
+  padding:13px;
+  border:1px solid var(--rule);
+  background:color-mix(in srgb,var(--paper-2) 40%,transparent);
+  transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+.student-benefit-card:hover{
+  transform:translateY(-2px);
+  border-color:color-mix(in srgb,var(--blue) 52%,var(--rule));
+  background:color-mix(in srgb,var(--blue) 6%,var(--paper-2));
+}
+.student-benefit-icon{
+  width:37px;
+  height:37px;
+  display:grid;
+  place-items:center;
+  border:1px solid color-mix(in srgb,var(--blue) 38%,var(--rule));
+  color:#8db8ff;
+  font:800 11px Inter;
+}
+.student-benefit-copy{
+  min-width:0;
+}
+.student-benefit-copy strong{
+  display:block;
+  font-size:13px;
+}
+.student-benefit-copy small{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.42;
+}
+.student-benefit-copy em{
+  display:block;
+  margin-top:6px;
+  color:var(--ink-2);
+  font-style:normal;
+  font-size:9px;
+  line-height:1.4;
+}
+.student-benefit-status{
+  grid-column:1/-1;
+  width:max-content;
+  max-width:100%;
+  padding:3px 6px;
+  border-bottom:1px solid currentColor;
+  font-size:8px;
+  font-weight:800;
+}
+.student-benefit-status.verified{color:#7fb0ff}
+.student-benefit-status.institution{color:#d3a45b}
+.student-benefit-status.school{color:#8ab49a}
+
+@media(max-width:1100px){
+  .student-benefits-grid{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+  .student-extra-head h3{font-size:21px}
+  .student-extra-head p{font-size:11px}
+  .student-benefit-card{padding:11px}
+  .student-benefit-copy strong{font-size:12px}
+  .student-benefit-copy small{font-size:10px}
+  .student-benefit-copy em{font-size:9px}
+}
