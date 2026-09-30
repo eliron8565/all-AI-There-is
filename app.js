@@ -12,7 +12,7 @@ const els={
   cat:$("#categoryFilter"),price:$("#pricingFilter"),platform:$("#platformFilter"),sort:$("#sortFilter"),
   student:$("#studentFilter"),fav:$("#favoriteFilter"),count:$("#resultCount"),
   empty:$("#emptyState"),dialog:$("#toolDialog"),dialogContent:$("#dialogContent"),
-  categories:$("#categoryGrid"),platformGrid:$("#platformGrid"),featured:$("#featuredRail"),studentSpotlight:$("#studentSpotlight"),
+  categories:$("#categoryGrid"),platformGrid:$("#platformGrid"),featured:$("#featuredRail"),studentSpotlight:$("#studentSpotlight"),studentBenefits:$("#studentBenefitsGrid"),
   toast:$("#toast")
 };
 
@@ -26,7 +26,7 @@ const copy={
     statTools:"כלים בקטלוג",statCats:"קטגוריות",statFree:"חינם / Freemium",statStudent:"הטבות בישראל",
     collectionsTitle:"תתחיל ממה שאתה באמת צריך",collectionsDesc:"אוספים מוכנים שחוסכים חיפוש וסינון ידני.",collectionUnlimitedDesc:"כלים מקומיים בלי מכסת שירות",collectionLocal:"רץ אצלך במחשב",collectionLocalDesc:"יותר פרטיות ושליטה",collectionStudent:"סטודנטים בישראל",collectionStudentDesc:"הטבות שאומתו כמתאימות לישראל",collectionMobile:"AI בכיס",collectionMobileDesc:"Android ו-iPhone/iPad",metricCatalog:"קטלוג",metricFree:"גישה חינמית",liveTitle:"בחירות מהירות",categoriesTitle:"מה בא לך לעשות עם AI?",categoriesDesc:"בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.",platformsTitle:"איפה אפשר להשתמש בכל כלי?",platformsDesc:"Web, מחשב או פלאפון — רואים מיד אם יש אפליקציה ל-Windows, Mac, Linux, Android או iPhone/iPad.",
     studentBadge:"ISRAEL STUDENT HUB",studentTitle:"סטודנטים בישראל — ההטבות שבאמת רלוונטיות לכם.",studentDesc:"כאן מוצגות רק הטבות שמצאנו להן בסיס רשמי לשימוש של סטודנטים בישראל. לכל כלי מצורפים תנאי הזכאות וקישור רשמי לבדיקה.",
-    studentPoint1:"בדיקה מול מקור רשמי",studentPoint2:"תנאי זכאות לישראל",studentPoint3:"סינון בלחיצה אחת",showStudent:"הצג הטבות לסטודנטים בישראל",
+    studentPoint1:"בדיקה מול מקור רשמי",studentPoint2:"תנאי זכאות לישראל",studentPoint3:"סינון בלחיצה אחת",showStudent:"הצג הטבות לסטודנטים בישראל",studentExtrasTitle:"עוד הטבות שימושיות לסטודנטים בישראל",studentExtrasDesc:"לא רק AI — גם כלי פיתוח, עיצוב, תוכנות לימוד ושירותים מקצועיים.",
     featuredTitle:"כלים שכדאי להכיר",featuredDesc:"קיצורי דרך לכמה מהכלים הבולטים בקטלוג.",surprise:"הפתע אותי",
     discoverTitle:"כל כלי ה-AI במקום אחד",discoverDesc:"חפש בשם, שימוש, חברה או קטגוריה וסנן בדיוק מה שאתה צריך.",
     filterStudents:"🇮🇱 סטודנטים בישראל",filterFavorites:"מועדפים",clear:"נקה סינונים",emptyTitle:"לא מצאנו כלי מתאים",emptyDesc:"נסה חיפוש או סינון אחר.",
@@ -46,7 +46,7 @@ const copy={
     statTools:"tools in directory",statCats:"categories",statFree:"free / freemium",statStudent:"Israel student offers",
     collectionsTitle:"Start with what you actually need",collectionsDesc:"Ready-made collections that save manual searching and filtering.",collectionUnlimitedDesc:"Local tools without provider quotas",collectionLocal:"Runs on your computer",collectionLocalDesc:"More privacy and control",collectionStudent:"Students in Israel",collectionStudentDesc:"Offers verified as relevant in Israel",collectionMobile:"AI in your pocket",collectionMobileDesc:"Android and iPhone/iPad",metricCatalog:"Catalog",metricFree:"Free access",liveTitle:"Quick picks",categoriesTitle:"What do you want to do with AI?",categoriesDesc:"Pick a field and jump straight to tools that fit the task.",platformsTitle:"Where can you use each tool?",platformsDesc:"Web, desktop or mobile — instantly see whether there is an app for Windows, Mac, Linux, Android or iPhone/iPad.",
     studentBadge:"ISRAEL STUDENT HUB",studentTitle:"Students in Israel — offers that are actually relevant to you.",studentDesc:"This section only shows offers with official evidence that they can apply to students in Israel. Each tool includes eligibility details and an official verification link.",
-    studentPoint1:"Checked against official sources",studentPoint2:"Israel eligibility summary",studentPoint3:"One-click filtering",showStudent:"Show Israel student offers",
+    studentPoint1:"Checked against official sources",studentPoint2:"Israel eligibility summary",studentPoint3:"One-click filtering",showStudent:"Show Israel student offers",studentExtrasTitle:"More useful student benefits for Israel",studentExtrasDesc:"Not just AI — developer tools, design software, study tools and professional services.",
     featuredTitle:"Tools worth discovering",featuredDesc:"Quick access to a selection of notable tools in the directory.",surprise:"Surprise me",
     discoverTitle:"Every AI tool in one place",discoverDesc:"Search by name, use case, company or category and filter down to exactly what you need.",
     filterStudents:"🇮🇱 Students in Israel",filterFavorites:"Favorites",clear:"Clear filters",emptyTitle:"No matching tools found",emptyDesc:"Try a different search or filter.",
@@ -103,7 +103,70 @@ const platformMeta={
 
 const FEATURED=["ChatGPT","Claude","Manus","Genspark","Cursor","Recraft","Meshy","Fathom"];
 const HERO_PREVIEW=["v0","Lovable","Bolt"];
-const STUDENT_PREVIEW=["GitHub Copilot","Adobe Firefly","Notion AI"];
+const STUDENT_PREVIEW=["GitHub Copilot","JetBrains AI Assistant","Figma AI","Adobe Firefly","Notion AI"];
+
+const STUDENT_BENEFITS=[
+  {
+    name:"GitHub Student Developer Pack",
+    icon:"GH",
+    url:"https://education.github.com/pack",
+    status:"verified",
+    he:"חבילת 80+ כלים ומשאבים לסטודנטים מאומתים, כולל GitHub Pro, Copilot Student, Codespaces והטבות של שותפים.",
+    en:"80+ tools and resources for verified students, including GitHub Pro, Copilot Student, Codespaces and partner offers.",
+    noteHe:"פתוח לסטודנטים בני 13+ בתוכנית לימודים שמעניקה תואר/דיפלומה, עם אימייל מוסדי או הוכחת לימודים.",
+    noteEn:"For students aged 13+ enrolled in a degree or diploma program, verified with a school email or proof of enrollment."
+  },
+  {
+    name:"JetBrains Student Pack",
+    icon:"JB",
+    url:"https://www.jetbrains.com/academy/student-pack/",
+    status:"verified",
+    he:"גישה חינמית לכלי JetBrains ללימודים, כולל IntelliJ IDEA, PyCharm, WebStorm ועוד. AI Pro מוצע כניסיון מוגבל.",
+    en:"Free educational access to JetBrains tools including IntelliJ IDEA, PyCharm, WebStorm and more. AI Pro is offered as a limited trial.",
+    noteHe:"אימות עם אימייל אוניברסיטאי, ISIC/ITIC או GitHub Student Developer Pack. לשימוש לימודי לא-מסחרי.",
+    noteEn:"Verify with a university email, ISIC/ITIC or GitHub Student Developer Pack. Educational, non-commercial use only."
+  },
+  {
+    name:"Figma for Education",
+    icon:"FG",
+    url:"https://www.figma.com/education/higher-education/",
+    status:"verified",
+    he:"סטודנטים ומרצים זכאים יכולים לקבל תוכנית Education בחינם עם יכולות Professional של Figma ו-FigJam.",
+    en:"Eligible students and educators can get a free Education plan with Professional Figma and FigJam features.",
+    noteHe:"דורש אימות סטטוס לימודים. מתאים גם למוסדות השכלה גבוהה.",
+    noteEn:"Requires education-status verification and supports higher-education students."
+  },
+  {
+    name:"Autodesk Education",
+    icon:"AD",
+    url:"https://www.autodesk.com/education/edu-software/overview",
+    status:"institution",
+    he:"סטודנטים זכאים מקבלים גישה חינמית לשנה לתוכנות Autodesk לצורכי לימודים, עם אפשרות חידוש כל עוד נשארים זכאים.",
+    en:"Eligible students get one year of free educational access to Autodesk software, renewable while eligible.",
+    noteHe:"תלוי באימות המוסד והסטטוס. השימוש הוא ללימודים ולא לעבודה מסחרית.",
+    noteEn:"Depends on institution/status verification. Educational use only, not commercial work."
+  },
+  {
+    name:"Microsoft 365 Education",
+    icon:"MS",
+    url:"https://www.microsoft.com/education/products/office-365-education",
+    status:"institution",
+    he:"סטודנטים עם כתובת אימייל חינוכית זכאית יכולים לקבל Office 365 Education בחינם דרך המוסד.",
+    en:"Students with an eligible education email can get Office 365 Education through their institution.",
+    noteHe:"הזכאות והיישומים הזמינים תלויים במוסד הלימודים ובתוכנית שהמוסד מפעיל.",
+    noteEn:"Eligibility and included apps depend on the educational institution and its plan."
+  },
+  {
+    name:"Canva Education",
+    icon:"CV",
+    url:"https://www.canva.com/education/",
+    status:"school",
+    he:"Canva Education חינמית לתלמידי K-12 דרך מורה או בית ספר זכאי, עם כלי עיצוב ויכולות AI של Canva.",
+    en:"Canva Education is free for eligible K-12 students through a verified teacher or school, with Canva design and AI tools.",
+    noteHe:"מיועד בעיקר לבתי ספר K-12 — לא הטבת סטודנטים כללית לאוניברסיטאות.",
+    noteEn:"Primarily for K-12 schools, not a general university student offer."
+  }
+];
 
 function t(key){return copy[state.lang][key]||key}
 function esc(v=""){return String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
@@ -285,6 +348,25 @@ function buildFeatured(){
   attachImageFallbacks(els.featured);
 }
 
+function buildStudentBenefits(){
+  if(!els.studentBenefits)return;
+  const statusLabel={
+    verified:state.lang==="he"?"🇮🇱 מתאים / אימות נדרש":"🇮🇱 Israel-ready / verification required",
+    institution:state.lang==="he"?"🏫 תלוי במוסד":"🏫 Institution-dependent",
+    school:state.lang==="he"?"🏫 K-12 בלבד":"🏫 K-12 only"
+  };
+  els.studentBenefits.innerHTML=STUDENT_BENEFITS.map(item=>`
+    <a class="student-benefit-card" href="${esc(item.url)}" target="_blank" rel="noreferrer">
+      <span class="student-benefit-icon">${esc(item.icon)}</span>
+      <span class="student-benefit-copy">
+        <strong>${esc(item.name)}</strong>
+        <small>${esc(state.lang==="he"?item.he:item.en)}</small>
+        <em>${esc(state.lang==="he"?item.noteHe:item.noteEn)}</em>
+      </span>
+      <span class="student-benefit-status ${esc(item.status)}">${esc(statusLabel[item.status])}</span>
+    </a>`).join("");
+}
+
 function buildStudentSpotlight(){
   const tools=STUDENT_PREVIEW.map(n=>state.tools.find(x=>x.name===n)).filter(x=>x&&x.israelStudent);
   els.studentSpotlight.innerHTML=tools.map(tool=>`<button class="student-mini" data-student-tool="${esc(tool.name)}">
@@ -332,7 +414,7 @@ function applyLanguage(){
   $("#enBtn").classList.toggle("active",state.lang==="en");
   els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, קוד, וידאו, לימודים...":"Search ChatGPT, coding, video, studying...";
   els.search.placeholder=state.lang==="he"?"חיפוש לפי שם או שימוש...":"Search by name or use case...";
-  fillFilters();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildHeroPreview();renderTools();
+  fillFilters();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildStudentBenefits();buildHeroPreview();renderTools();
 }
 
 function setLanguage(lang){state.lang=lang;localStorage.setItem("aiatlas-lang",lang);applyLanguage()}
@@ -454,7 +536,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
   setupEvents();setupReveal();setupVisualEffects();
   try{
-    const response=await fetch("data/tools.json?v=9");
+    const response=await fetch("data/tools.json?v=10");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();
