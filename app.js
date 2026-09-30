@@ -196,7 +196,10 @@ function platformBadges(tool,compact=false){
   }).join("");
   return '<div class="platform-badges '+(compact?"compact":"")+'">'+items+'</div>';
 }
-function saveFavorites(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}\nfunction isOpenSource(tool){return (tool.tags||[]).some(x=>String(x).toLowerCase()==="open-source")}\nfunction saveCompare(){localStorage.setItem("aiatlas-compare",JSON.stringify(state.compare))}\nfunction bestFor(tool){return (tool.tags||[]).filter(x=>!["open-source","local","offline"].includes(String(x).toLowerCase())).slice(0,3)}
+function saveFavorites(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}
+function isOpenSource(tool){return (tool.tags||[]).some(x=>String(x).toLowerCase()==="open-source")}
+function saveCompare(){localStorage.setItem("aiatlas-compare",JSON.stringify(state.compare))}
+function bestFor(tool){return (tool.tags||[]).filter(x=>!["open-source","local","offline"].includes(String(x).toLowerCase())).slice(0,3)}
 
 function attachImageFallbacks(root=document){
   root.querySelectorAll("img[data-initials]").forEach(img=>{
