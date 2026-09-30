@@ -4,57 +4,61 @@ const $$=s=>[...document.querySelectorAll(s)];
 const state={
   tools:[],filtered:[],
   lang:localStorage.getItem("aiatlas-lang")||"he",
-  favorites:new Set(JSON.parse(localStorage.getItem("aiatlas-favs")||"[]"))
+  favorites:new Set(JSON.parse(localStorage.getItem("aiatlas-favs")||"[]")),
+  compare:JSON.parse(localStorage.getItem("aiatlas-compare")||"[]"),
+  onlyNew:false
 };
 
 const els={
   grid:$("#toolsGrid"),search:$("#searchInput"),heroSearch:$("#heroSearch"),
   cat:$("#categoryFilter"),price:$("#pricingFilter"),platform:$("#platformFilter"),sort:$("#sortFilter"),
-  student:$("#studentFilter"),fav:$("#favoriteFilter"),count:$("#resultCount"),
+  student:$("#studentFilter"),fav:$("#favoriteFilter"),openSource:$("#openSourceFilter"),count:$("#resultCount"),
   empty:$("#emptyState"),dialog:$("#toolDialog"),dialogContent:$("#dialogContent"),
-  categories:$("#categoryGrid"),platformGrid:$("#platformGrid"),featured:$("#featuredRail"),studentSpotlight:$("#studentSpotlight"),studentBenefits:$("#studentBenefitsGrid"),
+  compareDialog:$("#compareDialog"),compareDialogContent:$("#compareDialogContent"),
+  categories:$("#categoryGrid"),platformGrid:$("#platformGrid"),featured:$("#featuredRail"),studentSpotlight:$("#studentSpotlight"),studentBenefits:$("#studentBenefitsGrid"),newTools:$("#newToolsRail"),
+  compareDock:$("#compareDock"),compareChips:$("#compareChips"),compareCount:$("#compareCount"),
   toast:$("#toast")
 };
 
 const copy={
   he:{
-    brandTag:"כל עולם ה-AI, מסודר.",navHome:"בית",navCollections:"אוספים",navCategories:"קטגוריות",navPlatforms:"אפליקציות",navStudents:"לסטודנטים",navDiscover:"כל הכלים",
+    brandTag:"כל עולם ה-AI, מסודר.",navHome:"בית",navCollections:"אוספים",navNew:"חדש עכשיו",navCategories:"קטגוריות",navPlatforms:"אפליקציות",navStudents:"לסטודנטים",navDiscover:"כל הכלים",
     heroBadge:"הדרך המהירה למצוא את כלי ה-AI הנכון",heroLine1:"כל כלי ה־AI.",heroLine2:"בלי ללכת לאיבוד.",
     heroDesc:"חיפוש חכם, קטגוריות ברורות, חינם מול בתשלום, והטבות לסטודנטים — הכל במקום אחד ובעברית.",
-    chipFree:"חינם",chipUnlimited:"חינם ללא הגבלה",chipLocal:"AI מקומי",chipStudents:"🇮🇱 סטודנטים בישראל",chipCode:"תכנות",chipImages:"תמונות",chipMobile:"אפליקציה לפלאפון",heroTools:"כלים",heroCategories:"קטגוריות",heroFree:"עם מסלול חינמי",
+    chipFree:"חינם",chipUnlimited:"חינם ללא הגבלה",chipLocal:"AI מקומי",chipStudents:"🇮🇱 סטודנטים בישראל",chipCode:"תכנות",chipImages:"תמונות",chipMobile:"אפליקציה לפלאפון",chipOpenSource:"קוד פתוח",heroTools:"כלים",heroCategories:"קטגוריות",heroFree:"עם מסלול חינמי",
     mockTitle:"מצא לי כלי AI ל...",mockQuery:"בניית אתר בלי קוד",mockFooter:"תוצאות מותאמות בזמן אמת",
     statTools:"כלים בקטלוג",statCats:"קטגוריות",statFree:"חינם / Freemium",statStudent:"הטבות בישראל",
-    collectionsTitle:"תתחיל ממה שאתה באמת צריך",collectionsDesc:"אוספים מוכנים שחוסכים חיפוש וסינון ידני.",collectionUnlimitedDesc:"כלים מקומיים בלי מכסת שירות",collectionLocal:"רץ אצלך במחשב",collectionLocalDesc:"יותר פרטיות ושליטה",collectionStudent:"סטודנטים בישראל",collectionStudentDesc:"הטבות שאומתו כמתאימות לישראל",collectionMobile:"AI בכיס",collectionMobileDesc:"Android ו-iPhone/iPad",metricCatalog:"קטלוג",metricFree:"גישה חינמית",liveTitle:"בחירות מהירות",categoriesTitle:"מה בא לך לעשות עם AI?",categoriesDesc:"בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.",platformsTitle:"איפה אפשר להשתמש בכל כלי?",platformsDesc:"Web, מחשב או פלאפון — רואים מיד אם יש אפליקציה ל-Windows, Mac, Linux, Android או iPhone/iPad.",
+    collectionsTitle:"תתחיל ממה שאתה באמת צריך",collectionsDesc:"אוספים מוכנים שחוסכים חיפוש וסינון ידני.",collectionUnlimitedDesc:"כלים מקומיים בלי מכסת שירות",collectionLocal:"רץ אצלך במחשב",collectionLocalDesc:"יותר פרטיות ושליטה",collectionStudent:"סטודנטים בישראל",collectionStudentDesc:"הטבות שאומתו כמתאימות לישראל",collectionMobile:"AI בכיס",collectionMobileDesc:"Android ו-iPhone/iPad",collectionOpenSource:"קוד פתוח",collectionOpenSourceDesc:"כלים שאפשר לבדוק, להריץ ולארח בעצמך",metricCatalog:"קטלוג",metricFree:"גישה חינמית",liveTitle:"בחירות מהירות",categoriesTitle:"מה בא לך לעשות עם AI?",categoriesDesc:"בחר תחום וקפוץ ישר לכלים שמתאימים למשימה.",platformsTitle:"איפה אפשר להשתמש בכל כלי?",platformsDesc:"Web, מחשב או פלאפון — רואים מיד אם יש אפליקציה ל-Windows, Mac, Linux, Android או iPhone/iPad.",
     studentBadge:"ISRAEL STUDENT HUB",studentTitle:"סטודנטים בישראל — ההטבות שבאמת רלוונטיות לכם.",studentDesc:"כאן מוצגות רק הטבות שמצאנו להן בסיס רשמי לשימוש של סטודנטים בישראל. לכל כלי מצורפים תנאי הזכאות וקישור רשמי לבדיקה.",
     studentPoint1:"בדיקה מול מקור רשמי",studentPoint2:"תנאי זכאות לישראל",studentPoint3:"סינון בלחיצה אחת",showStudent:"הצג הטבות לסטודנטים בישראל",studentExtrasTitle:"עוד הטבות שימושיות לסטודנטים בישראל",studentExtrasDesc:"לא רק AI — גם כלי פיתוח, עיצוב, תוכנות לימוד ושירותים מקצועיים.",
-    featuredTitle:"כלים שכדאי להכיר",featuredDesc:"קיצורי דרך לכמה מהכלים הבולטים בקטלוג.",surprise:"הפתע אותי",
+    featuredTitle:"כלים שכדאי להכיר",featuredDesc:"קיצורי דרך לכמה מהכלים הבולטים בקטלוג.",surprise:"הפתע אותי",newNowTitle:"חדש עכשיו ב-AI Atlas",newNowDesc:"כלים שנוספו לאחרונה כדי שתוכל לראות ישר מה התחדש.",showNew:"הצג את כל החדשים",
     discoverTitle:"כל כלי ה-AI במקום אחד",discoverDesc:"חפש בשם, שימוש, חברה או קטגוריה וסנן בדיוק מה שאתה צריך.",
-    filterStudents:"🇮🇱 סטודנטים בישראל",filterFavorites:"מועדפים",clear:"נקה סינונים",emptyTitle:"לא מצאנו כלי מתאים",emptyDesc:"נסה חיפוש או סינון אחר.",
+    filterStudents:"🇮🇱 סטודנטים בישראל",filterFavorites:"מועדפים",filterOpenSource:"קוד פתוח",clear:"נקה סינונים",emptyTitle:"לא מצאנו כלי מתאים",emptyDesc:"נסה חיפוש או סינון אחר.",
     footerTag:"מגלים AI בלי רעש מיותר.",footerNote:"מחירים והטבות משתנים. לפני הרשמה או רכישה תמיד כדאי לבדוק את התנאים באתר הרשמי.",
     allCategories:"כל הקטגוריות",allPrices:"כל המחירים",allPlatforms:"כל הפלטפורמות",mobileApps:"אפליקציות לפלאפון",free:"חינם",freemium:"חינם + בתשלום",paid:"בתשלום",unlimitedFree:"100% חינם + ללא הגבלה",unlimitedBadge:"∞ חינם ללא הגבלה",unlimitedTitle:"100% חינם וללא הגבלה",unlimitedDesc:"כלים שאפשר להריץ מקומית בלי מכסת הודעות או יצירות מצד השירות.",unlimitedLocal:"ללא מכסת שירות בהרצה מקומית",
     sortDefault:"סדר מומלץ",sortNew:"חדשים קודם",sortAZ:"א׳ → ת׳ / A → Z",sortZA:"ת׳ → א׳ / Z → A",sortFree:"חינם קודם",newBadge:"חדש",
     found:"כלים נמצאו",details:"פרטים",category:"קטגוריה",pricing:"מחיר",studentOffer:"הטבת סטודנט",israelStudentOffer:"מתאים לסטודנטים בישראל",checkEligibility:"לבדיקת הזכאות הרשמית",israelVerified:"אומת לישראל",
-    official:"לאתר הרשמי",copyLink:"העתק קישור",copied:"הקישור הועתק",appAvailability:"אפליקציות ופלטפורמות",platformUpdated:"מידע על פלטפורמות עודכן",favoritesOnly:"מועדפים",verified:"מאומת",toolsInCategory:"כלים",
+    official:"לאתר הרשמי",copyLink:"העתק קישור",copied:"הקישור הועתק",appAvailability:"אפליקציות ופלטפורמות",platformUpdated:"מידע על פלטפורמות עודכן",favoritesOnly:"מועדפים",verified:"מאומת",toolsInCategory:"כלים",bestFor:"מתאים ל",compare:"השווה",compareTitle:"השוואת כלים",compareClear:"נקה",compareOpen:"השווה עכשיו",compareLimit:"אפשר להשוות עד 3 כלים",compareNeedTwo:"בחר לפחות 2 כלים להשוואה",compareCategory:"קטגוריה",comparePrice:"מחיר",comparePlatforms:"פלטפורמות",compareStudent:"סטודנטים בישראל",compareUnlimited:"ללא הגבלה",compareOpenSource:"קוד פתוח",compareUses:"שימושים",yes:"כן",no:"לא",
     noDescription:"כלי AI בקטלוג AI Atlas.",siteTitle:"AI Atlas — כל כלי ה-AI במקום אחד"
   },
   en:{
-    brandTag:"The AI world, organized.",navHome:"Home",navCollections:"Collections",navCategories:"Categories",navPlatforms:"Apps",navStudents:"Students",navDiscover:"All tools",
+    brandTag:"The AI world, organized.",navHome:"Home",navCollections:"Collections",navNew:"What\'s new",navCategories:"Categories",navPlatforms:"Apps",navStudents:"Students",navDiscover:"All tools",
     heroBadge:"The fast way to find the right AI tool",heroLine1:"Every AI tool.",heroLine2:"Without getting lost.",
     heroDesc:"Smart search, clear categories, free vs paid, and student offers — all in one beautifully organized place.",
-    chipFree:"Free",chipUnlimited:"Free & unlimited",chipLocal:"Local AI",chipStudents:"🇮🇱 Students in Israel",chipCode:"Coding",chipImages:"Images",chipMobile:"Mobile apps",heroTools:"tools",heroCategories:"categories",heroFree:"with a free plan",
+    chipFree:"Free",chipUnlimited:"Free & unlimited",chipLocal:"Local AI",chipStudents:"🇮🇱 Students in Israel",chipCode:"Coding",chipImages:"Images",chipMobile:"Mobile apps",chipOpenSource:"Open source",heroTools:"tools",heroCategories:"categories",heroFree:"with a free plan",
     mockTitle:"Find me an AI tool for...",mockQuery:"building a website without code",mockFooter:"Matched results in real time",
     statTools:"tools in directory",statCats:"categories",statFree:"free / freemium",statStudent:"Israel student offers",
-    collectionsTitle:"Start with what you actually need",collectionsDesc:"Ready-made collections that save manual searching and filtering.",collectionUnlimitedDesc:"Local tools without provider quotas",collectionLocal:"Runs on your computer",collectionLocalDesc:"More privacy and control",collectionStudent:"Students in Israel",collectionStudentDesc:"Offers verified as relevant in Israel",collectionMobile:"AI in your pocket",collectionMobileDesc:"Android and iPhone/iPad",metricCatalog:"Catalog",metricFree:"Free access",liveTitle:"Quick picks",categoriesTitle:"What do you want to do with AI?",categoriesDesc:"Pick a field and jump straight to tools that fit the task.",platformsTitle:"Where can you use each tool?",platformsDesc:"Web, desktop or mobile — instantly see whether there is an app for Windows, Mac, Linux, Android or iPhone/iPad.",
+    collectionsTitle:"Start with what you actually need",collectionsDesc:"Ready-made collections that save manual searching and filtering.",collectionUnlimitedDesc:"Local tools without provider quotas",collectionLocal:"Runs on your computer",collectionLocalDesc:"More privacy and control",collectionStudent:"Students in Israel",collectionStudentDesc:"Offers verified as relevant in Israel",collectionMobile:"AI in your pocket",collectionMobileDesc:"Android and iPhone/iPad",collectionOpenSource:"Open source",collectionOpenSourceDesc:"Tools you can inspect, run and self-host",metricCatalog:"Catalog",metricFree:"Free access",liveTitle:"Quick picks",categoriesTitle:"What do you want to do with AI?",categoriesDesc:"Pick a field and jump straight to tools that fit the task.",platformsTitle:"Where can you use each tool?",platformsDesc:"Web, desktop or mobile — instantly see whether there is an app for Windows, Mac, Linux, Android or iPhone/iPad.",
     studentBadge:"ISRAEL STUDENT HUB",studentTitle:"Students in Israel — offers that are actually relevant to you.",studentDesc:"This section only shows offers with official evidence that they can apply to students in Israel. Each tool includes eligibility details and an official verification link.",
     studentPoint1:"Checked against official sources",studentPoint2:"Israel eligibility summary",studentPoint3:"One-click filtering",showStudent:"Show Israel student offers",studentExtrasTitle:"More useful student benefits for Israel",studentExtrasDesc:"Not just AI — developer tools, design software, study tools and professional services.",
-    featuredTitle:"Tools worth discovering",featuredDesc:"Quick access to a selection of notable tools in the directory.",surprise:"Surprise me",
+    featuredTitle:"Tools worth discovering",featuredDesc:"Quick access to a selection of notable tools in the directory.",surprise:"Surprise me",newNowTitle:"Just added to AI Atlas",newNowDesc:"Recently added tools so you can instantly see what\'s new.",showNew:"Show all new tools",
     discoverTitle:"Every AI tool in one place",discoverDesc:"Search by name, use case, company or category and filter down to exactly what you need.",
-    filterStudents:"🇮🇱 Students in Israel",filterFavorites:"Favorites",clear:"Clear filters",emptyTitle:"No matching tools found",emptyDesc:"Try a different search or filter.",
+    filterStudents:"🇮🇱 Students in Israel",filterFavorites:"Favorites",filterOpenSource:"Open source",clear:"Clear filters",emptyTitle:"No matching tools found",emptyDesc:"Try a different search or filter.",
     footerTag:"Discover AI without the noise.",footerNote:"Prices and offers change. Always check the official website before signing up or purchasing.",
     allCategories:"All categories",allPrices:"All pricing",allPlatforms:"All platforms",mobileApps:"Mobile apps",free:"Free",freemium:"Free + paid",paid:"Paid",unlimitedFree:"100% free + unlimited",unlimitedBadge:"∞ Free & unlimited",unlimitedTitle:"100% free and unlimited",unlimitedDesc:"Tools you can run locally without a provider message or generation quota.",unlimitedLocal:"No provider quota when running locally",
     sortDefault:"Recommended order",sortNew:"Newest first",sortAZ:"A → Z",sortZA:"Z → A",sortFree:"Free first",newBadge:"NEW",
     found:"tools found",details:"Details",category:"Category",pricing:"Pricing",studentOffer:"Student offer",israelStudentOffer:"Available to students in Israel",checkEligibility:"Check official eligibility",israelVerified:"Verified for Israel",
-    official:"Official website",copyLink:"Copy link",copied:"Link copied",appAvailability:"Apps & platforms",platformUpdated:"Platform info updated",favoritesOnly:"Favorites",verified:"Verified",toolsInCategory:"tools",
+    official:"Official website",copyLink:"Copy link",copied:"Link copied",appAvailability:"Apps & platforms",platformUpdated:"Platform info updated",favoritesOnly:"Favorites",verified:"Verified",toolsInCategory:"tools",bestFor:"Best for",compare:"Compare",compareTitle:"Compare tools",compareClear:"Clear",compareOpen:"Compare now",compareLimit:"You can compare up to 3 tools",compareNeedTwo:"Choose at least 2 tools to compare",compareCategory:"Category",comparePrice:"Pricing",comparePlatforms:"Platforms",compareStudent:"Students in Israel",compareUnlimited:"Unlimited",compareOpenSource:"Open source",compareUses:"Use cases",yes:"Yes",no:"No",
     noDescription:"An AI tool in the AI Atlas directory.",siteTitle:"AI Atlas — Every AI tool in one place"
   }
 };
@@ -192,7 +196,7 @@ function platformBadges(tool,compact=false){
   }).join("");
   return '<div class="platform-badges '+(compact?"compact":"")+'">'+items+'</div>';
 }
-function saveFavorites(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}
+function saveFavorites(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}\nfunction isOpenSource(tool){return (tool.tags||[]).some(x=>String(x).toLowerCase()==="open-source")}\nfunction saveCompare(){localStorage.setItem("aiatlas-compare",JSON.stringify(state.compare))}\nfunction bestFor(tool){return (tool.tags||[]).filter(x=>!["open-source","local","offline"].includes(String(x).toLowerCase())).slice(0,3)}
 
 function attachImageFallbacks(root=document){
   root.querySelectorAll("img[data-initials]").forEach(img=>{
