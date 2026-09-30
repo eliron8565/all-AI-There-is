@@ -35,6 +35,7 @@
     <nav class="side-nav" aria-label="Main navigation">
       <a href="#top" class="active"><span>⌂</span><span data-i18n="navHome">בית</span></a>
       <a href="#collections"><span>◇</span><span data-i18n="navCollections">אוספים</span></a>
+      <a href="#new-now"><span>✦</span><span data-i18n="navNew">חדש עכשיו</span></a>
       <a href="#categories"><span>▦</span><span data-i18n="navCategories">קטגוריות</span></a>
       <a href="#platforms"><span>▯</span><span data-i18n="navPlatforms">אפליקציות</span></a>
       <a href="#students"><span>🎓</span><span data-i18n="navStudents">לסטודנטים</span></a>
@@ -82,6 +83,7 @@
           <button data-quick="student"><span>🎓</span><span data-i18n="chipStudents">🇮🇱 סטודנטים בישראל</span></button>
           <button data-quick="mobile"><span>▯</span><span data-i18n="chipMobile">אפליקציה לפלאפון</span></button>
           <button data-quick="coding"><span>⌘</span><span data-i18n="chipCode">תכנות</span></button>
+          <button data-quick="opensource"><span>◫</span><span data-i18n="chipOpenSource">קוד פתוח</span></button>
           <button data-quick="image"><span>✦</span><span data-i18n="chipImages">תמונות</span></button>
         </div>
 
@@ -104,7 +106,16 @@
           <button class="collection-card local" data-quick="local"><span class="collection-icon">◈</span><div><strong data-i18n="collectionLocal">רץ אצלך במחשב</strong><small data-i18n="collectionLocalDesc">יותר פרטיות ושליטה</small></div><b>↗</b></button>
           <button class="collection-card student" data-quick="student"><span class="collection-icon">🎓</span><div><strong data-i18n="collectionStudent">סטודנטים בישראל</strong><small data-i18n="collectionStudentDesc">הטבות שאומתו כמתאימות לישראל</small></div><b>↗</b></button>
           <button class="collection-card mobile" data-quick="mobile"><span class="collection-icon">▯</span><div><strong data-i18n="collectionMobile">AI בכיס</strong><small data-i18n="collectionMobileDesc">Android ו-iPhone/iPad</small></div><b>↗</b></button>
+          <button class="collection-card opensource" data-quick="opensource"><span class="collection-icon">◫</span><div><strong data-i18n="collectionOpenSource">קוד פתוח</strong><small data-i18n="collectionOpenSourceDesc">כלים שאפשר לבדוק, להריץ ולארח בעצמך</small></div><b>↗</b></button>
         </div>
+      </section>
+
+      <section class="section reveal new-now" id="new-now">
+        <div class="section-title-row split">
+          <div><span class="kicker">JUST ADDED</span><h2 data-i18n="newNowTitle">חדש עכשיו ב-AI Atlas</h2><p data-i18n="newNowDesc">כלים שנוספו לאחרונה כדי שתוכל לראות ישר מה התחדש.</p></div>
+          <button class="surprise-btn" data-quick="new"><span>✦</span><span data-i18n="showNew">הצג את כל החדשים</span></button>
+        </div>
+        <div id="newToolsRail" class="new-tools-rail"></div>
       </section>
 
       <section class="section reveal" id="categories">
@@ -166,6 +177,7 @@
           <select id="sortFilter" aria-label="Sort"></select>
           <label class="toggle-pill"><input id="studentFilter" type="checkbox"><span>🎓 <span data-i18n="filterStudents">🇮🇱 סטודנטים בישראל</span></span></label>
           <label class="toggle-pill"><input id="favoriteFilter" type="checkbox"><span>★ <span data-i18n="filterFavorites">מועדפים</span></span></label>
+          <label class="toggle-pill"><input id="openSourceFilter" type="checkbox"><span>◫ <span data-i18n="filterOpenSource">קוד פתוח</span></span></label>
           <button id="clearFilters" class="clear-btn" data-i18n="clear">נקה סינונים</button>
         </div>
 
@@ -182,6 +194,13 @@
   </div>
 
   <dialog id="toolDialog"><button class="dialog-close" id="dialogClose" aria-label="Close">×</button><div id="dialogContent"></div></dialog>
+  <dialog id="compareDialog" class="compare-dialog"><button class="dialog-close" id="compareDialogClose" aria-label="Close">×</button><div id="compareDialogContent"></div></dialog>
+  <div id="compareDock" class="compare-dock hidden">
+    <div class="compare-dock-copy"><strong data-i18n="compareTitle">השוואת כלים</strong><span id="compareCount">0/3</span></div>
+    <div id="compareChips" class="compare-chips"></div>
+    <button id="clearCompare" class="compare-clear" data-i18n="compareClear">נקה</button>
+    <button id="openCompare" class="compare-open" data-i18n="compareOpen">השווה עכשיו</button>
+  </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <button id="backTop" class="back-top" aria-label="חזרה למעלה" title="חזרה למעלה">↑</button>
 
