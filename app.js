@@ -203,6 +203,8 @@ function platformBadges(tool,compact=false){
 function saveFavorites(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}
 function isOpenSource(tool){return (tool.tags||[]).some(x=>String(x).toLowerCase()==="open-source")}
 function saveCompare(){localStorage.setItem("aiatlas-compare",JSON.stringify(state.compare))}
+function saveRecent(){localStorage.setItem("aiatlas-recent",JSON.stringify(state.recent))}
+function addRecent(name){state.recent=[name,...state.recent.filter(x=>x!==name)].slice(0,8);saveRecent();buildRecentlyViewed()}
 function bestFor(tool){return (tool.tags||[]).filter(x=>!["open-source","local","offline"].includes(String(x).toLowerCase())).slice(0,3)}
 
 function attachImageFallbacks(root=document){
@@ -282,6 +284,137 @@ function renderTools(){
   renderCompareDock();
 }
 
+function buildRecentlyViewed(){
+  if(!els.recentTools||!els.recentSection)return;
+  const tools=state.recent.map(name=>state.tools.find(x=>x.name===name)).filter(Boolean).slice(0,8);
+  els.recentSection.classList.toggle("hidden",tools.length===0);
+  els.recentTools.innerHTML=tools.map(tool=>`<button class="new-tool-card" data-recent-view="${esc(tool.name)}">
+    ${logo(tool,"new-tool-logo")}
+    <span class="new-tool-copy"><strong>${esc(tool.name)}</strong><small>${esc(localCategory(tool.category))}</small><em>${esc(priceLabel(tool.pricing))}</em></span>
+    <span class="new-tool-arrow">↗</span>
+  </button>`).join("");
+  $("[data-recent-view]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.recentView)));
+  attachImageFallbacks(els.recentTools);
+}
+
+const FINDER_TASKS={
+  chat:{cat:"Chat & Assistants",tags:["chat","assistant"]},
+  coding:{cat:"Coding",tags:["coding","code","developer"]},
+  research:{cat:"Research & Search",tags:["research","search"]},
+  image:{cat:"Image Generation",tags:["image","design"]},
+  video:{cats:["Video Generation","Video & Avatars","Audio & Video Editing"],tags:["video"]},
+  audio:{cats:["Audio & Voice","Music"],tags:["audio","voice","music"]},
+  study:{cat:"Study & Learning",tags:["study","learning","education"]},
+  productivity:{cat:"Productivity",tags:["productivity","notes","workspace"]},
+  automation:{cats:["Automation","AI Agents"],tags:["automation","agent","workflow"]},
+  design:{cats:["Design","App & Website Builders"],tags:["design","ui","website","builder"]},
+  meetings:{cat:"Meetings & Transcription",tags:["meeting","transcription","notes"]}
+};
+
+function fillFinder(){
+  if(!els.finderTask)return;
+  const he=state.lang==="he";
+  const taskLabels=he
+    ? [["all","כל דבר"],["chat","צ׳אט ועוזר אישי"],["coding","תכנות"],["research","מחקר וחיפוש"],["image","תמונות"],["video","וידאו"],["audio","קול ומוזיקה"],["study","לימודים"],["productivity","פרודוקטיביות"],["automation","אוטומציות וסוכנים"],["design","עיצוב ובניית אתרים"],["meetings","פגישות ותמלול"]]
+    : [["all","Anything"],["chat","Chat & assistant"],["coding","Coding"],["research","Research & search"],["image","Images"],["video","Video"],["audio","Audio & music"],["study","Study"],["productivity","Productivity"],["automation","Automation & agents"],["design","Design & websites"],["meetings","Meetings & transcription"]];
+  const budgets=he?[["any","לא משנה"],["free","חינם בלבד"],["freemium","חינם או Freemium"],["paid","גם בתשלום"]]:[["any","Any"],["free","Free only"],["freemium","Free or freemium"],["paid","Paid is okay"]];
+  const platforms=he?[["all","לא משנה"],["web","Web"],["windows","Windows"],["macos","macOS"],["linux","Linux"],["mobile","Android / iPhone"]]:[["all","Any"],["web","Web"],["windows","Windows"],["macos","macOS"],["linux","Linux"],["mobile","Android / iPhone"]];
+  const privacy=he?[["any","לא משנה"],["local","שירוץ מקומית"],["opensource","קוד פתוח"],["unlimited","חינם ללא הגבלה"]]:[["any","Any"],["local","Runs locally"],["opensource","Open source"],["unlimited","Free & unlimited"]];
+  const opts=a=>a.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join("");
+  els.finderTask.innerHTML=opts(taskLabels);
+  els.finderBudget.innerHTML=opts(budgets);
+  els.finderPlatform.innerHTML=opts(platforms);
+  els.finderPrivacy.innerHTML=opts(privacy);
+}
+
+function finderScore(tool){
+  let score=0;
+  const task=els.finderTask.value,budget=els.finderBudget.value,platform=els.finderPlatform.value,privacy=els.finderPrivacy.value;
+  const spec=FINDER_TASKS[task];
+  const tags=(tool.tags||[]).map(x=>String(x).toLowerCase());
+  if(spec){
+    if(spec.cat&&tool.category===spec.cat)score+=8;
+    if(spec.cats&&spec.cats.includes(tool.category))score+=8;
+    if((spec.tags||[]).some(x=>tags.includes(x)))score+=4;
+  }
+  if(task==="all")score+=1;
+  if(budget==="free"){if(tool.pricing==="free")score+=7;else return -99}
+  if(budget==="freemium"){if(tool.pricing!=="paid")score+=5;else return -99}
+  if(budget==="paid")score+=1;
+  if(platform!=="all"){
+    const ok=platform==="mobile"?((tool.platforms||[]).includes("android")||(tool.platforms||[]).includes("ios")):(tool.platforms||[]).includes(platform);
+    if(ok)score+=5;else return -99;
+  }
+  if(privacy==="local"){if(tool.category==="Local AI"||tags.includes("local")||tags.includes("offline"))score+=8;else return -99}
+  if(privacy==="opensource"){if(isOpenSource(tool))score+=8;else return -99}
+  if(privacy==="unlimited"){if(tool.unlimitedFree)score+=8;else return -99}
+  if(tool.isNew)score+=1;
+  if(tool.unlimitedFree)score+=1;
+  return score;
+}
+
+function runFinder(){
+  const ranked=state.tools.map(tool=>({tool,score:finderScore(tool)})).filter(x=>x.score>-90).sort((a,b)=>b.score-a.score||a.tool.name.localeCompare(b.tool.name)).slice(0,6);
+  els.finderResults.innerHTML=`<div class="finder-results-title">${esc(t("finderMatches"))}</div>`+(ranked.length?ranked.map(({tool,score})=>`<button class="finder-result" data-finder-tool="${esc(tool.name)}">
+    ${logo(tool,"finder-result-logo")}
+    <span><strong>${esc(tool.name)}</strong><small>${esc(localDesc(tool))}</small></span>
+    <b>${score}</b>
+  </button>`).join(""):`<div class="finder-none">${esc(t("emptyTitle"))}</div>`);
+  $("[data-finder-tool]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.finderTool)));
+  attachImageFallbacks(els.finderResults);
+}
+
+function shareFilters(){
+  const url=new URL(location.href);
+  url.search="";
+  const p=url.searchParams;
+  if(els.search.value)p.set("q",els.search.value);
+  if(els.cat.value!=="all")p.set("cat",els.cat.value);
+  if(els.price.value!=="all")p.set("price",els.price.value);
+  if(els.platform.value!=="all")p.set("platform",els.platform.value);
+  if(els.sort.value!=="default")p.set("sort",els.sort.value);
+  if(els.student.checked)p.set("student","1");
+  if(els.openSource.checked)p.set("open","1");
+  if(state.onlyNew)p.set("new","1");
+  const value=url.toString();
+  navigator.clipboard?.writeText(value).then(()=>showToast(t("shared"))).catch(()=>{prompt("Copy:",value)});
+}
+
+function applySharedFilters(){
+  const p=new URLSearchParams(location.search);
+  const q=p.get("q")||"";
+  els.search.value=q;els.heroSearch.value=q;
+  const setSelect=(el,v)=>{if(v&&[...el.options].some(o=>o.value===v))el.value=v};
+  setSelect(els.cat,p.get("cat"));
+  setSelect(els.price,p.get("price"));
+  setSelect(els.platform,p.get("platform"));
+  setSelect(els.sort,p.get("sort"));
+  els.student.checked=p.get("student")==="1";
+  els.openSource.checked=p.get("open")==="1";
+  state.onlyNew=p.get("new")==="1";
+}
+
+function setupPWA(){
+  if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js?v=1").catch(()=>{});
+  window.addEventListener("beforeinstallprompt",e=>{
+    e.preventDefault();
+    state.installPrompt=e;
+    const btn=$("#installBtn");
+    if(btn)btn.classList.remove("hidden");
+  });
+  const btn=$("#installBtn");
+  if(btn)btn.onclick=async()=>{
+    if(!state.installPrompt)return;
+    const label=btn.querySelector("[data-i18n]");
+    if(label)label.textContent=t("installing");
+    state.installPrompt.prompt();
+    await state.installPrompt.userChoice.catch(()=>null);
+    state.installPrompt=null;
+    btn.classList.add("hidden");
+  };
+  window.addEventListener("appinstalled",()=>{state.installPrompt=null;if(btn)btn.classList.add("hidden")});
+}
+
 function buildRecent(){
   if(!els.newTools)return;
   const items=state.tools.filter(x=>x.isNew).sort((a,b)=>String(b.addedAt||"").localeCompare(String(a.addedAt||""))).slice(0,8);
@@ -338,6 +471,7 @@ function openCompareDialog(){
 
 function openTool(tool){
   if(!tool)return;
+  addRecent(tool.name);
   const offer=localOffer(tool);
   els.dialogContent.innerHTML=`
     <div class="dialog-head">
