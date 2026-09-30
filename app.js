@@ -624,7 +624,7 @@ function applyLanguage(){
   $("#enBtn").classList.toggle("active",state.lang==="en");
   els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, קוד, וידאו, לימודים...":"Search ChatGPT, coding, video, studying...";
   els.search.placeholder=state.lang==="he"?"חיפוש לפי שם או שימוש...":"Search by name or use case...";
-  fillFilters();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildStudentBenefits();buildHeroPreview();buildRecent();renderTools();renderCompareDock();
+  fillFilters();fillFinder();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildStudentBenefits();buildHeroPreview();buildRecent();buildRecentlyViewed();renderTools();renderCompareDock();
 }
 
 function setLanguage(lang){state.lang=lang;localStorage.setItem("aiatlas-lang",lang);applyLanguage()}
@@ -652,6 +652,12 @@ function setupEvents(){
   els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;renderTools()});
   els.heroSearch.addEventListener("keydown",e=>{if(e.key==="Enter")$("#discover").scrollIntoView({behavior:"smooth"})});
   $("#clearFilters").onclick=resetFilters;
+  $("#shareFilters").onclick=shareFilters;
+  $("#clearRecent").onclick=()=>{state.recent=[];saveRecent();buildRecentlyViewed()};
+  $("#finderBtn").onclick=()=>{els.finderResults.innerHTML="";els.finderDialog.showModal()};
+  $("#finderDialogClose").onclick=()=>els.finderDialog.close();
+  els.finderDialog.addEventListener("click",e=>{if(e.target===els.finderDialog)els.finderDialog.close()});
+  $("#runFinder").onclick=runFinder;
   $("#heBtn").onclick=()=>setLanguage("he");$("#enBtn").onclick=()=>setLanguage("en");
   $("#themeBtn").onclick=()=>{document.body.classList.toggle("theme-red");localStorage.setItem("aiatlas-theme-color",document.body.classList.contains("theme-red")?"red":"blue")};
   $("#dialogClose").onclick=()=>els.dialog.close();
@@ -666,6 +672,7 @@ function setupEvents(){
     if(e.key==="/"&&!["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)){e.preventDefault();els.heroSearch.focus()}
     if(e.key==="Escape"&&els.dialog.open)els.dialog.close();
     if(e.key==="Escape"&&els.compareDialog.open)els.compareDialog.close();
+    if(e.key==="Escape"&&els.finderDialog.open)els.finderDialog.close();
   });
 }
 
@@ -751,12 +758,12 @@ function setupReveal(){
 
 async function init(){
   if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
-  setupEvents();setupReveal();setupVisualEffects();
+  setupEvents();setupReveal();setupVisualEffects();setupPWA();
   try{
-    const response=await fetch("data/tools.json?v=11");
+    const response=await fetch("data/tools.json?v=13");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
-    updateStats();applyLanguage();
+    updateStats();applyLanguage();applySharedFilters();renderTools();
   }catch(error){
     els.grid.innerHTML=`<div class="empty"><div class="empty-icon">!</div><h3>Could not load tools database</h3></div>`;
   }
