@@ -13,10 +13,11 @@
   <meta name="format-detection" content="telephone=no">
   <title>AI Atlas — כל עולם ה-AI במקום אחד</title>
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@600;700;800;900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
@@ -54,6 +55,7 @@
         <button id="heBtn" class="lang-option active">עברית</button>
         <button id="enBtn" class="lang-option">EN</button>
       </div>
+      <button class="install-btn hidden" id="installBtn" type="button"><span>↓</span><span data-i18n="installApp">התקן אפליקציה</span></button>
       <button class="theme-btn" id="themeBtn" aria-label="החלפת צבע עיצוב" title="שחור-כחול / שחור-אדום"><span class="theme-sun">●</span><span class="theme-moon">●</span></button>
     </div>
   </aside>
@@ -84,6 +86,7 @@
           <button data-quick="mobile"><span>▯</span><span data-i18n="chipMobile">אפליקציה לפלאפון</span></button>
           <button data-quick="coding"><span>⌘</span><span data-i18n="chipCode">תכנות</span></button>
           <button data-quick="opensource"><span>◫</span><span data-i18n="chipOpenSource">קוד פתוח</span></button>
+          <button id="finderBtn" class="finder-quick"><span>✦</span><span data-i18n="finderButton">מצא לי AI</span></button>
           <button data-quick="image"><span>✦</span><span data-i18n="chipImages">תמונות</span></button>
         </div>
 
@@ -116,6 +119,14 @@
           <button class="surprise-btn" data-quick="new"><span>✦</span><span data-i18n="showNew">הצג את כל החדשים</span></button>
         </div>
         <div id="newToolsRail" class="new-tools-rail"></div>
+      </section>
+
+      <section class="section reveal recent-section hidden" id="recently-viewed">
+        <div class="section-title-row split">
+          <div><span class="kicker">RECENTLY VIEWED</span><h2 data-i18n="recentTitle">חזרת לבדוק משהו?</h2><p data-i18n="recentDesc">הכלים שפתחת לאחרונה נשמרים רק בדפדפן שלך.</p></div>
+          <button id="clearRecent" class="surprise-btn"><span>×</span><span data-i18n="clearRecent">נקה היסטוריה</span></button>
+        </div>
+        <div id="recentToolsRail" class="new-tools-rail"></div>
       </section>
 
       <section class="section reveal" id="categories">
@@ -178,6 +189,7 @@
           <label class="toggle-pill"><input id="studentFilter" type="checkbox"><span>🎓 <span data-i18n="filterStudents">🇮🇱 סטודנטים בישראל</span></span></label>
           <label class="toggle-pill"><input id="favoriteFilter" type="checkbox"><span>★ <span data-i18n="filterFavorites">מועדפים</span></span></label>
           <label class="toggle-pill"><input id="openSourceFilter" type="checkbox"><span>◫ <span data-i18n="filterOpenSource">קוד פתוח</span></span></label>
+          <button id="shareFilters" class="share-filter-btn"><span>↗</span><span data-i18n="shareSearch">שתף חיפוש</span></button>
           <button id="clearFilters" class="clear-btn" data-i18n="clear">נקה סינונים</button>
         </div>
 
@@ -194,6 +206,18 @@
   </div>
 
   <dialog id="toolDialog"><button class="dialog-close" id="dialogClose" aria-label="Close">×</button><div id="dialogContent"></div></dialog>
+  <dialog id="finderDialog" class="finder-dialog">
+    <button class="dialog-close" id="finderDialogClose" aria-label="Close">×</button>
+    <div class="finder-head"><span class="kicker">AI FINDER</span><h2 data-i18n="finderTitle">מה אתה רוצה שה-AI יעשה?</h2><p data-i18n="finderDesc">בחר כמה דברים ואני אמצא לך התאמות מתוך הקטלוג.</p></div>
+    <div class="finder-grid">
+      <label><span data-i18n="finderTask">משימה</span><select id="finderTask"></select></label>
+      <label><span data-i18n="finderBudget">מחיר</span><select id="finderBudget"></select></label>
+      <label><span data-i18n="finderPlatform">פלטפורמה</span><select id="finderPlatform"></select></label>
+      <label><span data-i18n="finderPrivacy">פרטיות</span><select id="finderPrivacy"></select></label>
+    </div>
+    <button id="runFinder" class="finder-run"><span>✦</span><span data-i18n="finderRun">מצא לי כלים</span></button>
+    <div id="finderResults" class="finder-results"></div>
+  </dialog>
   <dialog id="compareDialog" class="compare-dialog"><button class="dialog-close" id="compareDialogClose" aria-label="Close">×</button><div id="compareDialogContent"></div></dialog>
   <div id="compareDock" class="compare-dock hidden">
     <div class="compare-dock-copy"><strong data-i18n="compareTitle">השוואת כלים</strong><span id="compareCount">0/3</span></div>
@@ -211,6 +235,6 @@
     <a href="#students"><span>🎓</span><small data-i18n="navStudents">לסטודנטים</small></a>
   </nav>
 
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>
