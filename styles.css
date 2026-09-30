@@ -1115,3 +1115,91 @@ body::before{
 @media(prefers-reduced-motion:reduce){
   .new-tool-card:hover{transform:none}
 }
+
+
+/* --- v13: AI Finder, recent history, sharing, PWA --- */
+.install-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:0;
+  padding:0 9px;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--rule));
+  background:transparent;color:var(--ink);font-size:10px;font-weight:800
+}
+.install-btn:hover{background:var(--accent-soft);border-color:var(--accent)}
+.finder-quick{
+  color:var(--accent)!important;
+  border-color:color-mix(in srgb,var(--accent) 40%,var(--rule))!important;
+  background:color-mix(in srgb,var(--accent) 5%,transparent)!important
+}
+.share-filter-btn{
+  min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:0 10px;border:0;border-inline-end:1px solid var(--rule);
+  background:transparent;color:var(--ink-2);font-size:10px;font-weight:800
+}
+.share-filter-btn:hover{color:var(--accent);background:color-mix(in srgb,var(--accent) 5%,transparent)}
+
+.finder-dialog{width:min(820px,94vw)}
+.finder-head h2{
+  margin:5px 0 7px;font-family:var(--display);font-size:38px;line-height:1
+}
+.finder-head p{margin:0;color:var(--muted);font-size:13px}
+.finder-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px
+}
+.finder-grid label{
+  display:grid;gap:6px;padding:12px;border:1px solid var(--rule);
+  background:color-mix(in srgb,var(--paper-2) 45%,transparent)
+}
+.finder-grid label>span{color:var(--muted);font-size:10px;font-weight:800}
+.finder-grid select{
+  width:100%;min-height:42px;border:0;border-bottom:1px solid var(--rule);
+  background:transparent;outline:0;font-size:13px
+}
+.finder-run{
+  width:100%;min-height:48px;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--accent);background:var(--accent);color:#07101e;font-weight:800;font-size:13px
+}
+.theme-red .finder-run{color:#16080b}
+.finder-results{margin-top:16px;border-top:1px solid var(--rule)}
+.finder-results-title{
+  padding:11px 0 8px;color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em
+}
+.finder-result{
+  width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+  padding:11px 0;border:0;border-bottom:1px solid var(--rule);background:transparent;text-align:inherit
+}
+.finder-result:hover{background:color-mix(in srgb,var(--accent) 4%,transparent)}
+.finder-result-logo{
+  width:40px;height:40px;display:grid;place-items:center;overflow:hidden;background:#f3f6fb;border:1px solid var(--rule)
+}
+.finder-result-logo img{width:100%;height:100%;object-fit:contain;padding:6px}
+.finder-result>span{min-width:0}
+.finder-result strong{display:block;font-size:14px}
+.finder-result small{
+  display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.4;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.finder-result>b{
+  min-width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--rule);
+  color:var(--accent);font:800 10px Inter
+}
+.finder-none{padding:18px 0;color:var(--muted);font-size:12px}
+.recent-section.hidden{display:none!important}
+
+@media(max-width:1260px){
+  .filters-shell{grid-template-columns:minmax(200px,2fr) 1fr .9fr .9fr}
+  .share-filter-btn{min-height:43px}
+}
+@media(max-width:900px){
+  .install-btn span:last-child{display:none}
+  .install-btn{width:34px;padding:0}
+  .finder-dialog{width:calc(100vw - 20px)}
+}
+@media(max-width:580px){
+  .finder-grid{grid-template-columns:1fr}
+  .finder-head h2{font-size:31px}
+  .finder-head p{font-size:12px}
+  .finder-result small{
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+    white-space:normal;overflow:hidden
+  }
+  .share-filter-btn{font-size:9px}
+}
