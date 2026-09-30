@@ -3169,5 +3169,86 @@
     "descEn": "Low-code platform for building and deploying AI agents, RAG applications and MCP servers with visual flows.",
     "isNew": true,
     "platformsUpdated": "2026-09-30"
+  },
+  {
+    "name": "OpenAI Codex",
+    "maker": "OpenAI",
+    "url": "https://openai.com/codex/",
+    "category": "Coding",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "web"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "multi-agent",
+      "ide",
+      "cli",
+      "automation"
+    ],
+    "descHe": "סוכן פיתוח של OpenAI לעבודה עם קוד דרך אפליקציה, CLI, הרחבת IDE והענקת משימות לסוכנים במקביל.",
+    "descEn": "OpenAI coding agent for working through the desktop app, CLI, IDE extension and parallel agent workflows.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://openai.com/index/introducing-the-codex-app/"
+  },
+  {
+    "name": "Claude Code",
+    "maker": "Anthropic",
+    "url": "https://www.anthropic.com/claude-code",
+    "category": "Coding",
+    "pricing": "paid",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "terminal",
+      "ide",
+      "vscode",
+      "jetbrains"
+    ],
+    "descHe": "סוכן תכנות של Anthropic שעובד בטרמינל וב־IDE, מטפל במשימות פיתוח מורכבות ויכול לבצע שינויים על פני בסיסי קוד גדולים.",
+    "descEn": "Anthropic's coding agent for terminal and IDE workflows, designed for substantial engineering tasks across large codebases.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://www.anthropic.com/news/claude-4"
+  },
+  {
+    "name": "Gemini CLI",
+    "maker": "Google",
+    "url": "https://github.com/google-gemini/gemini-cli",
+    "category": "Coding",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "coding",
+      "agent",
+      "terminal",
+      "open-source",
+      "cli",
+      "automation"
+    ],
+    "descHe": "סוכן AI בקוד פתוח של Google לטרמינל, להבנת קוד, עריכת קבצים, הרצת פקודות ובניית workflows עם הקשר מהפרויקט המקומי.",
+    "descEn": "Google's open-source terminal AI agent for understanding code, editing files, running commands and building workflows with local project context.",
+    "isNew": true,
+    "addedAt": "2026-10-01",
+    "platformsUpdated": "2026-10-01",
+    "sourceUrl": "https://github.com/google-gemini/gemini-cli"
   }
 ]
