@@ -1,0 +1,26 @@
+{
+  "name": "AI Atlas",
+  "short_name": "AI Atlas",
+  "description": "קטלוג AI בעברית ובאנגלית עם חיפוש, השוואה, סטודנטים בישראל וכלים חינמיים.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080b12",
+  "theme_color": "#080b12",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "assets/favicon.svg?v=2",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon.svg?v=2",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
