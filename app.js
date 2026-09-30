@@ -486,12 +486,12 @@ function applyLanguage(){
   $("#enBtn").classList.toggle("active",state.lang==="en");
   els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, קוד, וידאו, לימודים...":"Search ChatGPT, coding, video, studying...";
   els.search.placeholder=state.lang==="he"?"חיפוש לפי שם או שימוש...":"Search by name or use case...";
-  fillFilters();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildStudentBenefits();buildHeroPreview();renderTools();
+  fillFilters();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildStudentBenefits();buildHeroPreview();buildRecent();renderTools();renderCompareDock();
 }
 
 function setLanguage(lang){state.lang=lang;localStorage.setItem("aiatlas-lang",lang);applyLanguage()}
 function resetFilters(){
-  els.search.value="";els.heroSearch.value="";els.cat.value="all";els.price.value="all";els.platform.value="all";els.sort.value="default";els.student.checked=false;els.fav.checked=false;renderTools();
+  els.search.value="";els.heroSearch.value="";els.cat.value="all";els.price.value="all";els.platform.value="all";els.sort.value="default";els.student.checked=false;els.fav.checked=false;els.openSource.checked=false;state.onlyNew=false;renderTools();
 }
 function quickFilter(kind){
   resetFilters();
@@ -502,13 +502,15 @@ function quickFilter(kind){
   if(kind==="coding")els.cat.value="Coding";
   if(kind==="image")els.cat.value="Image Generation";
   if(kind==="mobile")els.platform.value="mobile";
+  if(kind==="opensource")els.openSource.checked=true;
+  if(kind==="new"){state.onlyNew=true;els.sort.value="new";}
   renderTools();$("#discover").scrollIntoView({behavior:"smooth"});
 }
 function showToast(message){els.toast.textContent=message;els.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove("show"),1800)}
 
 function setupEvents(){
   [els.search].forEach(el=>el.addEventListener("input",renderTools));
-  [els.cat,els.price,els.platform,els.sort,els.student,els.fav].forEach(el=>el.addEventListener("change",renderTools));
+  [els.cat,els.price,els.platform,els.sort,els.student,els.fav,els.openSource].forEach(el=>el.addEventListener("change",()=>{state.onlyNew=false;renderTools()}));
   els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;renderTools()});
   els.heroSearch.addEventListener("keydown",e=>{if(e.key==="Enter")$("#discover").scrollIntoView({behavior:"smooth"})});
   $("#clearFilters").onclick=resetFilters;
@@ -516,11 +518,16 @@ function setupEvents(){
   $("#themeBtn").onclick=()=>{document.body.classList.toggle("theme-red");localStorage.setItem("aiatlas-theme-color",document.body.classList.contains("theme-red")?"red":"blue")};
   $("#dialogClose").onclick=()=>els.dialog.close();
   els.dialog.addEventListener("click",e=>{if(e.target===els.dialog)els.dialog.close()});
+  $("#compareDialogClose").onclick=()=>els.compareDialog.close();
+  els.compareDialog.addEventListener("click",e=>{if(e.target===els.compareDialog)els.compareDialog.close()});
+  $("#openCompare").onclick=openCompareDialog;
+  $("#clearCompare").onclick=()=>{state.compare=[];saveCompare();renderTools();renderCompareDock()};
   $("#surpriseBtn").onclick=()=>{const pool=state.filtered.length?state.filtered:state.tools;if(pool.length)openTool(pool[Math.floor(Math.random()*pool.length)])};
   $$("[data-quick]").forEach(btn=>btn.onclick=()=>quickFilter(btn.dataset.quick));
   document.addEventListener("keydown",e=>{
     if(e.key==="/"&&!["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)){e.preventDefault();els.heroSearch.focus()}
     if(e.key==="Escape"&&els.dialog.open)els.dialog.close();
+    if(e.key==="Escape"&&els.compareDialog.open)els.compareDialog.close();
   });
 }
 
@@ -608,7 +615,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
   setupEvents();setupReveal();setupVisualEffects();
   try{
-    const response=await fetch("data/tools.json?v=10");
+    const response=await fetch("data/tools.json?v=11");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();
