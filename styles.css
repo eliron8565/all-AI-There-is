@@ -59,8 +59,8 @@ img,svg{max-width:100%}
   width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--ink);
   background:var(--ink);border-radius:2px
 }
-.brand-mark img{width:27px;height:27px;filter:grayscale(1) brightness(3)}
-.theme-red .brand-mark img{filter:none}
+.brand-mark img{width:29px;height:29px;filter:none}
+.theme-red .brand-mark img{filter:hue-rotate(320deg) saturate(1.12)}
 .brand-copy strong{display:block;font:800 18px Inter;letter-spacing:-.04em}
 .brand-copy small{display:block;margin-top:2px;color:var(--muted);font-size:10px}
 .side-nav{display:grid;gap:1px}
