@@ -1203,3 +1203,32 @@ body::before{
   }
   .share-filter-btn{font-size:9px}
 }
+
+
+/* v14 details interaction hardening */
+.tool-card{isolation:isolate}
+.tool-card>*{position:relative;z-index:1}
+.card-bottom{position:relative;z-index:8}
+.details-btn{
+  position:relative!important;
+  z-index:10;
+  pointer-events:auto;
+  cursor:pointer;
+  min-height:32px;
+  padding:5px 8px;
+  border:1px solid transparent;
+}
+.details-btn:hover,.details-btn:focus-visible{
+  color:var(--accent);
+  border-color:color-mix(in srgb,var(--accent) 40%,var(--rule));
+  background:color-mix(in srgb,var(--accent) 6%,transparent);
+  outline:none;
+}
+#toolDialog[open]{display:block}
+#toolDialog{
+  z-index:1000;
+}
+#toolDialog::backdrop{
+  background:rgba(2,5,10,.72);
+  backdrop-filter:blur(4px);
+}
