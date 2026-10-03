@@ -243,7 +243,7 @@ function toolCard(tool,index){
     ${platformBadges(tool,true)}
     <div class="card-bottom">
       <span class="category-label">${esc(localCategory(tool.category))}</span>
-      <button type="button" class="details-btn" data-open-tool="${esc(tool.name)}">${esc(t("details"))} ←</button>
+      <a class="details-btn" href="${esc(tool.url)}" target="_blank" rel="noreferrer">${esc(t("official"))} ↗</a>
     </div>
   </article>`
 }
@@ -653,14 +653,6 @@ function quickFilter(kind){
 function showToast(message){els.toast.textContent=message;els.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove("show"),1800)}
 
 function setupEvents(){
-  els.grid.addEventListener("click",e=>{
-    const btn=e.target.closest("[data-open-tool]");
-    if(!btn||!els.grid.contains(btn))return;
-    e.preventDefault();
-    e.stopPropagation();
-    const tool=state.tools.find(x=>x.name===btn.dataset.openTool);
-    if(tool)openTool(tool);
-  });
   [els.search].forEach(el=>el.addEventListener("input",renderTools));
   [els.cat,els.price,els.platform,els.sort,els.student,els.fav,els.openSource].forEach(el=>el.addEventListener("change",()=>{state.onlyNew=false;renderTools()}));
   els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;renderTools()});
@@ -774,7 +766,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
   setupEvents();setupReveal();setupVisualEffects();setupPWA();
   try{
-    const response=await fetch("data/tools.json?v=14");
+    const response=await fetch("data/tools.json?v=15");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();applySharedFilters();renderTools();
