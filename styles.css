@@ -1232,3 +1232,11 @@ body::before{
   background:rgba(2,5,10,.72);
   backdrop-filter:blur(4px);
 }
+
+/* v15 direct official action */
+.details-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
