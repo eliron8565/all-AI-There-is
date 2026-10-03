@@ -1,12 +1,12 @@
-const CACHE="ai-atlas-v13";
+const CACHE="ai-atlas-v14";
 const CORE=[
   "./",
   "./index.html",
-  "./styles.css?v=13",
-  "./app.js?v=13",
-  "./data/tools.json?v=13",
+  "./styles.css?v=14",
+  "./app.js?v=14",
+  "./data/tools.json?v=14",
   "./assets/favicon.svg?v=2",
-  "./manifest.webmanifest?v=1"
+  "./manifest.webmanifest?v=2"
 ];
 
 self.addEventListener("install",event=>{
