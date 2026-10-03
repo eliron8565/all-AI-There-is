@@ -243,7 +243,7 @@ function toolCard(tool,index){
     ${platformBadges(tool,true)}
     <div class="card-bottom">
       <span class="category-label">${esc(localCategory(tool.category))}</span>
-      <button class="details-btn" data-open="${index}">${esc(t("details"))} ←</button>
+      <button type="button" class="details-btn" data-open-tool="${esc(tool.name)}">${esc(t("details"))} ←</button>
     </div>
   </article>`
 }
@@ -279,7 +279,7 @@ function renderTools(){
     saveFavorites();renderTools();
   });
   $$("[data-compare]").forEach(btn=>btn.onclick=e=>{e.stopPropagation();toggleCompare(btn.dataset.compare)});
-  $$("[data-open]").forEach(btn=>btn.onclick=()=>openTool(state.filtered[Number(btn.dataset.open)]));
+  // Details are handled by one delegated click listener on the grid.
   attachImageFallbacks(els.grid);
   renderCompareDock();
 }
@@ -501,7 +501,13 @@ function openTool(tool){
     </div>`;
   attachImageFallbacks(els.dialog);
   $("#copyToolLink").onclick=async()=>{try{await navigator.clipboard.writeText(tool.url);showToast(t("copied"))}catch{}};
-  els.dialog.showModal();
+  try{
+    if(els.dialog.open)els.dialog.close();
+    if(typeof els.dialog.showModal==="function")els.dialog.showModal();
+    else els.dialog.setAttribute("open","");
+  }catch(error){
+    els.dialog.setAttribute("open","");
+  }
 }
 
 function buildCategories(){
@@ -647,6 +653,14 @@ function quickFilter(kind){
 function showToast(message){els.toast.textContent=message;els.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove("show"),1800)}
 
 function setupEvents(){
+  els.grid.addEventListener("click",e=>{
+    const btn=e.target.closest("[data-open-tool]");
+    if(!btn||!els.grid.contains(btn))return;
+    e.preventDefault();
+    e.stopPropagation();
+    const tool=state.tools.find(x=>x.name===btn.dataset.openTool);
+    if(tool)openTool(tool);
+  });
   [els.search].forEach(el=>el.addEventListener("input",renderTools));
   [els.cat,els.price,els.platform,els.sort,els.student,els.fav,els.openSource].forEach(el=>el.addEventListener("change",()=>{state.onlyNew=false;renderTools()}));
   els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;renderTools()});
@@ -760,7 +774,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
   setupEvents();setupReveal();setupVisualEffects();setupPWA();
   try{
-    const response=await fetch("data/tools.json?v=13");
+    const response=await fetch("data/tools.json?v=14");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();applySharedFilters();renderTools();
