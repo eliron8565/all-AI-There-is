@@ -21,6 +21,7 @@ const els={
   compareDock:$("#compareDock"),compareChips:$("#compareChips"),compareCount:$("#compareCount"),
   recentTools:$("#recentToolsRail"),recentSection:$("#recently-viewed"),
   finderDialog:$("#finderDialog"),finderResults:$("#finderResults"),finderTask:$("#finderTask"),finderBudget:$("#finderBudget"),finderPlatform:$("#finderPlatform"),finderPrivacy:$("#finderPrivacy"),
+  commandDialog:$("#commandDialog"),commandInput:$("#commandInput"),commandResults:$("#commandResults"),
   toast:$("#toast")
 };
 
@@ -43,7 +44,7 @@ const copy={
     sortDefault:"סדר מומלץ",sortNew:"חדשים קודם",sortAZ:"א׳ → ת׳ / A → Z",sortZA:"ת׳ → א׳ / Z → A",sortFree:"חינם קודם",newBadge:"חדש",
     found:"כלים נמצאו",details:"פרטים",category:"קטגוריה",pricing:"מחיר",studentOffer:"הטבת סטודנט",israelStudentOffer:"מתאים לסטודנטים בישראל",checkEligibility:"לבדיקת הזכאות הרשמית",israelVerified:"אומת לישראל",
     official:"לאתר הרשמי",copyLink:"העתק קישור",copied:"הקישור הועתק",appAvailability:"אפליקציות ופלטפורמות",platformUpdated:"מידע על פלטפורמות עודכן",favoritesOnly:"מועדפים",verified:"מאומת",toolsInCategory:"כלים",bestFor:"מתאים ל",compare:"השווה",compareTitle:"השוואת כלים",compareClear:"נקה",compareOpen:"השווה עכשיו",compareLimit:"אפשר להשוות עד 3 כלים",compareNeedTwo:"בחר לפחות 2 כלים להשוואה",compareCategory:"קטגוריה",comparePrice:"מחיר",comparePlatforms:"פלטפורמות",compareStudent:"סטודנטים בישראל",compareUnlimited:"ללא הגבלה",compareOpenSource:"קוד פתוח",compareUses:"שימושים",yes:"כן",no:"לא",
-    finderButton:"מצא לי AI",finderTitle:"מה אתה רוצה שה-AI יעשה?",finderDesc:"בחר כמה דברים ואני אמצא לך התאמות מתוך הקטלוג.",finderTask:"משימה",finderBudget:"מחיר",finderPlatform:"פלטפורמה",finderPrivacy:"פרטיות",finderRun:"מצא לי כלים",finderMatches:"ההתאמות הכי טובות",installApp:"התקן אפליקציה",installing:"פותח התקנה...",noDescription:"כלי AI בקטלוג AI Atlas.",siteTitle:"AI Atlas — כל כלי ה-AI במקום אחד"
+    finderButton:"מצא לי AI",finderTitle:"מה אתה רוצה שה-AI יעשה?",finderDesc:"בחר כמה דברים ואני אמצא לך התאמות מתוך הקטלוג.",finderTask:"משימה",finderBudget:"מחיר",finderPlatform:"פלטפורמה",finderPrivacy:"פרטיות",finderRun:"מצא לי כלים",finderMatches:"ההתאמות הכי טובות",installApp:"התקן אפליקציה",installing:"פותח התקנה...",commandTitle:"חיפוש מהיר בכל כלי ה-AI",commandPlaceholder:"חפש כלי, חברה או משימה...",commandHint:"Enter פותח את התוצאה הראשונה • ↑ ↓ לניווט",noDescription:"כלי AI בקטלוג AI Atlas.",siteTitle:"AI Atlas — כל כלי ה-AI במקום אחד"
   },
   en:{
     brandTag:"The AI world, organized.",navHome:"Home",navCollections:"Collections",navNew:"What\'s new",navCategories:"Categories",navPlatforms:"Apps",navStudents:"Students",navDiscover:"All tools",
@@ -63,7 +64,7 @@ const copy={
     sortDefault:"Recommended order",sortNew:"Newest first",sortAZ:"A → Z",sortZA:"Z → A",sortFree:"Free first",newBadge:"NEW",
     found:"tools found",details:"Details",category:"Category",pricing:"Pricing",studentOffer:"Student offer",israelStudentOffer:"Available to students in Israel",checkEligibility:"Check official eligibility",israelVerified:"Verified for Israel",
     official:"Official website",copyLink:"Copy link",copied:"Link copied",appAvailability:"Apps & platforms",platformUpdated:"Platform info updated",favoritesOnly:"Favorites",verified:"Verified",toolsInCategory:"tools",bestFor:"Best for",compare:"Compare",compareTitle:"Compare tools",compareClear:"Clear",compareOpen:"Compare now",compareLimit:"You can compare up to 3 tools",compareNeedTwo:"Choose at least 2 tools to compare",compareCategory:"Category",comparePrice:"Pricing",comparePlatforms:"Platforms",compareStudent:"Students in Israel",compareUnlimited:"Unlimited",compareOpenSource:"Open source",compareUses:"Use cases",yes:"Yes",no:"No",
-    finderButton:"Find my AI",finderTitle:"What do you want AI to do?",finderDesc:"Choose a few preferences and I’ll match tools from the directory.",finderTask:"Task",finderBudget:"Pricing",finderPlatform:"Platform",finderPrivacy:"Privacy",finderRun:"Find tools",finderMatches:"Best matches",installApp:"Install app",installing:"Opening install...",noDescription:"An AI tool in the AI Atlas directory.",siteTitle:"AI Atlas — Every AI tool in one place"
+    finderButton:"Find my AI",finderTitle:"What do you want AI to do?",finderDesc:"Choose a few preferences and I’ll match tools from the directory.",finderTask:"Task",finderBudget:"Pricing",finderPlatform:"Platform",finderPrivacy:"Privacy",finderRun:"Find tools",finderMatches:"Best matches",installApp:"Install app",installing:"Opening install...",commandTitle:"Quick search across every AI tool",commandPlaceholder:"Search tool, company or task...",commandHint:"Enter opens the first result • ↑ ↓ to navigate",noDescription:"An AI tool in the AI Atlas directory.",siteTitle:"AI Atlas — Every AI tool in one place"
   }
 };
 
@@ -282,6 +283,56 @@ function renderTools(){
   // Details are handled by one delegated click listener on the grid.
   attachImageFallbacks(els.grid);
   renderCompareDock();
+}
+
+function commandSearch(query=""){
+  const q=String(query||"").trim().toLowerCase();
+  const scored=state.tools.map(tool=>{
+    const name=tool.name.toLowerCase();
+    const maker=String(tool.maker||"").toLowerCase();
+    const cat=String(tool.category||"").toLowerCase();
+    const desc=String(localDesc(tool)||"").toLowerCase();
+    const tags=(tool.tags||[]).join(" ").toLowerCase();
+    let score=0;
+    if(!q)score=tool.isNew?6:1;
+    else{
+      if(name===q)score+=100;
+      if(name.startsWith(q))score+=60;
+      else if(name.includes(q))score+=40;
+      if(maker.includes(q))score+=20;
+      if(cat.includes(q))score+=15;
+      if(tags.includes(q))score+=12;
+      if(desc.includes(q))score+=7;
+    }
+    if(tool.isNew)score+=2;
+    return {tool,score};
+  }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score||a.tool.name.localeCompare(b.tool.name)).slice(0,9);
+  return scored.map(x=>x.tool);
+}
+
+function renderCommandPalette(){
+  if(!els.commandResults)return;
+  const tools=commandSearch(els.commandInput.value);
+  if(state.commandIndex>=tools.length)state.commandIndex=0;
+  els.commandResults.innerHTML=tools.map((tool,i)=>`<a class="command-result ${i===state.commandIndex?"active":""}" data-command-tool="${esc(tool.name)}" href="${esc(tool.url)}" target="_blank" rel="noreferrer">
+    ${logo(tool,"command-result-logo")}
+    <span class="command-result-copy"><strong>${esc(tool.name)}</strong><small>${esc(tool.maker)} • ${esc(localCategory(tool.category))}</small></span>
+    <span class="command-result-price">${esc(priceLabel(tool.pricing))}</span>
+    <b>↗</b>
+  </a>`).join("");
+  $("[data-command-tool]").forEach(link=>link.onclick=()=>{
+    addRecent(link.dataset.commandTool);
+    els.commandDialog.close();
+  });
+  attachImageFallbacks(els.commandResults);
+}
+
+function openCommandPalette(){
+  state.commandIndex=0;
+  els.commandInput.value="";
+  renderCommandPalette();
+  try{els.commandDialog.showModal()}catch{els.commandDialog.setAttribute("open","")}
+  setTimeout(()=>els.commandInput.focus(),0);
 }
 
 function buildRecentlyViewed(){
@@ -625,7 +676,8 @@ function applyLanguage(){
   document.documentElement.lang=state.lang;
   document.documentElement.dir=state.lang==="he"?"rtl":"ltr";
   document.title=t("siteTitle");
-  $$("[data-i18n]").forEach(el=>{const value=t(el.dataset.i18n);if(value)el.textContent=value});
+  $("[data-i18n]").forEach(el=>{const value=t(el.dataset.i18n);if(value)el.textContent=value});
+  $("[data-i18n-placeholder]").forEach(el=>{const value=t(el.dataset.i18nPlaceholder);if(value)el.placeholder=value});
   $("#heBtn").classList.toggle("active",state.lang==="he");
   $("#enBtn").classList.toggle("active",state.lang==="en");
   els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, קוד, וידאו, לימודים...":"Search ChatGPT, coding, video, studying...";
@@ -664,6 +716,21 @@ function setupEvents(){
   $("#finderDialogClose").onclick=()=>els.finderDialog.close();
   els.finderDialog.addEventListener("click",e=>{if(e.target===els.finderDialog)els.finderDialog.close()});
   $("#runFinder").onclick=runFinder;
+  $("#commandLaunch").onclick=openCommandPalette;
+  $("#commandClose").onclick=()=>els.commandDialog.close();
+  els.commandDialog.addEventListener("click",e=>{if(e.target===els.commandDialog)els.commandDialog.close()});
+  els.commandInput.addEventListener("input",()=>{state.commandIndex=0;renderCommandPalette()});
+  els.commandInput.addEventListener("keydown",e=>{
+    const count=els.commandResults.querySelectorAll("[data-command-tool]").length;
+    if(e.key==="ArrowDown"){e.preventDefault();state.commandIndex=count?((state.commandIndex+1)%count):0;renderCommandPalette()}
+    if(e.key==="ArrowUp"){e.preventDefault();state.commandIndex=count?((state.commandIndex-1+count)%count):0;renderCommandPalette()}
+    if(e.key==="Enter"){
+      e.preventDefault();
+      const links=[...els.commandResults.querySelectorAll("[data-command-tool]")];
+      const link=links[state.commandIndex]||links[0];
+      if(link){addRecent(link.dataset.commandTool);window.open(link.href,"_blank","noopener,noreferrer");els.commandDialog.close()}
+    }
+  });
   $("#heBtn").onclick=()=>setLanguage("he");$("#enBtn").onclick=()=>setLanguage("en");
   $("#themeBtn").onclick=()=>{document.body.classList.toggle("theme-red");localStorage.setItem("aiatlas-theme-color",document.body.classList.contains("theme-red")?"red":"blue")};
   $("#dialogClose").onclick=()=>els.dialog.close();
@@ -675,10 +742,12 @@ function setupEvents(){
   $("#surpriseBtn").onclick=()=>{const pool=state.filtered.length?state.filtered:state.tools;if(pool.length)openTool(pool[Math.floor(Math.random()*pool.length)])};
   $$("[data-quick]").forEach(btn=>btn.onclick=()=>quickFilter(btn.dataset.quick));
   document.addEventListener("keydown",e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openCommandPalette();return}
     if(e.key==="/"&&!["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)){e.preventDefault();els.heroSearch.focus()}
     if(e.key==="Escape"&&els.dialog.open)els.dialog.close();
     if(e.key==="Escape"&&els.compareDialog.open)els.compareDialog.close();
     if(e.key==="Escape"&&els.finderDialog.open)els.finderDialog.close();
+    if(e.key==="Escape"&&els.commandDialog.open)els.commandDialog.close();
   });
 }
 
@@ -766,7 +835,7 @@ async function init(){
   if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
   setupEvents();setupReveal();setupVisualEffects();setupPWA();
   try{
-    const response=await fetch("data/tools.json?v=15");
+    const response=await fetch("data/tools.json?v=16");
     if(!response.ok)throw new Error("tools.json");
     state.tools=await response.json();
     updateStats();applyLanguage();applySharedFilters();renderTools();
