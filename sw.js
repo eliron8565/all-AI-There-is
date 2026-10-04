@@ -1,10 +1,10 @@
-const CACHE="ai-atlas-v16";
+const CACHE="ai-atlas-v17";
 const CORE=[
   "./",
   "./index.html",
-  "./styles.css?v=16",
-  "./app.js?v=16",
-  "./data/tools.json?v=16",
+  "./styles.css?v=17",
+  "./app.js?v=17",
+  "./data/tools.json?v=17",
   "./assets/favicon.svg?v=2",
   "./manifest.webmanifest?v=2"
 ];
