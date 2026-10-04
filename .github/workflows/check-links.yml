@@ -1,0 +1,38 @@
+name: Check AI tool links
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/tools.json"
+      - "scripts/check-links.mjs"
+      - ".github/workflows/check-links.yml"
+  schedule:
+    - cron: "17 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check every official tool URL
+        run: node scripts/check-links.mjs
+
+      - name: Upload link report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-atlas-link-report
+          path: link-check-report.json
+          if-no-files-found: ignore
