@@ -1,0 +1,37 @@
+name: Validate AI Atlas
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "index.html"
+      - "app.js"
+      - "styles.css"
+      - "sw.js"
+      - "manifest.webmanifest"
+      - "data/tools.json"
+      - "scripts/audit-site.mjs"
+      - ".github/workflows/validate-site.yml"
+  pull_request:
+    paths:
+      - "index.html"
+      - "app.js"
+      - "styles.css"
+      - "sw.js"
+      - "manifest.webmanifest"
+      - "data/tools.json"
+      - "scripts/audit-site.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run static site audit
+        run: node scripts/audit-site.mjs
