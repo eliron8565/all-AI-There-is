@@ -432,7 +432,30 @@ function runFinder(){
   attachImageFallbacks(els.finderResults);
 }
 
-function shareFilters(){
+async function copyText(value,successMessage=""){
+  try{
+    if(navigator.clipboard&&typeof navigator.clipboard.writeText==="function"){
+      await navigator.clipboard.writeText(value);
+      if(successMessage)showToast(successMessage);
+      return true;
+    }
+  }catch{}
+  try{
+    const area=document.createElement("textarea");
+    area.value=value;
+    area.setAttribute("readonly","");
+    area.style.position="fixed";
+    area.style.opacity="0";
+    document.body.appendChild(area);
+    area.select();
+    const ok=document.execCommand("copy");
+    area.remove();
+    if(ok&&successMessage)showToast(successMessage);
+    return ok;
+  }catch{return false}
+}
+
+async function shareFilters(){
   const url=new URL(location.href);
   url.search="";
   const p=url.searchParams;
@@ -445,7 +468,8 @@ function shareFilters(){
   if(els.openSource.checked)p.set("open","1");
   if(state.onlyNew)p.set("new","1");
   const value=url.toString();
-  navigator.clipboard?.writeText(value).then(()=>showToast(t("shared"))).catch(()=>{prompt("Copy:",value)});
+  const copied=await copyText(value,t("shared"));
+  if(!copied)window.prompt(state.lang==="he"?"העתק את הקישור:":"Copy this link:",value);
 }
 
 function applySharedFilters(){
@@ -568,7 +592,7 @@ function openTool(tool){
       </div>
     </div>`;
   attachImageFallbacks(els.dialog);
-  $("#copyToolLink").onclick=async()=>{try{await navigator.clipboard.writeText(tool.url);showToast(t("copied"))}catch{}};
+  $("#copyToolLink").onclick=async()=>{const copied=await copyText(tool.url,t("copied"));if(!copied)window.prompt("Copy:",tool.url)};
   try{
     if(els.dialog.open)els.dialog.close();
     if(typeof els.dialog.showModal==="function")els.dialog.showModal();
@@ -722,6 +746,12 @@ function quickFilter(kind){
 function showToast(message){els.toast.textContent=message;els.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove("show"),1800)}
 
 function setupEvents(){
+  document.addEventListener("click",e=>{
+    const official=e.target.closest("[data-tool-link]");
+    if(official)addRecent(official.dataset.toolLink);
+    const retry=e.target.closest("#retryCatalog");
+    if(retry){e.preventDefault();loadCatalog()}
+  });
   [els.search].forEach(el=>el.addEventListener("input",renderTools));
   [els.cat,els.price,els.platform,els.sort,els.student,els.fav,els.openSource].forEach(el=>el.addEventListener("change",()=>{state.onlyNew=false;renderTools()}));
   els.heroSearch.addEventListener("input",()=>{els.search.value=els.heroSearch.value;renderTools()});
@@ -848,16 +878,31 @@ function setupReveal(){
   $$(".reveal").forEach(el=>observer.observe(el));
 }
 
-async function init(){
-  if(localStorage.getItem("aiatlas-theme-color")==="red")document.body.classList.add("theme-red");
-  setupEvents();setupReveal();setupVisualEffects();setupPWA();
+async function loadCatalog(){
+  document.body.classList.add("catalog-loading");
+  if(els.grid)els.grid.setAttribute("aria-busy","true");
   try{
-    const response=await fetch("data/tools.json?v=16");
-    if(!response.ok)throw new Error("tools.json");
-    state.tools=await response.json();
-    updateStats();applyLanguage();applySharedFilters();renderTools();
+    const response=await fetch("data/tools.json?v=17",{cache:"no-cache"});
+    if(!response.ok)throw new Error("tools.json "+response.status);
+    const tools=await response.json();
+    if(!Array.isArray(tools))throw new Error("tools.json format");
+    state.tools=tools.filter(tool=>tool&&tool.name&&tool.url);
+    updateStats();
+    applyLanguage();
+    applySharedFilters();
+    renderTools();
   }catch(error){
-    els.grid.innerHTML=`<div class="empty"><div class="empty-icon">!</div><h3>Could not load tools database</h3></div>`;
+    console.error("AI Atlas catalog load failed",error);
+    if(els.grid)els.grid.innerHTML=`<div class="catalog-error"><span>!</span><h3>${state.lang==="he"?"הקטלוג לא נטען":"Catalog failed to load"}</h3><p>${state.lang==="he"?"בדוק את החיבור ונסה שוב.":"Check your connection and try again."}</p><button id="retryCatalog" type="button">${state.lang==="he"?"נסה שוב":"Retry"}</button></div>`;
+  }finally{
+    document.body.classList.remove("catalog-loading");
+    if(els.grid)els.grid.removeAttribute("aria-busy");
   }
+}
+
+async function init(){
+  if(readString("aiatlas-theme-color","blue")==="red")document.body.classList.add("theme-red");
+  setupEvents();setupReveal();setupVisualEffects();setupPWA();
+  await loadCatalog();
 }
 init();
