@@ -1,12 +1,29 @@
 const $=s=>document.querySelector(s);
 const $$=s=>[...document.querySelectorAll(s)];
 
+function readArray(key){
+  try{
+    const value=JSON.parse(localStorage.getItem(key)||"[]");
+    return Array.isArray(value)?value:[];
+  }catch{
+    try{localStorage.removeItem(key)}catch{}
+    return [];
+  }
+}
+function readString(key,fallback){
+  try{
+    const value=localStorage.getItem(key);
+    return value||fallback;
+  }catch{return fallback}
+}
+
 const state={
   tools:[],filtered:[],
-  lang:localStorage.getItem("aiatlas-lang")||"he",
-  favorites:new Set(JSON.parse(localStorage.getItem("aiatlas-favs")||"[]")),
-  compare:JSON.parse(localStorage.getItem("aiatlas-compare")||"[]"),
-  recent:JSON.parse(localStorage.getItem("aiatlas-recent")||"[]"),
+  lang:readString("aiatlas-lang","he"),
+  favorites:new Set(readArray("aiatlas-favs")),
+  compare:readArray("aiatlas-compare"),
+  recent:readArray("aiatlas-recent"),
+  commandIndex:0,
   onlyNew:false,
   installPrompt:null
 };
@@ -185,7 +202,7 @@ function iconUrl(tool){const h=hostFor(tool.url);return `https://www.google.com/
 function logo(tool,cls="tool-logo"){
   return `<div class="${cls}" title="${esc(tool.name)}"><img src="${iconUrl(tool)}" alt="" loading="lazy" data-initials="${esc(initials(tool.name))}"></div>`
 }
-function localDesc(tool){return state.lang==="he"?(tool.descHe||tool.desc||tool.descEn):(tool.descEn||tool.desc||tool.descHe)||t("noDescription")}
+function localDesc(tool){return (state.lang==="he"?(tool.descHe||tool.desc||tool.descEn):(tool.descEn||tool.desc||tool.descHe))||t("noDescription")}
 function localOffer(tool){return state.lang==="he"?(tool.studentOfferHe||tool.studentOffer||tool.studentOfferEn):(tool.studentOfferEn||tool.studentOffer||tool.studentOfferHe)||""}
 function localIsraelOffer(tool){return state.lang==="he"?(tool.israelStudentOfferHe||tool.israelStudentOfferEn||""):(tool.israelStudentOfferEn||tool.israelStudentOfferHe||"")}
 function localCategory(cat){return state.lang==="he"?(categoryMeta[cat]?.he||cat):cat}
@@ -244,7 +261,7 @@ function toolCard(tool,index){
     ${platformBadges(tool,true)}
     <div class="card-bottom">
       <span class="category-label">${esc(localCategory(tool.category))}</span>
-      <a class="details-btn" href="${esc(tool.url)}" target="_blank" rel="noreferrer">${esc(t("official"))} ↗</a>
+      <a class="details-btn" data-tool-link="${esc(tool.name)}" href="${esc(tool.url)}" target="_blank" rel="noopener noreferrer">${esc(t("official"))} ↗</a>
     </div>
   </article>`
 }
