@@ -1240,3 +1240,148 @@ body::before{
   justify-content:center;
   text-decoration:none;
 }
+
+
+/* --- v16: command palette + polished official actions --- */
+.command-launch{
+  width:auto!important;
+  min-width:54px;
+  padding:0 8px!important;
+  cursor:pointer;
+  font:800 9px Inter!important;
+  letter-spacing:.02em
+}
+.command-launch:hover{
+  color:var(--accent)!important;
+  border-color:var(--accent)!important;
+  background:color-mix(in srgb,var(--accent) 7%,var(--paper-2))!important
+}
+
+.command-dialog{
+  width:min(760px,94vw);
+  max-height:min(76svh,680px);
+  padding:0;
+  border:1px solid color-mix(in srgb,var(--accent) 45%,var(--rule));
+  background:color-mix(in srgb,var(--paper) 97%,transparent);
+  box-shadow:0 28px 90px rgba(0,0,0,.62),0 0 50px color-mix(in srgb,var(--accent) 8%,transparent);
+  overflow:hidden
+}
+.command-dialog::backdrop{
+  background:rgba(2,5,10,.78);
+  backdrop-filter:blur(8px)
+}
+.command-palette-head{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:12px;
+  min-height:66px;
+  padding:0 15px;
+  border-bottom:1px solid var(--rule)
+}
+.command-palette-icon{font-size:19px;color:var(--accent)}
+.command-palette-head input{
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--ink);
+  font-size:16px;
+  font-weight:700
+}
+.command-palette-head input::placeholder{color:var(--muted)}
+.command-palette-head button{
+  min-width:40px;height:28px;
+  border:1px solid var(--rule);
+  background:var(--paper-2);
+  color:var(--muted);
+  font:800 8px Inter
+}
+.command-palette-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 15px;
+  border-bottom:1px solid var(--rule);
+  color:var(--muted);
+  font-size:9px
+}
+.command-palette-meta span{font-weight:800;color:var(--ink-2)}
+.command-palette-meta small{font-size:8px}
+.command-results{
+  max-height:520px;
+  overflow:auto;
+  overscroll-behavior:contain
+}
+.command-result{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto auto;
+  align-items:center;
+  gap:11px;
+  min-height:64px;
+  padding:9px 14px;
+  border-bottom:1px solid var(--rule);
+  background:transparent;
+  transition:background .13s ease,transform .13s ease
+}
+.command-result:hover,.command-result.active{
+  background:color-mix(in srgb,var(--accent) 7%,var(--paper-2));
+}
+.command-result.active{
+  box-shadow:inset 3px 0 0 var(--accent)
+}
+[dir="rtl"] .command-result.active{box-shadow:inset -3px 0 0 var(--accent)}
+.command-result-logo{
+  width:40px;height:40px;
+  display:grid;place-items:center;
+  overflow:hidden;
+  border:1px solid var(--rule);
+  background:#f4f7fb
+}
+.command-result-logo img{width:100%;height:100%;object-fit:contain;padding:6px}
+.command-result-copy{min-width:0}
+.command-result-copy strong{
+  display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.command-result-copy small{
+  display:block;margin-top:3px;color:var(--muted);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.command-result-price{
+  padding:4px 6px;
+  border-bottom:1px solid var(--rule);
+  color:var(--muted);
+  font-size:8px;
+  font-weight:800;
+  white-space:nowrap
+}
+.command-result>b{color:var(--accent);font-size:12px}
+
+/* official-site buttons should feel like the primary card action */
+.details-btn{
+  border-color:color-mix(in srgb,var(--accent) 35%,transparent)!important;
+  background:color-mix(in srgb,var(--accent) 5%,transparent)!important;
+  color:var(--ink)!important;
+  transition:transform .16s ease,background .16s ease,border-color .16s ease,color .16s ease
+}
+.details-btn:hover{
+  transform:translateY(-1px);
+  color:var(--accent)!important;
+  border-color:var(--accent)!important;
+  background:color-mix(in srgb,var(--accent) 10%,transparent)!important
+}
+.tool-card:hover .details-btn{
+  box-shadow:0 0 20px color-mix(in srgb,var(--accent) 7%,transparent)
+}
+
+@media(max-width:580px){
+  .command-dialog{width:calc(100vw - 10px);max-height:82svh}
+  .command-palette-head{min-height:58px;padding:0 11px}
+  .command-palette-head input{font-size:14px}
+  .command-palette-meta{padding:8px 11px}
+  .command-palette-meta small{display:none}
+  .command-result{min-height:58px;padding:8px 10px;gap:8px}
+  .command-result-logo{width:36px;height:36px}
+  .command-result-price{display:none}
+  .command-launch{min-width:48px!important;font-size:8px!important}
+}
