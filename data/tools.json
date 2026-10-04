@@ -1866,7 +1866,7 @@
   {
     "name": "Google Flow",
     "maker": "Google",
-    "url": "https://labs.google/fx/tools/flow",
+    "url": "https://flow.google",
     "category": "Video Generation",
     "pricing": "freemium",
     "student": false,
@@ -1883,7 +1883,8 @@
     ],
     "descHe": "כלי יצירה קולנועי של Google ליצירת קליפים וסצנות בעזרת AI.",
     "descEn": "Google's AI filmmaking tool for creating clips and scenes.",
-    "platformsUpdated": "2026-09-28"
+    "platformsUpdated": "2026-09-28",
+    "linkUpdated": "2026-10-04"
   },
   {
     "name": "Manus",
@@ -2955,7 +2956,7 @@
   {
     "name": "InvokeAI",
     "maker": "Invoke",
-    "url": "https://invoke-ai.github.io/InvokeAI",
+    "url": "https://invoke.ai/",
     "category": "Image Generation",
     "pricing": "free",
     "student": false,
@@ -2976,7 +2977,8 @@
     "unlimitedScope": "local",
     "unlimitedNoteHe": "בהרצה מקומית עם מודלים שהורדת אין מכסת יצירות של שירות ענן.",
     "unlimitedNoteEn": "When running downloaded models locally, there is no cloud-service generation quota.",
-    "isNew": true
+    "isNew": true,
+    "linkUpdated": "2026-10-04"
   },
   {
     "name": "Fooocus",
