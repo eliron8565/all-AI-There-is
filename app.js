@@ -16,6 +16,9 @@ function readString(key,fallback){
     return value||fallback;
   }catch{return fallback}
 }
+function writeStorage(key,value){
+  try{localStorage.setItem(key,value);return true}catch{return false}
+}
 
 const state={
   tools:[],filtered:[],
@@ -218,10 +221,10 @@ function platformBadges(tool,compact=false){
   }).join("");
   return '<div class="platform-badges '+(compact?"compact":"")+'">'+items+'</div>';
 }
-function saveFavorites(){localStorage.setItem("aiatlas-favs",JSON.stringify([...state.favorites]))}
+function saveFavorites(){writeStorage("aiatlas-favs",JSON.stringify([...state.favorites]))}
 function isOpenSource(tool){return (tool.tags||[]).some(x=>String(x).toLowerCase()==="open-source")}
-function saveCompare(){localStorage.setItem("aiatlas-compare",JSON.stringify(state.compare))}
-function saveRecent(){localStorage.setItem("aiatlas-recent",JSON.stringify(state.recent))}
+function saveCompare(){writeStorage("aiatlas-compare",JSON.stringify(state.compare))}
+function saveRecent(){writeStorage("aiatlas-recent",JSON.stringify(state.recent))}
 function addRecent(name){state.recent=[name,...state.recent.filter(x=>x!==name)].slice(0,8);saveRecent();buildRecentlyViewed()}
 function bestFor(tool){return (tool.tags||[]).filter(x=>!["open-source","local","offline"].includes(String(x).toLowerCase())).slice(0,3)}
 
@@ -726,7 +729,11 @@ function applyLanguage(){
   fillFilters();fillFinder();buildCategories();buildPlatforms();buildFeatured();buildStudentSpotlight();buildStudentBenefits();buildHeroPreview();buildRecent();buildRecentlyViewed();renderTools();renderCompareDock();
 }
 
-function setLanguage(lang){state.lang=lang;localStorage.setItem("aiatlas-lang",lang);applyLanguage()}
+function setLanguage(lang){
+  state.lang=lang==="en"?"en":"he";
+  writeStorage("aiatlas-lang",state.lang);
+  applyLanguage();
+}
 function resetFilters(){
   els.search.value="";els.heroSearch.value="";els.cat.value="all";els.price.value="all";els.platform.value="all";els.sort.value="default";els.student.checked=false;els.fav.checked=false;els.openSource.checked=false;state.onlyNew=false;renderTools();
 }
@@ -779,7 +786,10 @@ function setupEvents(){
     }
   });
   $("#heBtn").onclick=()=>setLanguage("he");$("#enBtn").onclick=()=>setLanguage("en");
-  $("#themeBtn").onclick=()=>{document.body.classList.toggle("theme-red");localStorage.setItem("aiatlas-theme-color",document.body.classList.contains("theme-red")?"red":"blue")};
+  $("#themeBtn").onclick=()=>{
+    document.body.classList.toggle("theme-red");
+    writeStorage("aiatlas-theme-color",document.body.classList.contains("theme-red")?"red":"blue");
+  };
   $("#dialogClose").onclick=()=>els.dialog.close();
   els.dialog.addEventListener("click",e=>{if(e.target===els.dialog)els.dialog.close()});
   $("#compareDialogClose").onclick=()=>els.compareDialog.close();
