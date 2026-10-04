@@ -13,6 +13,11 @@ const warn=m=>warnings.push(m);
 
 try{new Function(js)}catch(error){fail("app.js syntax: "+error.message)}
 
+const selectorCollectionMisuse=[...js.matchAll(/(?<!\$)\$\(([^)]*)\)\.(forEach|map|filter|some|find)\b/g)];
+for(const match of selectorCollectionMisuse){
+  fail("querySelector used like a collection: "+match[0]);
+}
+
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 const idSet=new Set(ids);
 for(const id of idSet){
