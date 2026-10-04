@@ -342,7 +342,7 @@ function renderCommandPalette(){
     <span class="command-result-price">${esc(priceLabel(tool.pricing))}</span>
     <b>↗</b>
   </a>`).join("");
-  $("[data-command-tool]").forEach(link=>link.onclick=()=>{
+  $$("[data-command-tool]").forEach(link=>link.onclick=()=>{
     addRecent(link.dataset.commandTool);
     els.commandDialog.close();
   });
@@ -366,7 +366,7 @@ function buildRecentlyViewed(){
     <span class="new-tool-copy"><strong>${esc(tool.name)}</strong><small>${esc(localCategory(tool.category))}</small><em>${esc(priceLabel(tool.pricing))}</em></span>
     <span class="new-tool-arrow">↗</span>
   </button>`).join("");
-  $("[data-recent-view]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.recentView)));
+  $$("[data-recent-view]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.recentView)));
   attachImageFallbacks(els.recentTools);
 }
 
@@ -433,7 +433,7 @@ function runFinder(){
     <span><strong>${esc(tool.name)}</strong><small>${esc(localDesc(tool))}</small></span>
     <b>${score}</b>
   </button>`).join(""):`<div class="finder-none">${esc(t("emptyTitle"))}</div>`);
-  $("[data-finder-tool]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.finderTool)));
+  $$("[data-finder-tool]").forEach(btn=>btn.onclick=()=>openTool(state.tools.find(x=>x.name===btn.dataset.finderTool)));
   attachImageFallbacks(els.finderResults);
 }
 
@@ -722,8 +722,8 @@ function applyLanguage(){
   document.documentElement.lang=state.lang;
   document.documentElement.dir=state.lang==="he"?"rtl":"ltr";
   document.title=t("siteTitle");
-  $("[data-i18n]").forEach(el=>{const value=t(el.dataset.i18n);if(value)el.textContent=value});
-  $("[data-i18n-placeholder]").forEach(el=>{const value=t(el.dataset.i18nPlaceholder);if(value)el.placeholder=value});
+  $$("[data-i18n]").forEach(el=>{const value=t(el.dataset.i18n);if(value)el.textContent=value});
+  $$("[data-i18n-placeholder]").forEach(el=>{const value=t(el.dataset.i18nPlaceholder);if(value)el.placeholder=value});
   $("#heBtn").classList.toggle("active",state.lang==="he");
   $("#enBtn").classList.toggle("active",state.lang==="en");
   els.heroSearch.placeholder=state.lang==="he"?"חפש ChatGPT, קוד, וידאו, לימודים...":"Search ChatGPT, coding, video, studying...";
@@ -891,18 +891,33 @@ function setupReveal(){
 }
 
 async function loadCatalog(){
-  document.body.classList.add("catalog-loading");
-  if(els.grid)els.grid.setAttribute("aria-busy","true");
-
-  // Always render the embedded catalog first. Network failure must never blank the site.
+  // Embedded data is the primary boot source so the UI can render instantly.
   state.tools=Array.isArray(EMBEDDED_TOOLS)?EMBEDDED_TOOLS.filter(tool=>tool&&tool.name&&tool.url):[];
-  updateStats();
-  applyLanguage();
-  applySharedFilters();
-  renderTools();
+
+  document.body.classList.remove("catalog-loading");
+  if(els.grid)els.grid.removeAttribute("aria-busy");
 
   try{
-    const response=await fetch("data/tools.json?v=18",{cache:"no-store"});
+    updateStats();
+    applyLanguage();
+    applySharedFilters();
+    renderTools();
+  }catch(error){
+    console.error("AI Atlas initial render failed",error);
+    if(els.grid){
+      els.grid.removeAttribute("aria-busy");
+      els.grid.innerHTML="";
+    }
+  }
+
+  // Refresh the JSON in the background. It must never block the visible catalog.
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),4500);
+  try{
+    const response=await fetch("data/tools.json?v=19",{
+      cache:"no-store",
+      signal:controller.signal
+    });
     if(!response.ok)throw new Error("tools.json "+response.status);
     const fresh=await response.json();
     if(Array.isArray(fresh)&&fresh.length){
@@ -915,8 +930,7 @@ async function loadCatalog(){
   }catch(error){
     console.warn("AI Atlas is using the embedded catalog fallback",error);
   }finally{
-    document.body.classList.remove("catalog-loading");
-    if(els.grid)els.grid.removeAttribute("aria-busy");
+    clearTimeout(timeout);
   }
 }
 
