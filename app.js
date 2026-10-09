@@ -914,7 +914,7 @@ async function loadCatalog(){
   const controller=new AbortController();
   const timeout=setTimeout(()=>controller.abort(),4500);
   try{
-    const response=await fetch("data/tools.json?v=19",{
+    const response=await fetch("data/tools.json?v=20",{
       cache:"no-store",
       signal:controller.signal
     });
