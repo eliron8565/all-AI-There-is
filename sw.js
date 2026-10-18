@@ -1,9 +1,9 @@
-const CACHE="ai-atlas-v21";
+const CACHE="ai-atlas-v22";
 const CORE=[
   "./",
   "./index.html",
-  "./styles.css?v=21",
-  "./app.js?v=21",
+  "./styles.css?v=22",
+  "./app.js?v=22",
   "./assets/favicon.svg?v=2",
   "./manifest.webmanifest?v=2"
 ];
