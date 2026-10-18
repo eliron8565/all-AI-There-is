@@ -182,7 +182,9 @@
     "tags": [
       "chat",
       "models",
-      "bots"
+      "bots",
+      "multi-ai",
+      "model-comparison"
     ],
     "descHe": "פלטפורמה לשיחה עם מגוון מודלי AI ובוטים במקום אחד.",
     "descEn": "A platform for chatting with multiple AI models and bots in one place.",
@@ -1724,7 +1726,9 @@
       "api",
       "models",
       "developer",
-      "llm"
+      "llm",
+      "multi-ai",
+      "model-comparison"
     ],
     "descHe": "גישה מאוחדת למודלי שפה מספקים שונים דרך API אחד.",
     "descEn": "Unified API access to language models from multiple providers.",
@@ -3433,5 +3437,163 @@
     "addedAt": "2026-10-01",
     "platformsUpdated": "2026-10-01",
     "sourceUrl": "https://help.photoroom.com/en/articles/9626719-what-is-photoroom"
+  },
+  {
+    "name": "Arena.ai",
+    "maker": "Arena Intelligence",
+    "url": "https://arena.ai",
+    "category": "Multi-AI & Model Comparison",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "multi-ai",
+      "model-comparison",
+      "leaderboard",
+      "battle",
+      "evaluation",
+      "models"
+    ],
+    "descHe": "פלטפורמת השוואת מודלי AI שבה מריצים מודלים זה מול זה, מצביעים על התשובה הטובה יותר ורואים Leaderboards מבוססי שימוש אמיתי.",
+    "descEn": "AI model comparison platform where models compete head-to-head, users vote on the better answer, and real-world leaderboards are built from those votes.",
+    "isNew": true,
+    "addedAt": "2026-10-18",
+    "platformsUpdated": "2026-10-18",
+    "sourceUrl": "https://arena.ai/company/about"
+  },
+  {
+    "name": "ChatHub",
+    "maker": "ChatHub",
+    "url": "https://chathub.gg",
+    "category": "Multi-AI & Model Comparison",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
+    "tags": [
+      "multi-ai",
+      "model-comparison",
+      "parallel",
+      "chat",
+      "models"
+    ],
+    "descHe": "שולחים שאלה אחת לכמה מודלי AI במקביל ומשווים תשובות זו לצד זו. כולל Web, אפליקציות מובייל ולקוחות Desktop.",
+    "descEn": "Send one prompt to multiple AI models at once and compare answers side by side, with web, mobile and desktop access.",
+    "isNew": true,
+    "addedAt": "2026-10-18",
+    "platformsUpdated": "2026-10-18",
+    "sourceUrl": "https://chathub.gg/"
+  },
+  {
+    "name": "TypingMind",
+    "maker": "TypingMind",
+    "url": "https://www.typingmind.com",
+    "category": "Multi-AI & Model Comparison",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "multi-ai",
+      "model-comparison",
+      "parallel",
+      "byok",
+      "agents",
+      "models"
+    ],
+    "descHe": "ממשק מתקדם שמרכז מודלים מספקים שונים ומאפשר Multi-model parallel chat, השוואת תשובות, Agents, MCP וחיבור API keys משלך.",
+    "descEn": "Advanced multi-provider AI interface with parallel multi-model chats, answer comparison, agents, MCP and bring-your-own API keys.",
+    "isNew": true,
+    "addedAt": "2026-10-18",
+    "platformsUpdated": "2026-10-18",
+    "sourceUrl": "https://www.typingmind.com/"
+  },
+  {
+    "name": "LibreChat",
+    "maker": "LibreChat",
+    "url": "https://www.librechat.ai",
+    "category": "Multi-AI & Model Comparison",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "web"
+    ],
+    "tags": [
+      "multi-ai",
+      "multi-provider",
+      "open-source",
+      "self-hosted",
+      "models",
+      "agents"
+    ],
+    "descHe": "פלטפורמת AI חינמית ובקוד פתוח שמרכזת מודלים מספקים רבים בממשק אחד, עם Self-hosting, Agents, MCP ו-Custom Endpoints.",
+    "descEn": "Free open-source AI platform bringing models from many providers into one interface with self-hosting, agents, MCP and custom endpoints.",
+    "isNew": true,
+    "addedAt": "2026-10-18",
+    "platformsUpdated": "2026-10-18",
+    "sourceUrl": "https://www.librechat.ai/about"
+  },
+  {
+    "name": "Msty",
+    "maker": "Msty",
+    "url": "https://msty.ai",
+    "category": "Multi-AI & Model Comparison",
+    "pricing": "freemium",
+    "student": false,
+    "platforms": [
+      "web",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "multi-ai",
+      "multi-provider",
+      "local",
+      "privacy",
+      "models",
+      "workspace"
+    ],
+    "descHe": "סביבת AI פרטית שמאפשרת לעבוד עם מודלים מקומיים וענניים במקום אחד, להחליף ספקים ולשמור שליטה על הידע והחיבורים.",
+    "descEn": "Privacy-focused AI workspace for using local and cloud models in one place with provider choice, reusable workspaces and controlled connections.",
+    "isNew": true,
+    "addedAt": "2026-10-18",
+    "platformsUpdated": "2026-10-18",
+    "sourceUrl": "https://msty.ai/"
+  },
+  {
+    "name": "ChatALL",
+    "maker": "AI-Shifu",
+    "url": "https://github.com/ai-shifu/ChatALL",
+    "category": "Multi-AI & Model Comparison",
+    "pricing": "free",
+    "student": false,
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "tags": [
+      "multi-ai",
+      "model-comparison",
+      "parallel",
+      "open-source",
+      "desktop",
+      "models"
+    ],
+    "descHe": "לקוח Desktop בקוד פתוח ששולח את אותה שאלה לכמה שירותי AI במקביל כדי להשוות תשובות ולבחור את הטובה ביותר.",
+    "descEn": "Open-source desktop client that sends the same prompt to multiple AI services concurrently so you can compare answers and pick the best.",
+    "isNew": true,
+    "addedAt": "2026-10-18",
+    "platformsUpdated": "2026-10-18",
+    "sourceUrl": "https://github.com/ai-shifu/ChatALL"
   }
 ]
