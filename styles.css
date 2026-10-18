@@ -3047,3 +3047,37 @@ footer{
 @media(prefers-reduced-motion:reduce){
   .hero-new:before{animation:none!important}
 }
+
+
+/* v21 — Multi-AI / Arena collection */
+.collection-card.multiai{
+  border-color:rgba(255,90,54,.42)!important;
+  background:
+    linear-gradient(135deg,rgba(255,77,46,.11),transparent 48%),
+    #0c1117
+}
+.collection-card.multiai .collection-icon{
+  color:#fff;
+  border-color:rgba(255,90,54,.55);
+  background:linear-gradient(145deg,#ff5a36,#b52c1a);
+  font-family:var(--display);
+  font-weight:900;
+  letter-spacing:.04em
+}
+.collection-card.multiai:hover{
+  border-color:var(--accent)!important;
+  box-shadow:0 18px 40px rgba(0,0,0,.26),0 0 28px rgba(255,77,46,.06)
+}
+.quick-row [data-quick="multiai"] span:first-child{
+  color:#fff;
+  font-family:var(--display);
+  font-weight:900
+}
+@media(min-width:1261px){
+  .collection-grid{
+    grid-template-columns:1.25fr repeat(5,minmax(0,1fr))
+  }
+}
+@media(max-width:1260px) and (min-width:761px){
+  .collection-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
