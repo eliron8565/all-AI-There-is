@@ -947,7 +947,7 @@ async function loadCatalog(){
   const controller=new AbortController();
   const timeout=setTimeout(()=>controller.abort(),4500);
   try{
-    const response=await fetch("data/tools.json?v=22",{
+    const response=await fetch("data/tools.json?v=23",{
       cache:"no-store",
       signal:controller.signal
     });
@@ -967,9 +967,46 @@ async function loadCatalog(){
   }
 }
 
+
+const introStarted=performance.now();
+
+function setupIntroLoader(){
+  const root=$("#siteLoader"),swarm=$("#introSwarm");
+  if(!root||!swarm)return;
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const count=reduce?8:(window.innerWidth<=600?22:32);
+  const frag=document.createDocumentFragment();
+  for(let i=0;i<count;i++){
+    const p=document.createElement("i");
+    const x=4+((i*37)%92),y=5+((i*53)%88);
+    const dx=(i%2?1:-1)*(16+((i*11)%52));
+    const dy=(i%3?1:-1)*(10+((i*7)%42));
+    const delay=-(i*97)%1250;
+    const dur=1450+(i%8)*155;
+    const size=5+(i%4)*2;
+    const rot=(i*47)%360;
+    p.className="swarm-particle tone-"+(i%3);
+    p.style.cssText=`--x:${x}%;--y:${y}%;--dx:${dx}px;--dy:${dy}px;--delay:${delay}ms;--dur:${dur}ms;--size:${size}px;--rot:${rot}deg`;
+    frag.appendChild(p);
+  }
+  swarm.replaceChildren(frag);
+}
+
+async function finishIntroLoader(){
+  const root=$("#siteLoader");
+  if(!root)return;
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const minVisible=reduce?160:1450;
+  const remaining=Math.max(0,minVisible-(performance.now()-introStarted));
+  if(remaining)await new Promise(resolve=>setTimeout(resolve,remaining));
+  root.classList.add("is-done");
+  setTimeout(()=>root.remove(),reduce?220:650);
+}
+
 async function init(){
+  setupIntroLoader();
   if(readString("aiatlas-theme-color","blue")==="red")document.body.classList.add("theme-red");
   setupEvents();setupReveal();setupVisualEffects();setupPWA();
-  await loadCatalog();
+  try{await loadCatalog()}finally{await finishIntroLoader()}
 }
 init();
