@@ -947,7 +947,7 @@ async function loadCatalog(){
   const controller=new AbortController();
   const timeout=setTimeout(()=>controller.abort(),4500);
   try{
-    const response=await fetch("data/tools.json?v=23",{
+    const response=await fetch("data/tools.json?v=24",{
       cache:"no-store",
       signal:controller.signal
     });
@@ -974,19 +974,30 @@ function setupIntroLoader(){
   const root=$("#siteLoader"),swarm=$("#introSwarm");
   if(!root||!swarm)return;
   const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const count=reduce?8:(window.innerWidth<=600?22:32);
+  const mobile=window.innerWidth<=600;
+  const count=reduce?8:(mobile?24:40);
   const frag=document.createDocumentFragment();
+
   for(let i=0;i<count;i++){
     const p=document.createElement("i");
-    const x=4+((i*37)%92),y=5+((i*53)%88);
-    const dx=(i%2?1:-1)*(16+((i*11)%52));
-    const dy=(i%3?1:-1)*(10+((i*7)%42));
-    const delay=-(i*97)%1250;
-    const dur=1450+(i%8)*155;
-    const size=5+(i%4)*2;
+    const x=3+((i*37)%94),y=4+((i*53)%90);
+    const fromCenterX=x-50,fromCenterY=y-50;
+    const mag=Math.max(18,Math.hypot(fromCenterX,fromCenterY));
+    const outward=mobile?2.2:2.75;
+    const exitX=(fromCenterX/mag)*(110+mag*outward);
+    const exitY=(fromCenterY/mag)*(90+mag*outward);
+    const startX=-(fromCenterX/mag)*(45+((i*11)%70));
+    const startY=-(fromCenterY/mag)*(32+((i*7)%58));
+    const delay=70+(i%10)*36;
+    const inDur=620+(i%7)*55;
+    const floatDur=1500+(i%8)*130;
+    const size=4+(i%5)*1.55;
     const rot=(i*47)%360;
+    const alpha=(.28+(i%5)*.1).toFixed(2);
+    const exitDelay=((i%7)*11)+"ms";
+
     p.className="swarm-particle tone-"+(i%3);
-    p.style.cssText=`--x:${x}%;--y:${y}%;--dx:${dx}px;--dy:${dy}px;--delay:${delay}ms;--dur:${dur}ms;--size:${size}px;--rot:${rot}deg`;
+    p.style.cssText=`--x:${x}%;--y:${y}%;--start-x:${startX.toFixed(1)}px;--start-y:${startY.toFixed(1)}px;--exit-x:${exitX.toFixed(1)}px;--exit-y:${exitY.toFixed(1)}px;--exit-delay:${exitDelay};--delay:${delay}ms;--in-dur:${inDur}ms;--float-dur:${floatDur}ms;--size:${size.toFixed(1)}px;--rot:${rot}deg;--alpha:${alpha}`;
     frag.appendChild(p);
   }
   swarm.replaceChildren(frag);
@@ -996,11 +1007,14 @@ async function finishIntroLoader(){
   const root=$("#siteLoader");
   if(!root)return;
   const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const minVisible=reduce?160:1450;
+  const minVisible=reduce?220:1850;
   const remaining=Math.max(0,minVisible-(performance.now()-introStarted));
   if(remaining)await new Promise(resolve=>setTimeout(resolve,remaining));
+
+  root.classList.add("is-exiting");
+  if(!reduce)await new Promise(resolve=>setTimeout(resolve,430));
   root.classList.add("is-done");
-  setTimeout(()=>root.remove(),reduce?220:650);
+  setTimeout(()=>root.remove(),reduce?220:760);
 }
 
 async function init(){
