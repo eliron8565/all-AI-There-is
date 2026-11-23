@@ -8,7 +8,7 @@ on:
       - "scripts/check-links.mjs"
       - ".github/workflows/check-links.yml"
   schedule:
-    - cron: "17 5 * * 1"
+    - cron: "17 5 1 * *"
 
 permissions:
   contents: read
@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Check every official tool URL
+      - name: Check every official tool URL (report warnings, do not fail on external blocking)
         run: node scripts/check-links.mjs
 
       - name: Upload link report
